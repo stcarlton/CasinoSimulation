@@ -9,12 +9,15 @@ namespace CasinoSimulation.Model.Global
         
         //configuration settings
         public int NumDecks { get; set; }
+        public int MinBet { get; set; }
+        public int MaxBet { get; set; }
         
         public User(long bankroll)
         {
-            this.Bankroll = bankroll;
-            //default 6
-            this.NumDecks = 6;
+            Bankroll = bankroll;
+            NumDecks = 6;
+            MinBet = 1;
+            MaxBet = 1000;
         }
     }
 }
