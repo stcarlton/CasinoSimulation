@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="CasinoSimulation.View.MenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CasinoSimulation.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Button x:Name="BlackJackButton" Content="BlackJack" HorizontalAlignment="Center" Margin="0,99,0,0" VerticalAlignment="Top" Height="34" Width="72" Command="{Binding BlackJackCommand}"/>
+        <Button x:Name="SlotsButton" Content="Slots" HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top" Height="37" Width="72" Command="{Binding SlotsCommand}"/>
+        <Button x:Name="Roulette" Content="Roulette" HorizontalAlignment="Center" Margin="0,225,0,0" VerticalAlignment="Top" Height="39" Width="72" Command="{Binding RouletteCommand}"/>
+        <TextBox x:Name="Cash" HorizontalAlignment="Left" Margin="550,55,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding Bankroll, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock x:Name="CashText" HorizontalAlignment="Left" Margin="511,57,0,0" TextWrapping="Wrap" Text="Cash" VerticalAlignment="Top"/>
+
+    </Grid>
+</UserControl>
