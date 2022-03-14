@@ -7,15 +7,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Image HorizontalAlignment="Left" Height="464" VerticalAlignment="Top" Width="602" Source="/View/Images/Blackjack/BJbackground.png" Margin="89,-1,0,0"/>
         <Menu Margin="0,0,0,416"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,387,0,0" Text="$" TextWrapping="Wrap" VerticalAlignment="Top" Width="13"/>
         <TextBlock HorizontalAlignment="Left" Margin="265,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65" Height="18"><Run Text="Place Bet: $"/><LineBreak/><Run/></TextBlock>
+        <Button x:Name="InsuranceButton" Content="Insurance" HorizontalAlignment="Left" Margin="709,74,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Insurance}"/>
         <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding MenuCommand}"/>
-        <Button x:Name="DealButton" Content="Deal" HorizontalAlignment="Left" Margin="709,219,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Path=Deal}"/>
-        <Button x:Name="StandButton" Content="Stand" HorizontalAlignment="Left" Margin="709,253,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Path=Stand}"/>
-        <Button x:Name="HitButton" Content="Hit me" HorizontalAlignment="Left" Margin="709,283,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Path=Hit}"/>
-        <Button x:Name="DoubleDownButton" Content="Double" HorizontalAlignment="Left" Margin="709,313,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Path=DoubleDown}"/>
-        <Button x:Name="SplitButton" Content="Split" HorizontalAlignment="Left" Margin="709,343,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Path=Split}"/>
+        <Button x:Name="DealButton" Content="Deal" HorizontalAlignment="Left" Margin="709,219,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Deal}"/>
+        <Button x:Name="StandButton" Content="Stand" HorizontalAlignment="Left" Margin="709,253,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Stand}"/>
+        <Button x:Name="HitButton" Content="Hit me" HorizontalAlignment="Left" Margin="709,283,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Hit}"/>
+        <Button x:Name="DoubleDownButton" Content="Double" HorizontalAlignment="Left" Margin="709,313,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding DoubleDown}"/>
+        <Button x:Name="SplitButton" Content="Split" HorizontalAlignment="Left" Margin="709,343,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Split}"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,23,0,0" Text="BLACKJACK" TextWrapping="Wrap" VerticalAlignment="Top" Width="232" Height="23" TextAlignment="Left"/>
         <ListView x:Name="DealerUI" Margin="304,19,324,255" ItemsSource="{Binding DealerHandDisplay}" Height="140" Width="172">
             <ListView.View>
@@ -37,6 +39,19 @@
         <Label x:Name="DealerValueLabel" HorizontalAlignment="Left" Margin="257,86,0,0" VerticalAlignment="Top" Content="{Binding DealerHandValue}"/>
         <Label x:Name="CreatorValueLabel" HorizontalAlignment="Left" Margin="257,231,0,0" VerticalAlignment="Top" Content="{Binding CreatorHandValue}"/>
         <Label x:Name="HandStateLabel" HorizontalAlignment="Left" Margin="232,286,0,0" VerticalAlignment="Top" Content="{Binding HandStateDisplay}"/>
-        
+        <ListView x:Name="TvBox" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="5" HorizontalAlignment="Stretch"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <Image Source="{Binding ImageData}" HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

@@ -9,11 +9,12 @@ namespace CasinoSimulation.ViewModel
 {
     public class BlackJackViewModel : ViewModelBase
     {
-        public ICommand Deal { get; set; }
-        public ICommand Stand { get; set; }
-        public ICommand Hit { get; set; }
-        public ICommand DoubleDown { get; set; }
-        public ICommand Split { get; set; }
+        public ICommand Deal { get; }
+        public ICommand Insurance { get; }
+        public ICommand Stand { get; }
+        public ICommand Hit { get; }
+        public ICommand DoubleDown { get; }
+        public ICommand Split { get; }
         public ICommand MenuCommand { get; }
 
         public int BetValue { get; set; }        
@@ -118,6 +119,7 @@ namespace CasinoSimulation.ViewModel
             _model = new Table(user);
             _user = user;
             Deal = new DealCommand(_model, this);
+            Insurance = new InsuranceCommand(_model, this);
             Stand = new StandCommand(_model, this);
             Hit = new HitCommand(_model, this);
             DoubleDown = new DoubleDownCommand(_model, this);

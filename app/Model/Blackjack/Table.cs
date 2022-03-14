@@ -44,6 +44,14 @@ namespace CasinoSimulation.Model.Blackjack
             }
             CheckTable();
         }
+        public void BuyInsurance(long bet)
+        {
+            _user.Bankroll -= bet;
+            if(Nick.CurrentHand.State == handState.BlackJack)
+            {
+                _user.Bankroll += bet * 2;
+            }
+        }
         public void StandPlayer(IPlayer p)
         {
             p.Stand();
