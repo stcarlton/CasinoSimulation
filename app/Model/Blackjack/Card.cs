@@ -2,7 +2,8 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using System.Windows.Media.Imaging;
+using System.Resources;
+
 
 namespace CasinoSimulation.Model.Blackjack
 {
@@ -11,22 +12,15 @@ namespace CasinoSimulation.Model.Blackjack
         public readonly cardRank Rank;
         public readonly cardSuit Suit;
         public readonly int CardValue;
-
-        public Uri ImageUri { get; set; }
-        public BitmapImage ImageData { get; set; }
+        public ResourceManager rm;
+        public byte[] ImageData { get; set; }
 
         public Card(cardRank rank, cardSuit suit)
         {
-
-            //"C:\\Users\\scarl\\Source\\Repos\\WPF_BlackJack\\WPF_BlackJack\\bin\\Debug\\\\Presentation\\Sounds\\BackgroundMusic\\BackgroundMusic.wav"
-            //"C:\\Users\\scarl\\Source\\Repos\\CasinoSimulation\\app\\bin\\Debug\\netcoreapp3.1\\View\\Images\\Blackjack\\cards\\"
             Rank = rank;
             Suit = suit;
-            string test = "C:\\Users\\scarl\\Source\\Repos\\CasinoSimulation\\app\\View\\Images\\Blackjack\\cards\\Ace_of_Spades.jpg";
-            ImageUri = new Uri(test);
-            string path = AppDomain.CurrentDomain.BaseDirectory + "\\View\\Images\\Blackjack\\cards\\";
-            //ImageUri = new Uri(path + rank + "_of_" + suit + ".jpg");
-            ImageData = new BitmapImage(ImageUri);
+            rm = new ResourceManager("CasinoSimulation.Properties.Resources", Assembly.GetExecutingAssembly());
+            ImageData = (byte[])rm.GetObject(Rank + "_of_" + Suit);
 
             switch (rank)
             {
