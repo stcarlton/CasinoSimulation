@@ -4,61 +4,161 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CasinoSimulation.View"
-             mc:Ignorable="d" d:DesignWidth="800" Height="400">
+             mc:Ignorable="d" d:DesignWidth="1600" Height="800">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="464" VerticalAlignment="Top" Width="602" Source="/View/Images/Blackjack/BJbackground.png" Margin="89,0,0,0" Visibility="Hidden"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,372,0,0" Text="$" TextWrapping="Wrap" VerticalAlignment="Center" Width="8"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,336,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" Height="18"><Run Text="Place Bet: $"/><LineBreak/><Run/></TextBlock>
-        <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Height="26" Width="60" Command="{Binding MenuCommand}"/>
-        <Button x:Name="InsuranceButton" Content="Insurance" HorizontalAlignment="Right" Margin="0,60,27,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Insurance}"/>
-        <Button x:Name="DealButton" Content="Deal" HorizontalAlignment="Right" Margin="0,200,27,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Deal}"/>
-        <Button x:Name="StandButton" Content="Stand" HorizontalAlignment="Right" Margin="0,230,27,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Stand}"/>
-        <Button x:Name="HitButton" Content="Hit me" HorizontalAlignment="Right" Margin="0,260,27,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Hit}"/>
-        <Button x:Name="DoubleDownButton" Content="Double" HorizontalAlignment="Right" Margin="0,290,27,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding DoubleDown}"/>
-        <Button x:Name="SplitButton" Content="Split" HorizontalAlignment="Right" Margin="0,320,27,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding Split}"/>
-        <TextBox x:Name="BetEntry" HorizontalAlignment="Left" Margin="10,332,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="60" Text="{Binding BetValue}"/>
-        <Label x:Name="BetDisplay" HorizontalAlignment="Left" Margin="113,332,0,0" VerticalAlignment="Center" Content="{Binding BetDisplay}"/>
-        <Label x:Name="ChipDisplay" HorizontalAlignment="Left" Margin="20,372,0,0" VerticalAlignment="Center" Content="{Binding ChipStackDisplay}"/>
-        <Label x:Name="DealerValueLabel" HorizontalAlignment="Left" Margin="216,104,0,0" VerticalAlignment="Top" Content="{Binding DealerHandValue}"/>
-        <Label x:Name="CreatorValueLabel" HorizontalAlignment="Left" Margin="221,318,0,0" VerticalAlignment="Top" Content="{Binding CreatorHandValue}"/>
-        <Label x:Name="HandStateLabel" HorizontalAlignment="Left" Margin="30,276,0,0" VerticalAlignment="Top" Content="{Binding HandStateDisplay}"/>
-        <ListView x:Name="DealerCards" VerticalAlignment="Top" ItemsSource="{Binding DealerHandDisplay}" Width="300" Height="80" HorizontalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" Margin="0,74,0,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/View/Images/Blackjack/BJbackground.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+
+        <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Height="26" Width="60" Command="{Binding MenuCommand}"/>
+        <Button x:Name="InsuranceButton" Content="Insurance" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,100,0,0" Height="25" Width="60" Command="{Binding Insurance}"/>
+        <Button x:Name="DealButton" Content="Deal" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,150,0,0" Height="25" Width="60" Command="{Binding Deal}"/>
+        <Button x:Name="StandButton" Content="Stand" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,200,0,0" Height="25" Width="60" Command="{Binding Stand}"/>
+        <Button x:Name="HitButton" Content="Hit me" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,250,0,0" Height="25" Width="60" Command="{Binding Hit}"/>
+        <Button x:Name="DoubleDownButton" Content="Double" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,300,0,0" Height="25" Width="60" Command="{Binding DoubleDown}"/>
+        <Button x:Name="SplitButton" Content="Split" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,350,0,0" Height="25" Width="60" Command="{Binding Split}"/>
+        <Button x:Name="BetMin" Margin="0,0,300,40" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="0" Background="{x:Null}" Command="{Binding BetFirst}">
+            <Image Source="{Binding BetFirstImageData}" RenderOptions.BitmapScalingMode="Fant" Width="80" Height="80"/>
+        </Button>
+        <Button x:Name="BetSecond" Margin="0,0,100,40" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="0" Background="{x:Null}" Command="{Binding BetSecond}">
+            <Image Source="{Binding BetSecondImageData}" RenderOptions.BitmapScalingMode="Fant" Width="80" Height="80"/>
+        </Button>
+        <Button x:Name="BetThird" Margin="100,0,0,40" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="0" Background="{x:Null}" Command="{Binding BetThird}">
+            <Image Source="{Binding BetThirdImageData}" RenderOptions.BitmapScalingMode="Fant" Width="80" Height="80"/>
+        </Button>
+        <Button x:Name="BetFourth" Margin="300,0,0,40" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="0" Background="{x:Null}" Command="{Binding BetFourth}">
+            <Image Source="{Binding BetFourthImageData}" RenderOptions.BitmapScalingMode="Fant" Width="80" Height="80"/>
+        </Button>
+        <Button x:Name="RemoveChip" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,400,0,0" Height="100" Width="90" Panel.ZIndex="1" Opacity="0" Command="{Binding RemoveChip}"/>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,65" Text="$"/>
+        <Label x:Name="BankrollDisplay" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,60" Content="{Binding BankrollDisplay}"/>
+
+        <Label x:Name="HandStateLabel" HorizontalAlignment="Center" VerticalAlignment="Stretch" Height="25" Margin="500,100,0,0" Content="{Binding HandStateDisplay}"/>
+        <Label x:Name="BetLabel" HorizontalAlignment="Center" Height="25" Margin="120,460,0,0" Content="{Binding BetValue}"/>
+
+        <ListView x:Name="BankrollChips" ItemsSource="{Binding ChipstackDisplay}" Width="130" Height="700" HorizontalAlignment="Left" VerticalAlignment="Bottom" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" Margin="10,35,0,65">
             <ListView.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
             </ListView.Background>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="5"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <Image Source="{Binding ImageData}" RenderOptions.BitmapScalingMode="Fant" Width="50" Height="72.6" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" />
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                        <StackPanel.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="180"/>
+                                <TranslateTransform Y="-60"/>
+                            </TransformGroup>
+                        </StackPanel.RenderTransform>
                     </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <ListView x:Name="PlayerCards" ItemsSource="{Binding CreatorHandDisplay}" Width="300" Height="155" HorizontalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" Margin="0,250,0,0">
-            <ListView.Background>
-                <SolidColorBrush Color="White" Opacity="0"/>
-            </ListView.Background>
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
-                    <Setter Property="Margin" Value="0, 0, -80, 0"></Setter>
-                    <Setter Property="Height" Value="150"></Setter>
+                    <Setter Property="Margin" Value="0, -44, 0, 0"></Setter>
+                    <Setter Property="Height" Value="50"></Setter>
                     <Setter Property="Width" Value="110"></Setter>
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <RotateTransform Angle="180"/>
+                        </Setter.Value>
+                    </Setter>
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <Image Source="{Binding ImageData}" RenderOptions.BitmapScalingMode="Fant" Width="100" Height="145.2" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" />
+                        <Image Source="{Binding ImageData}" RenderOptions.BitmapScalingMode="Fant" Width="86" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,0" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="BetChips" ItemsSource="{Binding BetChipDisplay}" Width="130" Height="150" HorizontalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" Margin="13,400,0,0">
+            <ListView.Background>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </ListView.Background>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5" >
+                        <StackPanel.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="180"/>
+                                <TranslateTransform Y="-60"/>
+                            </TransformGroup>
+                        </StackPanel.RenderTransform>
+                    </StackPanel>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Margin" Value="0, -44, 0, 0"></Setter>
+                    <Setter Property="Height" Value="50"></Setter>
+                    <Setter Property="Width" Value="110"></Setter>
+                    <Setter Property="LayoutTransform">
+                        <Setter.Value>
+                            <RotateTransform Angle="180"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="{Binding ImageData}" RenderOptions.BitmapScalingMode="Fant" Width="86" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,0" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label x:Name="DealerValueLabel" HorizontalAlignment="Center" VerticalAlignment="Stretch" Height="25" Width="25" Margin="0,0,0,330" Content="{Binding DealerHandValue}"/>
+        <ListView x:Name="DealerCards" ItemsSource="{Binding DealerHandDisplay}" Width="600" Height="160" HorizontalAlignment="Center" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" Margin="0,0,80,500">
+            <ListView.Background>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </ListView.Background>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Margin" Value="0, 0, -80, 0"></Setter>
+                    <Setter Property="Height" Value="155"></Setter>
+                    <Setter Property="Width" Value="115"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="{Binding ImageData}" RenderOptions.BitmapScalingMode="Fant" Width="100" Height="145.2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label x:Name="CreatorValueLabel" HorizontalAlignment="Center" VerticalAlignment="Stretch" Height="25" Width="25" Margin="0,260,0,0" Content="{Binding CreatorHandValue}"/>
+        <ListView x:Name="PlayerCards" ItemsSource="{Binding CreatorHandDisplay}" Width="600" Height="160" HorizontalAlignment="Center" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" Margin="0,80,80,0">
+            <ListView.Background>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </ListView.Background>
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Margin" Value="0, 0, -80, 0"></Setter>
+                    <Setter Property="Height" Value="155"></Setter>
+                    <Setter Property="Width" Value="115"></Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="{Binding ImageData}" RenderOptions.BitmapScalingMode="Fant" Width="100" Height="145.2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

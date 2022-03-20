@@ -9,7 +9,7 @@ namespace CasinoSimulation.Command.Blackjack
         public override void Execute(object parameter)
         {
             _model.BuyInsurance(_vm.BetValue);
-            _vm.RefreshData();
+            _vm.RefreshBet();
         }
     }
 }

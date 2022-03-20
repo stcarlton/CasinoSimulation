@@ -63,6 +63,226 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] _1_Flat {
+            get {
+                object obj = ResourceManager.GetObject("1_Flat", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _1_Top {
+            get {
+                object obj = ResourceManager.GetObject("1_Top", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _10_Flat {
+            get {
+                object obj = ResourceManager.GetObject("10_Flat", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _10_Top {
+            get {
+                object obj = ResourceManager.GetObject("10_Top", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _100_Flat {
+            get {
+                object obj = ResourceManager.GetObject("100_Flat", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _100_Top {
+            get {
+                object obj = ResourceManager.GetObject("100_Top", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _1000_Flat {
+            get {
+                object obj = ResourceManager.GetObject("1000_Flat", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _1000_Top {
+            get {
+                object obj = ResourceManager.GetObject("1000_Top", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _10000_Flat {
+            get {
+                object obj = ResourceManager.GetObject("10000_Flat", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _10000_Top {
+            get {
+                object obj = ResourceManager.GetObject("10000_Top", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _2000_Flat {
+            get {
+                object obj = ResourceManager.GetObject("2000_Flat", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _2000_Top {
+            get {
+                object obj = ResourceManager.GetObject("2000_Top", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _25_Flat {
+            get {
+                object obj = ResourceManager.GetObject("25_Flat", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _25_Top {
+            get {
+                object obj = ResourceManager.GetObject("25_Top", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _250_Flat {
+            get {
+                object obj = ResourceManager.GetObject("250_Flat", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _250_Top {
+            get {
+                object obj = ResourceManager.GetObject("250_Top", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _5_Flat {
+            get {
+                object obj = ResourceManager.GetObject("5_Flat", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _5_Top {
+            get {
+                object obj = ResourceManager.GetObject("5_Top", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _500_Flat {
+            get {
+                object obj = ResourceManager.GetObject("500_Flat", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _500_Top {
+            get {
+                object obj = ResourceManager.GetObject("500_Top", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _5000_Flat {
+            get {
+                object obj = ResourceManager.GetObject("5000_Flat", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _5000_Top {
+            get {
+                object obj = ResourceManager.GetObject("5000_Top", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Ace_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Ace_of_Clubs", resourceCulture);
@@ -103,9 +323,19 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] cardbackblue {
+        internal static byte[] BJbackground {
             get {
-                object obj = ResourceManager.GetObject("cardbackblue", resourceCulture);
+                object obj = ResourceManager.GetObject("BJbackground", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Card_Back_Blue {
+            get {
+                object obj = ResourceManager.GetObject("Card_Back_Blue", resourceCulture);
                 return ((byte[])(obj));
             }
         }

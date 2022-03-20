@@ -9,7 +9,8 @@ namespace CasinoSimulation.Command.Blackjack
         public override void Execute(object parameter)
         {
             _model.StandPlayer(_model.Raymond);
-            _vm.RefreshData();
+            _vm.RefreshTable();
+            _vm.RefreshBet();
         }
     }
 }

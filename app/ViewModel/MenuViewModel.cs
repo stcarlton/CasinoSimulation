@@ -1,5 +1,8 @@
 ﻿using CasinoSimulation.Command.Menu;
 using CasinoSimulation.Model.Global;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
 
 namespace CasinoSimulation.ViewModel
@@ -21,6 +24,26 @@ namespace CasinoSimulation.ViewModel
                 OnPropertyChanged("Bankroll");
             }
         }
+        public stakes UserStakes
+        {
+            get
+            {
+                return _user.UserStakes;
+            }
+            set
+            {
+                _user.UserStakes = value;
+                OnPropertyChanged("Stakes");
+            }
+        }
+        public IEnumerable<stakes> StakesValues
+        {
+            get
+            {
+                return Enum.GetValues(typeof(stakes)).Cast<stakes>();
+            }
+        }
+
         private User _user;
 
         public MenuViewModel(Navigation nav, User user)
