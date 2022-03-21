@@ -3,6 +3,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:CasinoSimulation">
     <Application.Resources>
-         
+        <!--Button x:Name="DealButton" Content="Deal" HorizontalAlignment="Right" Margin="0,550,169,185"  Width="130" Command="{Binding Deal}" FontFamily="Franklin Gothic Demi Cond" BorderBrush="SteelBlue" Background="DimGray" Foreground="White" FontSize="36" FontStyle="Normal" BorderThickness="4"-->
+            <!--Style x:Key="DealButton" TargetType="{x:Type Button}">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Width" Value="130" />
+            <Setter Property="Height" Value="60"/>
+            <!--Setter Property="Margin" Value="0 0 10 10"/-->
+            <!--Setter Property="BorderThickness" Value="4" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                            BorderThickness="0"
+                            Padding="0" 
+                            BorderBrush="Transparent" 
+                            CornerRadius="0" 
+                            Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <Image Source="Presentation/Images/GameBoard/HitButton.png" Stretch="Fill"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <Image Source="Presentation/Images/GameBoard/HitButtonHover.png" Stretch="Fill"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <Image Source="Presentation/Images/GameBoard/HitButtonDisabled.png" Stretch="Fill"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style-->
     </Application.Resources>
 </Application>
