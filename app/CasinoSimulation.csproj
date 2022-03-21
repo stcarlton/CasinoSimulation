@@ -17,7 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="View\wheelfixed.png" />
+    <Resource Include="View\Images\Blackjack\BJbackground.png" />
+	<Resource Include="View\wheelfixed.png" />
     <Resource Include="wheelfixed.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
