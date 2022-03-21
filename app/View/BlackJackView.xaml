@@ -7,18 +7,16 @@
              mc:Ignorable="d" d:DesignWidth="1600" Height="800">
     <Grid>
         <Grid.Background>
-            <!--ImageBrush ImageSource="{Binding BackgroundImageData}" Stretch="UniformToFill"/-->
-            <ImageBrush ImageSource="\View\Images\Blackjack\BJbackground.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/View/Images/Blackjack/BJbackground.png" Stretch="UniformToFill"/>
         </Grid.Background>
-        
 
-        <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Command="{Binding MenuCommand}"/>
-        <Button x:Name="InsuranceButton" Content="Buy Insurance" HorizontalAlignment="Right" Margin="0,552,14,188" Command="{Binding Insurance}" FontSize="18"/>
-        <Button x:Name="DealButton" Content="Deal" HorizontalAlignment="Right" Margin="0,550,169,185" Command="{Binding Deal}"/>
-        <Button x:Name="StandButton" Content="Stand" HorizontalAlignment="Right" Margin="0,705,400,35" Command="{Binding Stand}"/>
-        <Button x:Name="HitButton" Content="Hit" HorizontalAlignment="Right" Margin="0,705,270,35" Command="{Binding Hit}"/>
-        <Button x:Name="DoubleDownButton" Content="Double" HorizontalAlignment="Right" Margin="0,705,140,35" Command="{Binding DoubleDown}"/>
-        <Button x:Name="SplitButton" Content="Split" HorizontalAlignment="Right" Margin="0,705,10,35" Command="{Binding Split}"/>
+        <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Height="26" Width="60" Command="{Binding MenuCommand}"/>
+        <Button x:Name="InsuranceButton" Content="Insurance" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,100,0,0" Height="25" Width="60" Command="{Binding Insurance}"/>
+        <Button x:Name="DealButton" Content="Deal" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,150,0,0" Height="25" Width="60" Command="{Binding Deal}"/>
+        <Button x:Name="StandButton" Content="Stand" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,200,0,0" Height="25" Width="60" Command="{Binding Stand}"/>
+        <Button x:Name="HitButton" Content="Hit me" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,250,0,0" Height="25" Width="60" Command="{Binding Hit}"/>
+        <Button x:Name="DoubleDownButton" Content="Double" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,300,0,0" Height="25" Width="60" Command="{Binding DoubleDown}"/>
+        <Button x:Name="SplitButton" Content="Split" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,350,0,0" Height="25" Width="60" Command="{Binding Split}"/>
         <Button x:Name="BetMin" Margin="0,0,300,40" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="0" Background="{x:Null}" Command="{Binding BetFirst}">
             <Image Source="{Binding BetFirstImageData}" RenderOptions.BitmapScalingMode="Fant" Width="80" Height="80"/>
         </Button>
