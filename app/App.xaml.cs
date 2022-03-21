@@ -24,5 +24,10 @@ namespace CasinoSimulation
             MainWindow.Show();
 
         }
+
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+
+        }
     }
 }

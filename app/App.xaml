@@ -1,8 +1,23 @@
 ﻿<Application x:Class="CasinoSimulation.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:CasinoSimulation">
+             xmlns:local="clr-namespace:CasinoSimulation"
+             Startup="Application_Startup">
     <Application.Resources>
-         
+        <Style x:Key="GameButton" TargetType="Button">
+            <Setter Property="Width" Value="130"/>
+            <Setter Property="Height" Value="60"/>
+            <Setter Property="FontFamily" Value="Franklin Gothic Demi Cond"/>
+            <Setter Property="BorderBrush" Value="SteelBlue"/>
+            <Setter Property="Background" Value="DimGray"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="4"/>
+                </Style>
+            </Style.Resources>
+        </Style>
     </Application.Resources>
 </Application>
