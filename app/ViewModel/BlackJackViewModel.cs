@@ -156,13 +156,6 @@ namespace CasinoSimulation.ViewModel
                 return _betCommands[3];
             }
         }
-        public byte[] BackgroundImageData
-        {
-            get
-            {
-                return _backgroundImage;
-            }
-        }
         public byte[] BetFirstImageData
         {
             get
@@ -209,7 +202,6 @@ namespace CasinoSimulation.ViewModel
         protected User _user { get; set; }
         private IList<ICommand> _betCommands { get; set; }
         private IList<byte[]> _betImages { get; set; }
-        private byte[] _backgroundImage { get; set; }
         private ResourceManager _rm;
         private string _resourceName;
 
@@ -232,7 +224,6 @@ namespace CasinoSimulation.ViewModel
             _betCommands = new List<ICommand>();
             _betImages = new List<byte[]>();
             _rm = new ResourceManager("CasinoSimulation.Properties.Resources", Assembly.GetExecutingAssembly());
-            _backgroundImage = (byte[])_rm.GetObject("BJbackground");
 
             for (int i = 0; i < 4; i++)
             {

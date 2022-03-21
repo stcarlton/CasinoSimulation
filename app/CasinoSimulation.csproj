@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="View\BJbackground.png" />
     <None Remove="View\wheelfixed.png" />
     <None Remove="wheelfixed.png" />
   </ItemGroup>

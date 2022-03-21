@@ -33,8 +33,8 @@
         </Button>
         <Button x:Name="RemoveChip" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,400,0,0" Height="100" Width="90" Panel.ZIndex="1" Opacity="0" Command="{Binding RemoveChip}"/>
 
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,65" Text="$" Foreground="White"/>
-        <Label x:Name="BankrollDisplay" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,60" Content="{Binding BankrollDisplay}" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,65" Text="$"/>
+        <Label x:Name="BankrollDisplay" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20,0,0,60" Content="{Binding BankrollDisplay}"/>
 
         <Label x:Name="HandStateLabel" HorizontalAlignment="Center" VerticalAlignment="Stretch" Height="25" Margin="500,100,0,0" Content="{Binding HandStateDisplay}"/>
         <Label x:Name="BetLabel" HorizontalAlignment="Center" Height="25" Margin="120,460,0,0" Content="{Binding BetValue}"/>
