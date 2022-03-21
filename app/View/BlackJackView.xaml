@@ -3,57 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:CasinoSimulation.View"
+             xmlns:local="clr-namespace:CasinoSimulation"
              mc:Ignorable="d" d:DesignWidth="1600" Height="800">
     <Grid>
         <Grid.Background>
-            <!--ImageBrush ImageSource="{Binding BackgroundImageData}" Stretch="UniformToFill"/-->
-            <ImageBrush ImageSource="..\View\Images\Blackjack\BJbackground.png" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="{Binding BackgroundImageData}" Stretch="UniformToFill"/>
+            <!--ImageBrush ImageSource="\View\Images\Blackjack\BJbackground.png" Stretch="UniformToFill"/-->
         </Grid.Background>
+        
 
-        <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Height="26" Width="60" Command="{Binding MenuCommand}"/>
-        <Button x:Name="InsuranceButton" Content="Buy Insurance" HorizontalAlignment="Right" Margin="0,550,41,185" Width="123" Command="{Binding Insurance}" FontFamily="Franklin Gothic Demi Cond" BorderBrush="LightSteelBlue" Background="SteelBlue" Foreground="LightSteelBlue" FontSize="18" FontStyle="Normal" BorderThickness="4" FontStretch="Normal">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="DealButton" Content="Deal" HorizontalAlignment="Right" Margin="0,550,169,185"  Width="130" Command="{Binding Deal}" FontFamily="Franklin Gothic Demi Cond" BorderBrush="SteelBlue" Background="DimGray" Foreground="White" FontSize="36" FontStyle="Normal" BorderThickness="4">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="StandButton" Content="Stand" HorizontalAlignment="Right" Margin="0,702,425,32"  Width="130" Command="{Binding Stand}" FontFamily="Franklin Gothic Demi Cond" BorderBrush="LightSteelBlue" Background="SteelBlue" Foreground="LightSteelBlue" FontSize="15" FontStyle="Normal" BorderThickness="4">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="HitButton" Content="Hit me" HorizontalAlignment="Right" Margin="0,702,288,32"  Width="130" Command="{Binding Hit}" FontFamily="Franklin Gothic Demi Cond" BorderBrush="LightSteelBlue" Background="SteelBlue" Foreground="LightSteelBlue" FontSize="15" FontStyle="Normal" BorderThickness="4">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="DoubleDownButton" Content="Double" HorizontalAlignment="Right" Margin="0,702,151,32"  Width="130" Command="{Binding DoubleDown}" FontFamily="Franklin Gothic Demi Cond" BorderBrush="LightSteelBlue" Background="SteelBlue" Foreground="LightSteelBlue" FontSize="15" FontStyle="Normal" BorderThickness="4">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="SplitButton" Content="Split" HorizontalAlignment="Right" Margin="0,702,14,32"  Width="130" Command="{Binding Split}" FontFamily="Franklin Gothic Demi Cond" BorderBrush="LightSteelBlue" Background="SteelBlue" Foreground="LightSteelBlue" FontSize="15" FontStyle="Normal" BorderThickness="4">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+        <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,0,0" Command="{Binding MenuCommand}" Style="{StaticResource GameButton}"/>
+        <Button x:Name="InsuranceButton" Content="Buy Insurance" HorizontalAlignment="Right" Margin="0,552,14,188" Command="{Binding Insurance}" Style="{StaticResource GameButton}" FontSize="18"/>
+        <Button x:Name="DealButton" Content="Deal" HorizontalAlignment="Right" Margin="0,550,169,185" Command="{Binding Deal}" Style="{StaticResource GameButton}"/>
+        <Button x:Name="StandButton" Content="Stand" HorizontalAlignment="Right" Margin="0,705,400,35" Command="{Binding Stand}" Style="{StaticResource GameButton}"/>
+        <Button x:Name="HitButton" Content="Hit" HorizontalAlignment="Right" Margin="0,705,270,35" Command="{Binding Hit}" Style="{StaticResource GameButton}"/>
+        <Button x:Name="DoubleDownButton" Content="Double" HorizontalAlignment="Right" Margin="0,705,140,35" Command="{Binding DoubleDown}" Style="{StaticResource GameButton}"/>
+        <Button x:Name="SplitButton" Content="Split" HorizontalAlignment="Right" Margin="0,705,10,35" Command="{Binding Split}" Style="{StaticResource GameButton}"/>
         <Button x:Name="BetMin" Margin="0,0,300,40" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="0" Background="{x:Null}" Command="{Binding BetFirst}">
             <Image Source="{Binding BetFirstImageData}" RenderOptions.BitmapScalingMode="Fant" Width="80" Height="80"/>
         </Button>
@@ -74,7 +39,7 @@
         <Label x:Name="HandStateLabel" HorizontalAlignment="Center" VerticalAlignment="Stretch" Height="25" Margin="500,100,0,0" Content="{Binding HandStateDisplay}"/>
         <Label x:Name="BetLabel" HorizontalAlignment="Center" Height="25" Margin="120,460,0,0" Content="{Binding BetValue}"/>
 
-        <ListView x:Name="BankrollChips" ItemsSource="{Binding ChipstackDisplay}" Width="130" Height="700" HorizontalAlignment="Left" VerticalAlignment="Bottom" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" Margin="10,35,0,65">
+        <!--ListView x:Name="BankrollChips" ItemsSource="{Binding ChipstackDisplay}" Width="130" Height="700" HorizontalAlignment="Left" VerticalAlignment="Bottom" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" Margin="10,35,0,65">
             <ListView.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
             </ListView.Background>
@@ -111,7 +76,7 @@
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView-->
         <ListView x:Name="BetChips" ItemsSource="{Binding BetChipDisplay}" Width="130" Height="150" HorizontalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" Margin="13,400,0,0">
             <ListView.Background>
                 <SolidColorBrush Color="White" Opacity="0"/>
