@@ -218,11 +218,13 @@ namespace CasinoSimulation.ViewModel
             RemoveChip = new RemoveChipCommand(this);
             BankrollDisplay = _user.Bankroll;
             MenuCommand = new MenuCommand(navigation, _user);
-            BetValue = 0;
+            BetValue = user.MinBet;
             _bankrollChips = new ChipDisplay(_user.Bankroll, _user.ChipDenominations);
             ChipstackDisplay = _bankrollChips.Chips;
             _betCommands = new List<ICommand>();
             _betImages = new List<byte[]>();
+            _betChips = new ChipDisplay(BetValue, _user.ChipDenominations);
+            BetChipDisplay = _betChips.Chips;
             _rm = new ResourceManager("CasinoSimulation.Properties.Resources", Assembly.GetExecutingAssembly());
 
             for (int i = 0; i < 4; i++)
