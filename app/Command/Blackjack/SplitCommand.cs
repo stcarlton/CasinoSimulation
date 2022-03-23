@@ -9,8 +9,8 @@ namespace CasinoSimulation.Command.Blackjack
         public override void Execute(object parameter)
         {
             _model.SplitPlayer((Human)_model.Raymond);
-            _vm.RefreshTable();
-            _vm.RefreshBet();
+            _vm.RefreshBankroll();
+            _vm.RefreshHuman();
         }
     }
 }

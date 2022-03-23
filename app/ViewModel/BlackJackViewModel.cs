@@ -10,7 +10,8 @@ using System.Reflection;
 namespace CasinoSimulation.ViewModel
 {
     public class BlackJackViewModel : ViewModelBase
-    {
+    {       
+        public ICommand Menu { get; }
         public ICommand Deal { get; }
         public ICommand Insurance { get; }
         public ICommand Stand { get; }
@@ -18,116 +19,7 @@ namespace CasinoSimulation.ViewModel
         public ICommand DoubleDown { get; }
         public ICommand Split { get; }
         public ICommand RemoveChip { get; }
-        public ICommand MenuCommand { get; }
-
-        public IList<Card> DealerHandDisplay
-        {
-            get
-            {
-                return _dealerHandDisplay;
-            }
-            set
-            {
-                _dealerHandDisplay = value;
-                OnPropertyChanged("DealerHandDisplay");
-            }
-        }
-        public IList<Card> CreatorHandDisplay
-        {
-            get
-            {
-                return _humanHandDisplay;
-            }
-            set
-            {
-                _humanHandDisplay = value;
-                OnPropertyChanged("CreatorHandDisplay");
-            }
-        }
-        public long BankrollDisplay
-        {
-            get
-            {
-                return _bankrollDisplay;
-            }
-            set
-            {
-                _bankrollDisplay = value;
-                OnPropertyChanged("BankrollDisplay");
-            }
-        }
-        public IList<Chip> ChipstackDisplay
-        {
-            get
-            {
-                return _chipstackDisplay;
-            }
-            set
-            {
-                _chipstackDisplay = value;
-                OnPropertyChanged("ChipStackDisplay");
-            }
-        }
-        public IList<Chip> BetChipDisplay
-        {
-            get
-            {
-                return _betChipDisplay;
-            }
-            set
-            {
-                _betChipDisplay = value;
-                OnPropertyChanged("BetChipDisplay");
-            }
-        }
-        public string HandStateDisplay
-        {
-            get
-            {
-                return _handStateDisplay;
-            }
-            set
-            {
-                _handStateDisplay = value;
-                OnPropertyChanged("HandStateDisplay");
-            }
-        }
-        public int BetValue
-        {
-            get
-            {
-                return _betValue;
-            }
-            set
-            {
-                _betValue = value;
-                OnPropertyChanged("BetValue");
-            }
-        }
-        public int DealerHandValue
-        {
-            get
-            {
-                return _dealerHandValue;
-            }
-            set
-            {
-                _dealerHandValue = value;
-                OnPropertyChanged("DealerHandValue");
-            }
-        }
-        public int CreatorHandValue
-        {
-            get
-            {
-                return _humanHandValue;
-            }
-            set
-            {
-                _humanHandValue = value;
-                OnPropertyChanged("CreatorHandValue");
-            }
-        }
+        public ICommand NextHand { get; }
         public ICommand BetFirst
         {
             get
@@ -154,6 +46,102 @@ namespace CasinoSimulation.ViewModel
             get
             {
                 return _betCommands[3];
+            }
+        }
+
+        public IList<Card> DealerHandDisplay
+        {
+            get
+            {
+                IList<Card> cards = new List<Card>();
+                for(int i = 0; i < _model.Nick.CurrentHand?.Cards.Count; i++)
+                {
+                    if (_model.TableState != tableState.settlement && i==0)
+                    {
+                        cards.Add(_cardBack);
+                    }
+                    else
+                    {
+                        cards.Add(_model.Nick.CurrentHand.Cards[i]);
+                    }
+                }
+                return cards;
+            }
+        }
+        public IList<Card> HumanHandDisplay
+        {
+            get
+            {
+                IList<Card> cards = new List<Card>();
+                for(int i = 0; i < _model.Raymond.CurrentHand?.Cards.Count; i++)
+                {
+                    cards.Add(_model.Raymond.CurrentHand.Cards[i]);
+                }
+                return cards;
+            }
+        }
+        public IList<Chip> BankrollChipDisplay
+        {
+            get
+            {
+                return BuildChips(_user.Bankroll);
+            }
+        }
+        public IList<Chip> BetChipDisplay
+        {
+            get
+            {
+                return BuildChips(BetValue);
+            }
+        }
+        public IList<Chip> WinningChipDisplay
+        {
+            get
+            {
+                //TODO: incorporate chip winnings into logic
+                return BuildChips(0);
+            }
+        }
+        public long BankrollDisplay
+        {
+            get
+            {
+                return _user.Bankroll;
+            }
+        }
+        public string HandStateDisplay
+        {
+            get
+            {
+                return _model.Raymond.CurrentHand?.State.ToString();
+            }
+        }
+        public int MinBet
+        {
+            get
+            {
+                return _user.MinBet;
+            }
+        }
+        public int MaxBet
+        {
+            get
+            {
+                return _user.MaxBet;
+            }
+        }
+        public int DealerHandValue
+        {
+            get
+            {
+                return  _model.Nick.CurrentHand == null ? 0 : _model.Nick.CurrentHand.HandValue;
+            }
+        }
+        public int HumanHandValue
+        {
+            get
+            {
+                return _model.Raymond.CurrentHand == null ? 0 : _model.Raymond.CurrentHand.HandValue;
             }
         }
         public byte[] BetFirstImageData
@@ -184,22 +172,24 @@ namespace CasinoSimulation.ViewModel
                 return _betImages[3];
             }
         }
+        public int BetValue
+        {
+            get
+            {
+                return _betValue;
+            }
+            set
+            {
+                _betValue = value;
+                OnPropertyChanged("BetValue");
+                OnPropertyChanged("BetChipDisplay");
+            }
+        }
 
         private Table _model;
-        private HandDisplay _dealerCards { get; set; }
-        private HandDisplay _humanCards { get; set; }
-        private ChipDisplay _bankrollChips { get; set; }
-        private ChipDisplay _betChips { get; set; }
-        private IList<Card> _dealerHandDisplay { get; set; }
-        private IList<Card> _humanHandDisplay { get; set; }
-        private IList<Chip> _chipstackDisplay { get; set; }
-        private IList<Chip> _betChipDisplay { get; set; }
-        private string _handStateDisplay { get; set; }
-        private int _dealerHandValue { get; set; }
-        private int _humanHandValue { get; set; }
-        private long _bankrollDisplay { get; set; }
-        private int _betValue { get; set; }
         protected User _user { get; set; }
+        private int _betValue { get; set; }
+        private Card _cardBack { get; set; }
         private IList<ICommand> _betCommands { get; set; }
         private IList<byte[]> _betImages { get; set; }
         private ResourceManager _rm;
@@ -216,17 +206,13 @@ namespace CasinoSimulation.ViewModel
             DoubleDown = new DoubleDownCommand(_model, this);
             Split = new SplitCommand(_model, this);
             RemoveChip = new RemoveChipCommand(this);
-            BankrollDisplay = _user.Bankroll;
-            MenuCommand = new MenuCommand(navigation, _user);
-            BetValue = user.MinBet;
-            _bankrollChips = new ChipDisplay(_user.Bankroll, _user.ChipDenominations);
-            ChipstackDisplay = _bankrollChips.Chips;
+            NextHand = new NextHandCommand(_model, this);
+            Menu = new MenuCommand(navigation, _user);
             _betCommands = new List<ICommand>();
             _betImages = new List<byte[]>();
-            _betChips = new ChipDisplay(BetValue, _user.ChipDenominations);
-            BetChipDisplay = _betChips.Chips;
+            BetValue = _user.MinBet;
+            _cardBack = new Card("Card_Back_Blue");
             _rm = new ResourceManager("CasinoSimulation.Properties.Resources", Assembly.GetExecutingAssembly());
-
             for (int i = 0; i < 4; i++)
             {
                 int chipIndex = (i > 1 && (int)_user.UserStakes == 10) ? (int)_user.UserStakes - i - 1 : (int)_user.UserStakes - i ;
@@ -236,25 +222,43 @@ namespace CasinoSimulation.ViewModel
                 _betImages.Add((byte[])_rm.GetObject(_resourceName));
             }
         }
-        public void RefreshBet()
+        
+        //list of properties to refresh while entering settlement state
+        public void RefreshBankroll()
         {
-            _bankrollChips = new ChipDisplay(_user.Bankroll, _user.ChipDenominations);
-            _betChips = new ChipDisplay(BetValue, _user.ChipDenominations);
-            BankrollDisplay = _user.Bankroll;
-            ChipstackDisplay = _bankrollChips.Chips;
-            BetChipDisplay = _betChips.Chips;
+            OnPropertyChanged("BankrollDisplay");
+            OnPropertyChanged("BankrollChipDisplay");
         }
-        public void RefreshTable()
+        public void RefreshDealer()
         {
-            _dealerCards = new HandDisplay(_model.Nick);
-            _humanCards = new HandDisplay(_model.Raymond);
-            DealerHandDisplay = _dealerCards.Cards;
-            CreatorHandDisplay = _humanCards.Cards;
-            ChipstackDisplay = _bankrollChips.Chips;
-            BankrollDisplay = _user.Bankroll;
-            HandStateDisplay = _model.Raymond.CurrentHand.State.ToString();
-            DealerHandValue = _model.Nick.CurrentHand.HandValue;
-            CreatorHandValue = _model.Raymond.CurrentHand.HandValue;
-        }       
+            OnPropertyChanged("DealerHandDisplay");
+            OnPropertyChanged("DealerHandValue");
+        }
+        public void RefreshHuman()
+        {
+            OnPropertyChanged("HumanHandDisplay");
+            OnPropertyChanged("HumanHandValue");
+            OnPropertyChanged("HandStateDisplay");
+            BetValue = ((HumanHand)_model.Raymond.CurrentHand).Bet;
+        }
+        public void RefreshWinnings()
+        {
+            OnPropertyChanged("HandStateDisplay");
+            OnPropertyChanged("WinningChipDisplay");
+        }
+        public IList<Chip> BuildChips(long cash)
+        {
+            IList<Chip> chips = new List<Chip>();
+            foreach (int i in _user.ChipDenominations)
+            {
+
+                while (cash >= i)
+                {
+                    chips.Add(new Chip(i));
+                    cash -= i;
+                }
+            }
+            return chips;
+        }
     }
 }

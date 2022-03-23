@@ -9,8 +9,9 @@ namespace CasinoSimulation.Command.Blackjack
         public override void Execute(object parameter)
         {
             _model.Deal(_vm.BetValue);
-            _vm.RefreshTable();
-            _vm.RefreshBet();
+            _vm.RefreshBankroll();
+            _vm.RefreshDealer();
+            _vm.RefreshHuman();
         }
     }
 }

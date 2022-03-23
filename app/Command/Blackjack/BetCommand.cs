@@ -17,7 +17,7 @@ namespace CasinoSimulation.Command.Blackjack
         public override void Execute(object parameter)
         {
             _vm.BetValue += _bet;
-            _vm.RefreshBet();
+            _vm.OnPropertyChanged("BetChipDisplay");
         }
     }
 }

@@ -5,9 +5,9 @@ namespace CasinoSimulation.Model.Blackjack
 {
     public class Table
     {
+        public tableState TableState { get; set; }
         public IPlayer Nick { get; set; }
         public IPlayer Raymond { get; set; }
-        public bool Resolved { get; set; }
         public bool InsuranceEligible
         {
             get
@@ -21,11 +21,11 @@ namespace CasinoSimulation.Model.Blackjack
 
         public Table(User user)
         {
+            TableState = 0;
             Nick = new Dealer();
             Raymond = new Human(user);
             _players = new List<IPlayer>();
             _shoe = new Deck(user.NumDecks);
-            Resolved = false;
             _players.Add(Raymond);
             _players.Add(Nick);
             _user = user;

@@ -30,5 +30,13 @@ namespace CasinoSimulation.Model.Blackjack
                 default: CardValue = (int)rank + 1; break;
             }
         }
+        public Card(string s)
+        {
+            Rank = cardRank.Ace;
+            Suit = cardSuit.Spades;
+            CardValue = 0;
+            _rm = new ResourceManager("CasinoSimulation.Properties.Resources", Assembly.GetExecutingAssembly());
+            ImageData = (byte[])_rm.GetObject(s);
+        }
     }
 }
