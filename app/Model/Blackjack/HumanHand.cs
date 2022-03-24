@@ -2,7 +2,8 @@
 {
     public class HumanHand : Hand
     {
-        public int Bet { get; set; }
+        public long Bet { get; set; }
+        public long Winnings { get; set; }
         public bool DoubleDownEligible
         {
             get
@@ -26,9 +27,11 @@
                 return Cards.Count == 2 && Cards[0].Rank == cardRank.Ace && Cards[1].Rank == cardRank.Ace;
             }
         }
-        public HumanHand(int bet) : base()
+
+        public HumanHand(long bet) : base()
         {
             Bet = bet;
+            Winnings = 0;
         }
         public Card TakeCard()
         {

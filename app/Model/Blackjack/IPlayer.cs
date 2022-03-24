@@ -6,6 +6,6 @@
 
         public abstract void Stand();
         public abstract void Hit(Card c);
-        public abstract void DealIn(int bet);
+        public abstract void DealIn(long bet);
     }
 }

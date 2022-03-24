@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Resources;
 
 
@@ -12,8 +9,8 @@ namespace CasinoSimulation.Model.Blackjack
         public readonly cardRank Rank;
         public readonly cardSuit Suit;
         public readonly int CardValue;
+        public byte[] ImageData { get; }
         private ResourceManager _rm;
-        public byte[] ImageData { get; set; }
 
         public Card(cardRank rank, cardSuit suit)
         {
@@ -32,8 +29,8 @@ namespace CasinoSimulation.Model.Blackjack
         }
         public Card(string s)
         {
-            Rank = cardRank.Ace;
-            Suit = cardSuit.Spades;
+            Rank = 0;
+            Suit = 0;
             CardValue = 0;
             _rm = new ResourceManager("CasinoSimulation.Properties.Resources", Assembly.GetExecutingAssembly());
             ImageData = (byte[])_rm.GetObject(s);

@@ -5,7 +5,7 @@ namespace CasinoSimulation.Model.Global
 {
     public class Chip
     {
-        public int Value;
+        public int Value { get; }
         public byte[] ImageData { get; }
         private ResourceManager _rm;
         private string _resourceName;

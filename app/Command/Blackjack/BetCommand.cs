@@ -16,8 +16,14 @@ namespace CasinoSimulation.Command.Blackjack
         }
         public override void Execute(object parameter)
         {
-            _vm.BetValue += _bet;
-            _vm.OnPropertyChanged("BetChipDisplay");
+            if(_vm.BetValue + _bet > _vm.MaxBet)
+            {
+                _vm.BetValue = _vm.MaxBet;
+            }
+            else
+            {
+                _vm.BetValue += _bet;
+            }
         }
     }
 }

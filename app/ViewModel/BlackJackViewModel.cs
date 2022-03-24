@@ -10,7 +10,7 @@ using System.Reflection;
 namespace CasinoSimulation.ViewModel
 {
     public class BlackJackViewModel : ViewModelBase
-    {       
+    {
         public ICommand Menu { get; }
         public ICommand Deal { get; }
         public ICommand Insurance { get; }
@@ -54,9 +54,9 @@ namespace CasinoSimulation.ViewModel
             get
             {
                 IList<Card> cards = new List<Card>();
-                for(int i = 0; i < _model.Nick.CurrentHand?.Cards.Count; i++)
+                for (int i = 0; i < _model.Nick.CurrentHand?.Cards.Count; i++)
                 {
-                    if (_model.TableState != tableState.settlement && i==0)
+                    if (_model.TableState != tableState.settlement && i == 0)
                     {
                         cards.Add(_cardBack);
                     }
@@ -73,7 +73,7 @@ namespace CasinoSimulation.ViewModel
             get
             {
                 IList<Card> cards = new List<Card>();
-                for(int i = 0; i < _model.Raymond.CurrentHand?.Cards.Count; i++)
+                for (int i = 0; i < _model.Raymond.CurrentHand?.Cards.Count; i++)
                 {
                     cards.Add(_model.Raymond.CurrentHand.Cards[i]);
                 }
@@ -98,10 +98,18 @@ namespace CasinoSimulation.ViewModel
         {
             get
             {
-                //TODO: incorporate chip winnings into logic
-                return BuildChips(0);
+                long w = (HumanHand)_model.Raymond.CurrentHand == null ? 0 : ((HumanHand)_model.Raymond.CurrentHand).Winnings;
+                return BuildChips(w);
             }
         }
+        public IList<Chip> InsuranceChipDisplay
+        {
+            get
+            {
+                return BuildChips(((Human)_model.Raymond).InsuranceBet);
+            }
+        }
+
         public long BankrollDisplay
         {
             get
@@ -134,7 +142,7 @@ namespace CasinoSimulation.ViewModel
         {
             get
             {
-                return  _model.Nick.CurrentHand == null ? 0 : _model.Nick.CurrentHand.HandValue;
+                return _model.Nick.CurrentHand == null ? 0 : _model.Nick.CurrentHand.HandValue;
             }
         }
         public int HumanHandValue
@@ -172,7 +180,7 @@ namespace CasinoSimulation.ViewModel
                 return _betImages[3];
             }
         }
-        public int BetValue
+        public long BetValue
         {
             get
             {
@@ -183,15 +191,98 @@ namespace CasinoSimulation.ViewModel
                 _betValue = value;
                 OnPropertyChanged("BetValue");
                 OnPropertyChanged("BetChipDisplay");
+                OnPropertyChanged("CanBet");
+                OnPropertyChanged("CanDeal");
             }
         }
-
+        public long InsuranceBet
+        {
+            get
+            {
+                return ((Human)_model.Raymond).InsuranceBet;
+            }
+        }
+        public bool IsBetting
+        {
+            get
+            {
+                return _model.TableState == tableState.betting;
+            }
+        }
+        public bool IsOption
+        {
+            get
+            {
+                return _model.TableState == tableState.option;
+            }
+        }
+        public bool IsSettlement
+        {
+            get
+            {
+                return _model.TableState == tableState.settlement;
+            }
+        }
+        public bool IsNotBetting
+        {
+            get
+            {
+                return _model.TableState != tableState.betting;
+            }
+        }
+        public bool CanBet
+        {
+            get
+            {
+                return BetValue < _user.MaxBet && BetValue < _user.Bankroll;
+            }
+        }
+        public bool CanDeal
+        {
+            get
+            {
+                return BetValue >= _user.MinBet && BetValue <= _user.Bankroll;
+            }
+        }
+        public bool CanBuyInsurance
+        {
+            get
+            {
+                if (_model.TableState != tableState.option)
+                {
+                    return false;
+                }
+                return _model.InsuranceEligible;
+            }
+        }
+        public bool CanDoubleDown
+        {
+            get
+            {
+                if (_model.TableState != tableState.option)
+                {
+                    return false;
+                }
+                return ((HumanHand)_model.Raymond.CurrentHand).DoubleDownEligible;
+            }
+        }
+        public bool CanSplit
+        {
+            get
+            {
+                if (_model.TableState != tableState.option)
+                {
+                    return false;
+                }
+                return ((HumanHand)_model.Raymond.CurrentHand).SplitEligible;
+            }
+        }
         private Table _model;
-        protected User _user { get; set; }
-        private int _betValue { get; set; }
-        private Card _cardBack { get; set; }
-        private IList<ICommand> _betCommands { get; set; }
-        private IList<byte[]> _betImages { get; set; }
+        private User _user;
+        private long _betValue;
+        private Card _cardBack;
+        private IList<ICommand> _betCommands;
+        private IList<byte[]> _betImages;
         private ResourceManager _rm;
         private string _resourceName;
 
@@ -215,7 +306,7 @@ namespace CasinoSimulation.ViewModel
             _rm = new ResourceManager("CasinoSimulation.Properties.Resources", Assembly.GetExecutingAssembly());
             for (int i = 0; i < 4; i++)
             {
-                int chipIndex = (i > 1 && (int)_user.UserStakes == 10) ? (int)_user.UserStakes - i - 1 : (int)_user.UserStakes - i ;
+                int chipIndex = (i > 1 && (int)_user.UserStakes == 10) ? (int)_user.UserStakes - i - 1 : (int)_user.UserStakes - i;
                 int chipValue = _user.ChipDenominations[chipIndex];
                 _resourceName = chipValue + "_Top";
                 _betCommands.Add(new BetCommand(this, chipValue));
@@ -223,7 +314,6 @@ namespace CasinoSimulation.ViewModel
             }
         }
         
-        //list of properties to refresh while entering settlement state
         public void RefreshBankroll()
         {
             OnPropertyChanged("BankrollDisplay");
@@ -246,8 +336,22 @@ namespace CasinoSimulation.ViewModel
             OnPropertyChanged("HandStateDisplay");
             OnPropertyChanged("WinningChipDisplay");
         }
-        public IList<Chip> BuildChips(long cash)
+        public void RefreshButtons()
         {
+            OnPropertyChanged("IsBetting");
+            OnPropertyChanged("IsOption");
+            OnPropertyChanged("IsSettlement");
+            OnPropertyChanged("IsNotBetting");
+            OnPropertyChanged("CanBuyInsurance");
+            OnPropertyChanged("CanDoubleDown");
+            OnPropertyChanged("CanSplit");
+        }
+        private IList<Chip> BuildChips(long cash)
+        {
+            if (cash == 0)
+            {
+                return null;
+            }
             IList<Chip> chips = new List<Chip>();
             foreach (int i in _user.ChipDenominations)
             {

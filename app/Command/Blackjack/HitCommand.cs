@@ -10,6 +10,8 @@ namespace CasinoSimulation.Command.Blackjack
         {
             _model.HitPlayer(_model.Raymond);
             _vm.RefreshHuman();
+            _vm.RefreshWinnings();
+            _vm.RefreshButtons();
         }
     }
 }

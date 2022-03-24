@@ -6,24 +6,26 @@ namespace CasinoSimulation.Model.Blackjack
     public class Human : IPlayer
     {
         public Hand CurrentHand { get; set; }
-        public Stack<HumanHand> UnresolvedHands { get; set; }
-        public Stack<HumanHand> ResolvedHands { get; set; }
-        private User _user { get; set; }
+        public Stack<HumanHand> UnresolvedHands { get; }
+        public Stack<HumanHand> ResolvedHands { get; }
+        public long InsuranceBet { get; set; }
+        private User _user { get; }
         public Human(User user)
         {
             CurrentHand = null;
             UnresolvedHands = new Stack<HumanHand>();
             ResolvedHands = new Stack<HumanHand>();
+            InsuranceBet = 0;
             _user = user;
         }
 
-        public void DealIn(int Bet)
+        public void DealIn(long Bet)
         {
             UnresolvedHands.Clear();
             ResolvedHands.Clear();
             _user.Bankroll -= Bet;
-            CurrentHand = new HumanHand(Bet);
-            UnresolvedHands.Push((HumanHand)CurrentHand);
+            UnresolvedHands.Push(new HumanHand(Bet));
+            CurrentHand = UnresolvedHands.Peek();
         }
         public void Hit(Card c)
         {
@@ -58,7 +60,7 @@ namespace CasinoSimulation.Model.Blackjack
             UnresolvedHands.Push(_newHand);
             CurrentHand = _newHand;
         }
-        public void CheckHuman()
+        private void CheckHuman()
         {
             if(CurrentHand.State != handState.Unresolved)
             {

@@ -6,18 +6,19 @@ namespace CasinoSimulation.Model.Blackjack
     public class Table
     {
         public tableState TableState { get; set; }
-        public IPlayer Nick { get; set; }
-        public IPlayer Raymond { get; set; }
+        public IPlayer Nick { get; }
+        public IPlayer Raymond { get; }
         public bool InsuranceEligible
         {
             get
             {
-                return Nick.CurrentHand.Cards[0].Rank == cardRank.Ace;
+                long bet = ((HumanHand)Raymond.CurrentHand)?.Bet < 2 ? 1 : ((HumanHand)Raymond.CurrentHand).Bet;
+                return Nick.CurrentHand?.Cards[1].Rank == cardRank.Ace && bet <= _user.Bankroll && ((Human)Raymond).InsuranceBet == 0;
             }
         }
-        private List<IPlayer> _players { get; set; }
-        private Deck _shoe { get; set; }
-        private User _user { get; set; }
+        private List<IPlayer> _players { get; }
+        private Deck _shoe { get; }
+        private User _user { get; }
 
         public Table(User user)
         {
@@ -31,8 +32,9 @@ namespace CasinoSimulation.Model.Blackjack
             _user = user;
         }
 
-        public void Deal(int bet)
+        public void Deal(long bet)
         {
+            TableState = tableState.option;
             foreach(IPlayer p in _players)
             {
                 p.DealIn(bet);
@@ -44,13 +46,10 @@ namespace CasinoSimulation.Model.Blackjack
             }
             CheckTable();
         }
-        public void BuyInsurance(long bet)
+        public void PlaceInsuranceBet(long betValue)
         {
-            _user.Bankroll -= bet;
-            if(Nick.CurrentHand.State == handState.BlackJack)
-            {
-                _user.Bankroll += bet * 2;
-            }
+            ((Human)Raymond).InsuranceBet = betValue < 2 ? 1 : betValue / 2;
+            _user.Bankroll -= ((Human)Raymond).InsuranceBet;
         }
         public void StandPlayer(IPlayer p)
         {
@@ -72,28 +71,28 @@ namespace CasinoSimulation.Model.Blackjack
             h.Split(_shoe.DealTopCard(), _shoe.DealTopCard());
             CheckTable();
         }
-        public void CheckTable()
+        private void CheckTable()
         {
             if (((Human)Raymond).UnresolvedHands.Count == 0)
             {
                 ResolveTable();
             }
         }
-        public void ResolveTable()
+        private void ResolveTable()
         {
+            TableState = tableState.settlement;
             ResolveDealer();
             ResolvePlayer((Human)Raymond);
             _shoe.Shuffle();
         }
-        public void ResolveDealer()
+        private void ResolveDealer()
         {
             while(!((Dealer)Nick).Resolved)
             {
                 Nick.Hit(_shoe.DealTopCard());
             }
-
         }
-        public void ResolvePlayer(Human c)
+        private void ResolvePlayer(Human c)
         {
             Hand d = Nick.CurrentHand;
             foreach (HumanHand h in c.ResolvedHands)
@@ -128,10 +127,30 @@ namespace CasinoSimulation.Model.Blackjack
                         h.State = handState.Win;
                     }
                 }
+                switch (h.State)
+                {
+                    case handState.BlackJack: h.Winnings += h.Bet * 3; break;
+                    case handState.Win: h.Winnings += h.Bet * 2; break;
+                    case handState.Push: h.Winnings += h.Bet; break;
+                    default: break;
+                }
             }
-            PayPlayer((Human)Raymond);
+            //PayPlayer((Human)Raymond);
         }
-        public void PayPlayer(Human c)
+        public void SettleHand(Human c)
+        {
+            _user.Bankroll += ((HumanHand)c.CurrentHand).Winnings;
+            c.ResolvedHands.Pop();
+            if (((Human)Raymond).ResolvedHands.Count == 0)
+            {
+                TableState = tableState.settlement;
+            }
+            else
+            {
+                c.CurrentHand = c.ResolvedHands.Peek();
+            }
+        }
+        private void PayPlayer(Human c)
         {
             foreach (HumanHand h in c.ResolvedHands)
             {

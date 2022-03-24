@@ -35,27 +35,26 @@
         <!--Column 0, Row 5 Bankroll Amount-->
         <StackPanel Grid.Column="0" Grid.Row="5" Orientation="Horizontal" Margin="10,0,0,0">
             <Label HorizontalAlignment="Left" VerticalAlignment="Center" Content="$"  Grid.Column="0" Grid.Row="5" Style="{StaticResource LabelFormat}"/>
-            <Label x:Name="BankrollDisplay" HorizontalAlignment="Left" VerticalAlignment="Center" ContentStringFormat="{}{0:0,0}" Grid.Column="0" Grid.Row="5" Style="{StaticResource LabelFormat}" Content="{Binding BankrollDisplay}"/>
+            <Label x:Name="BankrollDisplay" HorizontalAlignment="Left" VerticalAlignment="Center" ContentStringFormat="{}{0:#,0}" Grid.Column="0" Grid.Row="5" Style="{StaticResource LabelFormat}" Content="{Binding BankrollDisplay}"/>
         </StackPanel>
 
         <!--Column 1, Row 4 Winning Chips-->
-        <!--TODO: add winning display-->
-        <ListView x:Name="WinningChips" Height="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="4" ItemsSource="{Binding WinningChipDisplay}" Style="{StaticResource GraphicalChipStack}"/>
+        <ListView x:Name="WinningChips" Height="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="4" ItemsSource="{Binding WinningChipDisplay}" Style="{StaticResource GraphicalChipStack}" Visibility="{Binding IsSettlement, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
 
-        <!--Column 1, Row 5 Hand Result-->
-        <Label x:Name="HandStateLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Grid.Column="1" Grid.Row="5" FontSize="18" Style="{StaticResource LabelFormat}" Content="{Binding HandStateDisplay}"/>
+        <!--Column 1, Row 3 Hand Result-->
+        <Label x:Name="HandStateLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource LabelFormat}" Content="{Binding HandStateDisplay}" Visibility="{Binding IsSettlement, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
 
-        <!--Column 2, Row 5 Next Hand Button-->
-        <Button x:Name="NextHandButton" Content="Next Hand" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="5" FontSize="24" Command="{Binding NextHand}" Style="{StaticResource GameButton}"/>
+        <!--Column 1, Row 5 Next Hand Button-->
+        <Button x:Name="NextHandButton" Content="Next Hand" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="5" FontSize="24" Command="{Binding NextHand}" Style="{StaticResource GameButton}" Visibility="{Binding IsSettlement, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
 
         <!--Column 3, Row 0 Dealer Hand Value-->
-        <Label x:Name="DealerValueLabel" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="0" FontSize="18" Style="{StaticResource LabelFormat}" Content="{Binding DealerHandValue}"/>
+        <Label x:Name="DealerValueLabel" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="0" FontSize="18" Style="{StaticResource LabelFormat}" Content="{Binding DealerHandValue}" Visibility="{Binding IsSettlement, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
 
         <!--Column 3, Row 1 Dealer Cards-->
         <ListView x:Name="DealerCards" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,80,0" Grid.Column="3" Grid.Row="1" ItemsSource="{Binding DealerHandDisplay}" Style="{StaticResource GraphicalHandDisplay}"/>
 
         <!--Column 3, Row 2 Human Hand Value-->
-        <Label x:Name="HumanValueLabel" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="2" FontSize="18" Style="{StaticResource LabelFormat}" Content="{Binding HumanHandValue}"/>
+        <Label x:Name="HumanValueLabel" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="2" FontSize="18" Style="{StaticResource LabelFormat}" Content="{Binding HumanHandValue}" Visibility="{Binding IsNotBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
 
         <!--Column 3, Row 3 Human Cards-->
         <ListView x:Name="HumanCards" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,80,0" Grid.Column="3" Grid.Row="3" ItemsSource="{Binding HumanHandDisplay}" Style="{StaticResource GraphicalHandDisplay}"/>
@@ -68,7 +67,7 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <ListView x:Name="BetChips" Height="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="13,0,0,0" Grid.Column="1" ItemsSource="{Binding BetChipDisplay}" Style="{StaticResource GraphicalChipStack}"/>
-            <Button x:Name="RemoveChip" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0" Height="100" Width="90" Panel.ZIndex="1" Opacity="0" Grid.Column="1" Command="{Binding RemoveChip}"/>
+            <Button x:Name="RemoveChip" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,0" Height="100" Width="90" Panel.ZIndex="1" Opacity="0" Grid.Column="1" Command="{Binding RemoveChip}" Visibility="{Binding IsBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
             <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Bottom" Margin="-20,0,0,40">
                 <Label HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="$" FontSize="18" Style="{StaticResource LabelFormat}"/>
                 <Label x:Name="BetLabel" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="18" ContentStringFormat="{}{0:#,0}" Style="{StaticResource LabelFormat}" Content="{Binding BetValue}"/>
@@ -76,17 +75,17 @@
         </Grid>
 
         <!--Column 3, Row 5 Betting Buttons-->
-        <StackPanel Grid.Column="3" Grid.Row="5" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <StackPanel Grid.Column="3" Grid.Row="5" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="{Binding IsBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Label HorizontalAlignment="Right" Content="Min Bet: $" FontSize="9" Style="{StaticResource LabelFormat}"/>
-                <Label x:Name="MinBetLabel" HorizontalAlignment="Left" FontSize="9" ContentStringFormat="{}{0:#,0}" Style="{StaticResource LabelFormat}" Content="{Binding MinBet}"/>
+                <Label HorizontalAlignment="Right" Content="Min Bet: $" FontSize="18" Style="{StaticResource LabelFormat}"/>
+                <Label x:Name="MinBetLabel" HorizontalAlignment="Left" FontSize="18" ContentStringFormat="{}{0:#,0}" Style="{StaticResource LabelFormat}" Content="{Binding MinBet}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Label HorizontalAlignment="Right" Content="Max Bet: $" FontSize="9" Style="{StaticResource LabelFormat}"/>
-                <Label x:Name="MaxBetLabel" HorizontalAlignment="Left" FontSize="9" ContentStringFormat="{}{0:#,0}" Style="{StaticResource LabelFormat}" Content="{Binding MaxBet}"/>
+                <Label HorizontalAlignment="Right" Content="Max Bet: $" FontSize="18" Style="{StaticResource LabelFormat}"/>
+                <Label x:Name="MaxBetLabel" HorizontalAlignment="Left" FontSize="18" ContentStringFormat="{}{0:#,0}" Style="{StaticResource LabelFormat}" Content="{Binding MaxBet}"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Column="3" Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel Grid.Column="3" Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" IsEnabled="{Binding CanBet}" Visibility="{Binding IsBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}">
             <Button x:Name="BetMin" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="0" Background="{x:Null}" Command="{Binding BetFirst}">
                 <Image Source="{Binding BetFirstImageData}" RenderOptions.BitmapScalingMode="Fant" Width="80" Height="80"/>
             </Button>
@@ -101,18 +100,21 @@
             </Button>
         </StackPanel>
 
-        <!--Column 4, Row 1 Dealer Hand Value and Insurance UI-->
-        <Button x:Name="InsuranceButton" Content="Buy Insurance" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,0" FontSize="18" Grid.Column="4" Grid.Row="1" Command="{Binding Insurance}" Style="{StaticResource GameButton}"/>
+        <!--Column 4, Row 1 Insurance UI-->
+        <StackPanel Grid.Column="4" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,30,0">
+            <ListView x:Name="InsuranceBet" Height="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" ItemsSource="{Binding InsuranceChipDisplay}" Style="{StaticResource GraphicalChipStack}" Visibility="{Binding IsNotBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
+            <Button x:Name="InsuranceButton" Content="Buy Insurance" HorizontalAlignment="Right" VerticalAlignment="Center"  FontSize="18" Command="{Binding Insurance}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanBuyInsurance}" Visibility="{Binding IsOption, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
+        </StackPanel>
 
         <!--Column 4, Row 4 Deal Button-->
-        <Button x:Name="DealButton" Content="Deal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="4" Grid.Row="4" Margin="0,0,30,0" Command="{Binding Deal}" Style="{StaticResource GameButton}"/>
+        <Button x:Name="DealButton" Content="Deal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="4" Grid.Row="4" Margin="0,0,30,0" Command="{Binding Deal}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanDeal}" Visibility="{Binding IsBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
 
         <!--Column 4, Row 4 Gameplay Buttons-->
-        <StackPanel Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0">
+        <StackPanel Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0" Visibility="{Binding IsOption, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}">
             <Button x:Name="StandButton" Content="Stand" Margin="0,0,10,0" Command="{Binding Stand}" Style="{StaticResource GameButton}"/>
             <Button x:Name="HitButton" Content="Hit" Margin="0,0,10,0" Command="{Binding Hit}" Style="{StaticResource GameButton}"/>
-            <Button x:Name="DoubleDownButton" Content="Double" Margin="0,0,10,0" Command="{Binding DoubleDown}" Style="{StaticResource GameButton}"/>
-            <Button x:Name="SplitButton" Content="Split" Margin="0,0,10,0" Command="{Binding Split}" Style="{StaticResource GameButton}"/>
+            <Button x:Name="DoubleDownButton" Content="Double" Margin="0,0,10,0" Command="{Binding DoubleDown}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanDoubleDown}"/>
+            <Button x:Name="SplitButton" Content="Split" Margin="0,0,10,0" Command="{Binding Split}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanSplit}"/>
         </StackPanel>
 
     </Grid>

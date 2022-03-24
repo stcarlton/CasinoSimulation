@@ -8,7 +8,11 @@ namespace CasinoSimulation.Command.Blackjack
         public NextHandCommand(Table model, BlackJackViewModel vm) : base(model, vm) { }
         public override void Execute(object parameter)
         {
-            //TODO: add function to pop hand off of Resolved Stack
+            _model.SettleHand((Human)_model.Raymond);
+            _vm.RefreshHuman();
+            _vm.RefreshWinnings();
+            _vm.RefreshBankroll();
+            _vm.RefreshButtons();
         }
     }
 }

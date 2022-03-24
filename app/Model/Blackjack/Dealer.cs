@@ -10,7 +10,7 @@
             Resolved = false;
         }
 
-        public void DealIn(int bet)
+        public void DealIn(long bet)
         {
             Resolved = false;
             CurrentHand = new DealerHand();

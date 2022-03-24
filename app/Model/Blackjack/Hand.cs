@@ -5,6 +5,7 @@ namespace CasinoSimulation.Model.Blackjack
     public abstract class Hand
     {
         public List<Card> Cards { get; }
+        public handState State { get; set; }
         public int HandValue
         {
             get
@@ -21,7 +22,6 @@ namespace CasinoSimulation.Model.Blackjack
                 return i;
             }
         }
-        public handState State { get; set; }
         protected bool _hasAce
         {
             get

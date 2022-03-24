@@ -7,7 +7,7 @@ namespace CasinoSimulation.Model.Global
 {
     public class Navigation
     {
-        public ViewModelBase currentViewModel;
+        private ViewModelBase _currentViewModel;
         public Navigation()
         {
 
@@ -16,12 +16,12 @@ namespace CasinoSimulation.Model.Global
         {
             get
             {
-                return currentViewModel;
+                return _currentViewModel;
             }
 
             set
             {
-                currentViewModel = value;
+                _currentViewModel = value;
                 OnCurrentViewModelChanged();
             }
         }

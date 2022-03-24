@@ -11,6 +11,7 @@ namespace CasinoSimulation.Command.Blackjack
             _model.SplitPlayer((Human)_model.Raymond);
             _vm.RefreshBankroll();
             _vm.RefreshHuman();
+            _vm.RefreshButtons();
         }
     }
 }

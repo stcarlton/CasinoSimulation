@@ -6,9 +6,6 @@ namespace CasinoSimulation.Model.Global
     public class User
     {
         public long Bankroll { get; set; }
-        public String Name;
-
-        //configuration settings
         public stakes UserStakes
         {
             get
@@ -22,12 +19,12 @@ namespace CasinoSimulation.Model.Global
                 MaxBet = MinBet * 100;
             }
         }
+        public String Name;
         public int NumDecks { get; set; }
-        public int[] ChipDenominations { get; set; }
-        public int[] BetRange { get; set; }
+        public int[] ChipDenominations { get; }
         public int MinBet { get; set; }
         public int MaxBet { get; set; }
-        private stakes _userStakes { get; set; }
+        private stakes _userStakes;
 
         public User(long bankroll)
         {
