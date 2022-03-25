@@ -6,15 +6,17 @@ namespace CasinoSimulation.Model.Blackjack
     public class Human : IPlayer
     {
         public Hand CurrentHand { get; set; }
+        public Stack<HumanHand> PreviousHands { get; set; }
         public Stack<HumanHand> UnresolvedHands { get; }
         public Stack<HumanHand> ResolvedHands { get; }
         public long InsuranceBet { get; set; }
-        private User _user { get; }
+        private User _user;
         public Human(User user)
         {
             CurrentHand = null;
             UnresolvedHands = new Stack<HumanHand>();
             ResolvedHands = new Stack<HumanHand>();
+            PreviousHands = new Stack<HumanHand>();
             InsuranceBet = 0;
             _user = user;
         }
@@ -39,6 +41,10 @@ namespace CasinoSimulation.Model.Blackjack
             {
                 CurrentHand = UnresolvedHands.Peek();
             }
+            if(PreviousHands.Count > 0)
+            {
+                PreviousHands.Pop();
+            }
         }
         public void DoubleDown(Card c)
         {
@@ -58,7 +64,12 @@ namespace CasinoSimulation.Model.Blackjack
             CurrentHand.ReceiveCard(a);
             _newHand.ReceiveCard(b);
             UnresolvedHands.Push(_newHand);
+            PreviousHands.Push((HumanHand)CurrentHand);
             CurrentHand = _newHand;
+        }
+        public void SettleInsurance()
+        {
+            ((HumanHand)CurrentHand).Winnings += InsuranceBet * 3;
         }
         private void CheckHuman()
         {

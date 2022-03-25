@@ -9,10 +9,10 @@ namespace CasinoSimulation.Command.Blackjack
         public override void Execute(object parameter)
         {
             _model.HitPlayer(_model.Raymond);
-            _vm.RefreshHuman();
-            _vm.RefreshDealer();
-            _vm.RefreshWinnings();
             _vm.RefreshButtons();
+            _vm.RefreshDealer();
+            _vm.RefreshHuman();
+            _vm.RefreshWinnings();
         }
     }
 }

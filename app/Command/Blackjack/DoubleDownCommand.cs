@@ -10,10 +10,10 @@ namespace CasinoSimulation.Command.Blackjack
         {
             _model.DoubleDownPlayer((Human)_model.Raymond);
             _vm.RefreshBankroll();
-            _vm.RefreshHuman();
-            _vm.RefreshDealer();
-            _vm.RefreshWinnings();
             _vm.RefreshButtons();
+            _vm.RefreshDealer();
+            _vm.RefreshHuman();
+            _vm.RefreshWinnings();
         }
     }
 }

@@ -10,10 +10,11 @@ namespace CasinoSimulation.Command.Blackjack
         {
             _model.Deal(_vm.BetValue);
             _vm.RefreshBankroll();
+            _vm.RefreshButtons();
             _vm.RefreshDealer();
             _vm.RefreshHuman();
             _vm.RefreshWinnings();
-            _vm.RefreshButtons();
+            _vm.SaveBet();
         }
     }
 }

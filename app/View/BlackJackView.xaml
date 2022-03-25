@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         
         <!--Background image-->
-        <Image Source="/View/Images/Blackjack/BJbackground.png" RenderOptions.BitmapScalingMode="Fant" Stretch="UniformToFill" Grid.ColumnSpan="5" Grid.RowSpan="7" Margin="0,0,0,0" StretchDirection="DownOnly"/>
+        <!--<Image Source="/View/Images/Blackjack/BJbackground.png" RenderOptions.BitmapScalingMode="Fant" Stretch="UniformToFill" Grid.ColumnSpan="5" Grid.RowSpan="7" Margin="0,0,0,0" StretchDirection="DownOnly"/>-->
 
         <!--Column 0, Row 0 Menu-->
         <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"  Grid.Column="0" Grid.Row="0" Command="{Binding Menu}" Style="{StaticResource GameButton}"/>
@@ -106,10 +106,14 @@
             <Button x:Name="InsuranceButton" Content="Buy Insurance" HorizontalAlignment="Right" VerticalAlignment="Center"  FontSize="18" Command="{Binding Insurance}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanBuyInsurance}" Visibility="{Binding IsOption, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
         </StackPanel>
 
-        <!--Column 4, Row 4 Deal Button-->
-        <Button x:Name="DealButton" Content="Deal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="4" Grid.Row="4" Margin="0,0,30,0" Command="{Binding Deal}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanDeal}" Visibility="{Binding IsBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
+        <!--Column 4, Row 3 Split Cards-->
+        <ListView x:Name="SplitCards" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,80,0" Grid.Column="4" Grid.Row="3" ItemsSource="{Binding SplitHandDisplay}" Style="{StaticResource GraphicalHandDisplay}" Visibility="{Binding IsNotBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
 
-        <!--Column 4, Row 4 Gameplay Buttons-->
+        <!--Column 4, Row 4 Split Bet-->
+        <ListView x:Name="SplitChips" Height="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="13,0,0,0" Grid.Column="4" Grid.Row="4" ItemsSource="{Binding SplitChipDisplay}" Style="{StaticResource GraphicalChipStack}"/>
+
+        <!--Column 4, Row 5 Gameplay Buttons-->
+        <Button x:Name="DealButton" Content="Deal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="4" Grid.Row="5" Margin="0,0,30,0" Command="{Binding Deal}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanDeal}" Visibility="{Binding IsBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
         <StackPanel Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,20,0" Visibility="{Binding IsOption, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}">
             <Button x:Name="StandButton" Content="Stand" Margin="0,0,10,0" Command="{Binding Stand}" Style="{StaticResource GameButton}"/>
             <Button x:Name="HitButton" Content="Hit" Margin="0,0,10,0" Command="{Binding Hit}" Style="{StaticResource GameButton}"/>

@@ -9,10 +9,13 @@ namespace CasinoSimulation.Command.Blackjack
         public override void Execute(object parameter)
         {
             _model.SettleHand((Human)_model.Raymond);
-            _vm.RefreshHuman();
-            _vm.RefreshWinnings();
+            ((Human)_model.Raymond).InsuranceBet = 0;
+            _vm.ResetBet();
             _vm.RefreshBankroll();
             _vm.RefreshButtons();
+            _vm.RefreshHuman();
+            _vm.RefreshInsurance();
+            _vm.RefreshWinnings();
         }
     }
 }

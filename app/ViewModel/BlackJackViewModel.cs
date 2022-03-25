@@ -80,6 +80,18 @@ namespace CasinoSimulation.ViewModel
                 return cards;
             }
         }
+        public IList<Card> SplitHandDisplay
+        {
+            get
+            {
+                IList<Card> cards = new List<Card>();
+                for (int i = 0; i < ((Human)_model.Raymond)?.PreviousHands.Count; i++)
+                {
+                    cards.Add(((Human)_model.Raymond).PreviousHands.Peek()[i]);
+                }
+                return cards;
+            }
+        }
         public IList<Chip> BankrollChipDisplay
         {
             get
@@ -109,7 +121,13 @@ namespace CasinoSimulation.ViewModel
                 return BuildChips(((Human)_model.Raymond).InsuranceBet);
             }
         }
-
+        public IList<Chip> SplitChipDisplay
+        {
+            get
+            {
+                return BuildChips(BetValue);
+            }
+        }
         public long BankrollDisplay
         {
             get
@@ -280,6 +298,7 @@ namespace CasinoSimulation.ViewModel
         private Table _model;
         private User _user;
         private long _betValue;
+        private long _betMemory;
         private Card _cardBack;
         private IList<ICommand> _betCommands;
         private IList<byte[]> _betImages;
@@ -302,6 +321,7 @@ namespace CasinoSimulation.ViewModel
             _betCommands = new List<ICommand>();
             _betImages = new List<byte[]>();
             BetValue = _user.MinBet;
+            _betMemory = _betValue;
             _cardBack = new Card("Card_Back_Blue");
             _rm = new ResourceManager("CasinoSimulation.Properties.Resources", Assembly.GetExecutingAssembly());
             for (int i = 0; i < 4; i++)
@@ -336,6 +356,11 @@ namespace CasinoSimulation.ViewModel
             OnPropertyChanged("HandStateDisplay");
             OnPropertyChanged("WinningChipDisplay");
         }
+        public void RefreshInsurance()
+        {
+            OnPropertyChanged("InsuranceChipDisplay");
+            OnPropertyChanged("CanBuyInsurance");
+        }
         public void RefreshButtons()
         {
             OnPropertyChanged("IsBetting");
@@ -346,12 +371,16 @@ namespace CasinoSimulation.ViewModel
             OnPropertyChanged("CanDoubleDown");
             OnPropertyChanged("CanSplit");
         }
+        public void SaveBet()
+        {
+            _betMemory = _betValue;
+        }
+        public void ResetBet()
+        {
+            _betValue = _betMemory;
+        }
         private IList<Chip> BuildChips(long cash)
         {
-            if (cash == 0)
-            {
-                return null;
-            }
             IList<Chip> chips = new List<Chip>();
             foreach (int i in _user.ChipDenominations)
             {

@@ -41,6 +41,10 @@ namespace CasinoSimulation.Model.Blackjack
                 }
                 _top = _cards.Count - 1;
             }
+            /**************************
+             * test scripts
+             * _cards[308] = new Card(cardRank.Ace, cardSuit.Spades);
+            /**************************/
         }
         public Card DealTopCard()
         {

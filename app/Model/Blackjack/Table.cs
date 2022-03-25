@@ -50,6 +50,11 @@ namespace CasinoSimulation.Model.Blackjack
         {
             ((Human)Raymond).InsuranceBet = betValue < 2 ? 1 : betValue / 2;
             _user.Bankroll -= ((Human)Raymond).InsuranceBet;
+            if (Nick.CurrentHand.State == handState.BlackJack)
+            {
+                ((Human)Raymond).SettleInsurance();
+                StandPlayer(Raymond);
+            }
         }
         public void StandPlayer(IPlayer p)
         {
@@ -135,7 +140,6 @@ namespace CasinoSimulation.Model.Blackjack
                     default: break;
                 }
             }
-            //PayPlayer((Human)Raymond);
         }
         public void SettleHand(Human c)
         {

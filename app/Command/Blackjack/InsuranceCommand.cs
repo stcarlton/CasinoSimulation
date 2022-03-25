@@ -10,8 +10,11 @@ namespace CasinoSimulation.Command.Blackjack
         {
             _model.PlaceInsuranceBet(_vm.BetValue);
             _vm.RefreshBankroll();
-            _vm.OnPropertyChanged("InsuranceChipDisplay");
-            _vm.OnPropertyChanged("CanBuyInsurance");
+            _vm.RefreshButtons();
+            _vm.RefreshDealer();
+            _vm.RefreshHuman();
+            _vm.RefreshInsurance();
+            _vm.RefreshWinnings();
         }
     }
 }
