@@ -12,6 +12,7 @@ namespace CasinoSimulation.Command.Blackjack
             _vm.RefreshBankroll();
             _vm.RefreshDealer();
             _vm.RefreshHuman();
+            _vm.RefreshWinnings();
             _vm.RefreshButtons();
         }
     }

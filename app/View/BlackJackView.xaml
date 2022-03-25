@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
         
         <!--Background image-->
-        <!--Image Source="/View/Images/Blackjack/BJbackground.png" RenderOptions.BitmapScalingMode="Fant" Stretch="UniformToFill" Grid.ColumnSpan="5" Grid.RowSpan="7" Margin="0,0,0,0" StretchDirection="DownOnly"/-->
+        <Image Source="/View/Images/Blackjack/BJbackground.png" RenderOptions.BitmapScalingMode="Fant" Stretch="UniformToFill" Grid.ColumnSpan="5" Grid.RowSpan="7" Margin="0,0,0,0" StretchDirection="DownOnly"/>
 
         <!--Column 0, Row 0 Menu-->
         <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"  Grid.Column="0" Grid.Row="0" Command="{Binding Menu}" Style="{StaticResource GameButton}"/>
@@ -51,13 +51,13 @@
         <Label x:Name="DealerValueLabel" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="0" FontSize="18" Style="{StaticResource LabelFormat}" Content="{Binding DealerHandValue}" Visibility="{Binding IsSettlement, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
 
         <!--Column 3, Row 1 Dealer Cards-->
-        <ListView x:Name="DealerCards" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,80,0" Grid.Column="3" Grid.Row="1" ItemsSource="{Binding DealerHandDisplay}" Style="{StaticResource GraphicalHandDisplay}"/>
+        <ListView x:Name="DealerCards" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,80,0" Grid.Column="3" Grid.Row="1" ItemsSource="{Binding DealerHandDisplay}" Style="{StaticResource GraphicalHandDisplay}" Visibility="{Binding IsNotBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
 
         <!--Column 3, Row 2 Human Hand Value-->
         <Label x:Name="HumanValueLabel" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="2" FontSize="18" Style="{StaticResource LabelFormat}" Content="{Binding HumanHandValue}" Visibility="{Binding IsNotBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
 
         <!--Column 3, Row 3 Human Cards-->
-        <ListView x:Name="HumanCards" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,80,0" Grid.Column="3" Grid.Row="3" ItemsSource="{Binding HumanHandDisplay}" Style="{StaticResource GraphicalHandDisplay}"/>
+        <ListView x:Name="HumanCards" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,80,0" Grid.Column="3" Grid.Row="3" ItemsSource="{Binding HumanHandDisplay}" Style="{StaticResource GraphicalHandDisplay}" Visibility="{Binding IsNotBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
 
         <!--Column 3, Row 4 Betting Chips-->
         <Grid Grid.Column="3" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
@@ -77,11 +77,11 @@
         <!--Column 3, Row 5 Betting Buttons-->
         <StackPanel Grid.Column="3" Grid.Row="5" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="{Binding IsBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Label HorizontalAlignment="Right" Content="Min Bet: $" FontSize="18" Style="{StaticResource LabelFormat}"/>
+                <Label HorizontalAlignment="Right" Content="Min: $" FontSize="18" Style="{StaticResource LabelFormat}"/>
                 <Label x:Name="MinBetLabel" HorizontalAlignment="Left" FontSize="18" ContentStringFormat="{}{0:#,0}" Style="{StaticResource LabelFormat}" Content="{Binding MinBet}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Label HorizontalAlignment="Right" Content="Max Bet: $" FontSize="18" Style="{StaticResource LabelFormat}"/>
+                <Label HorizontalAlignment="Right" Content="Max: $" FontSize="18" Style="{StaticResource LabelFormat}"/>
                 <Label x:Name="MaxBetLabel" HorizontalAlignment="Left" FontSize="18" ContentStringFormat="{}{0:#,0}" Style="{StaticResource LabelFormat}" Content="{Binding MaxBet}"/>
             </StackPanel>
         </StackPanel>

@@ -143,24 +143,11 @@ namespace CasinoSimulation.Model.Blackjack
             c.ResolvedHands.Pop();
             if (((Human)Raymond).ResolvedHands.Count == 0)
             {
-                TableState = tableState.settlement;
+                TableState = tableState.betting;
             }
             else
             {
                 c.CurrentHand = c.ResolvedHands.Peek();
-            }
-        }
-        private void PayPlayer(Human c)
-        {
-            foreach (HumanHand h in c.ResolvedHands)
-            {
-                switch (h.State)
-                {
-                    case handState.BlackJack: _user.Bankroll += h.Bet * 3; break;
-                    case handState.Win: _user.Bankroll += h.Bet * 2; break;
-                    case handState.Push: _user.Bankroll += h.Bet; break;
-                    default: break;
-                }
             }
         }
     }

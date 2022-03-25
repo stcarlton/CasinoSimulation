@@ -9,7 +9,7 @@
             get
             {
                 int k = HandValue;
-                return k == 9 || k == 10 || k == 11 || (_hasAce && k > 18);
+                return Cards.Count == 2 && (k == 9 || k == 10 || k == 11 || (_hasAce && k > 18));
             }
         }
 
