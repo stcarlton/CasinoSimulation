@@ -3,6 +3,7 @@
     public enum handState
     {
         Unresolved,
+        Resolved,
         BlackJack,
         Bust,
         Win,

@@ -10,12 +10,12 @@ namespace CasinoSimulation.Command.Blackjack
         {
             _model.SettleHand((Human)_model.Raymond);
             ((Human)_model.Raymond).InsuranceBet = 0;
-            _vm.ResetBet();
             _vm.RefreshBankroll();
             _vm.RefreshButtons();
             _vm.RefreshHuman();
             _vm.RefreshInsurance();
             _vm.RefreshWinnings();
+            _vm.ResetBet();
         }
     }
 }

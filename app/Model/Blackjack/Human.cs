@@ -6,7 +6,24 @@ namespace CasinoSimulation.Model.Blackjack
     public class Human : IPlayer
     {
         public Hand CurrentHand { get; set; }
-        public Stack<HumanHand> PreviousHands { get; set; }
+        public HumanHand PreviousHand
+        {
+            get
+            {
+                if(UnresolvedHands.Count > 0)
+                {
+                    return UnresolvedHands.Peek();
+                }
+                else if(ResolvedHands.Count > 0)
+                {
+                    return ResolvedHands.Peek();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
         public Stack<HumanHand> UnresolvedHands { get; }
         public Stack<HumanHand> ResolvedHands { get; }
         public long InsuranceBet { get; set; }
@@ -16,7 +33,6 @@ namespace CasinoSimulation.Model.Blackjack
             CurrentHand = null;
             UnresolvedHands = new Stack<HumanHand>();
             ResolvedHands = new Stack<HumanHand>();
-            PreviousHands = new Stack<HumanHand>();
             InsuranceBet = 0;
             _user = user;
         }
@@ -26,8 +42,7 @@ namespace CasinoSimulation.Model.Blackjack
             UnresolvedHands.Clear();
             ResolvedHands.Clear();
             _user.Bankroll -= Bet;
-            UnresolvedHands.Push(new HumanHand(Bet));
-            CurrentHand = UnresolvedHands.Peek();
+            CurrentHand =new HumanHand(Bet);
         }
         public void Hit(Card c)
         {
@@ -36,14 +51,14 @@ namespace CasinoSimulation.Model.Blackjack
         }
         public void Stand()
         {
-            ResolvedHands.Push(UnresolvedHands.Pop());
+            if (CurrentHand.State == handState.Unresolved)
+            {
+                CurrentHand.State = handState.Resolved;
+            }
             if(UnresolvedHands.Count > 0)
             {
-                CurrentHand = UnresolvedHands.Peek();
-            }
-            if(PreviousHands.Count > 0)
-            {
-                PreviousHands.Pop();
+                ResolvedHands.Push((HumanHand)CurrentHand);
+                CurrentHand = UnresolvedHands.Pop();
             }
         }
         public void DoubleDown(Card c)
@@ -64,8 +79,6 @@ namespace CasinoSimulation.Model.Blackjack
             CurrentHand.ReceiveCard(a);
             _newHand.ReceiveCard(b);
             UnresolvedHands.Push(_newHand);
-            PreviousHands.Push((HumanHand)CurrentHand);
-            CurrentHand = _newHand;
         }
         public void SettleInsurance()
         {

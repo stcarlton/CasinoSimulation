@@ -76,9 +76,22 @@ namespace CasinoSimulation.Model.Blackjack
             h.Split(_shoe.DealTopCard(), _shoe.DealTopCard());
             CheckTable();
         }
+        public void SettleHand(Human c)
+        {
+            _user.Bankroll += ((HumanHand)c.CurrentHand).Winnings;
+            if (((Human)Raymond).ResolvedHands.Count > 0)
+            {
+                c.CurrentHand = c.ResolvedHands.Pop();
+                ResolveHand(Nick.CurrentHand, (HumanHand)Raymond.CurrentHand);
+            }
+            else
+            {
+                TableState = tableState.betting;
+            }
+        }
         private void CheckTable()
         {
-            if (((Human)Raymond).UnresolvedHands.Count == 0)
+            if (Raymond.CurrentHand.State!=handState.Unresolved)
             {
                 ResolveTable();
             }
@@ -87,7 +100,7 @@ namespace CasinoSimulation.Model.Blackjack
         {
             TableState = tableState.settlement;
             ResolveDealer();
-            ResolvePlayer((Human)Raymond);
+            ResolveHand(Nick.CurrentHand, (HumanHand)Raymond.CurrentHand);
             _shoe.Shuffle();
         }
         private void ResolveDealer()
@@ -97,62 +110,39 @@ namespace CasinoSimulation.Model.Blackjack
                 Nick.Hit(_shoe.DealTopCard());
             }
         }
-        private void ResolvePlayer(Human c)
+        private void ResolveHand(Hand d, HumanHand h)
         {
-            Hand d = Nick.CurrentHand;
-            foreach (HumanHand h in c.ResolvedHands)
+            if (h.State == handState.BlackJack)
             {
-                if (h.State == handState.BlackJack)
+                if (d.State == handState.BlackJack)
                 {
-                    if (d.State == handState.BlackJack)
-                    {
-                        h.State = handState.Push;
-                    }
+                    h.State = handState.Push;
                 }
-                else if (d.State == handState.BlackJack)
+            }
+            else if (d.State == handState.BlackJack)
+            {
+                h.State = handState.Lose;
+            }
+            else if (h.State != handState.Bust)
+            {
+                if (d.State == handState.Bust)
+                {
+                    h.State = handState.Win;
+                }
+                else if (h.HandValue == d.HandValue)
+                {
+                    h.State = handState.Push;
+                }
+                else if (h.HandValue < d.HandValue)
                 {
                     h.State = handState.Lose;
                 }
-                else if (h.State != handState.Bust)
+                else
                 {
-                    if (d.State == handState.Bust)
-                    {
-                        h.State = handState.Win;
-                    }
-                    else if (h.HandValue == d.HandValue)
-                    {
-                        h.State = handState.Push;
-                    }
-                    else if (h.HandValue < d.HandValue)
-                    {
-                        h.State = handState.Lose;
-                    }
-                    else
-                    {
-                        h.State = handState.Win;
-                    }
-                }
-                switch (h.State)
-                {
-                    case handState.BlackJack: h.Winnings += h.Bet * 3; break;
-                    case handState.Win: h.Winnings += h.Bet * 2; break;
-                    case handState.Push: h.Winnings += h.Bet; break;
-                    default: break;
+                    h.State = handState.Win;
                 }
             }
-        }
-        public void SettleHand(Human c)
-        {
-            _user.Bankroll += ((HumanHand)c.CurrentHand).Winnings;
-            c.ResolvedHands.Pop();
-            if (((Human)Raymond).ResolvedHands.Count == 0)
-            {
-                TableState = tableState.betting;
-            }
-            else
-            {
-                c.CurrentHand = c.ResolvedHands.Peek();
-            }
+            h.SetWinnings();
         }
     }
 }

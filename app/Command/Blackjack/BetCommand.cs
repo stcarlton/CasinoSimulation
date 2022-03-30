@@ -24,6 +24,7 @@ namespace CasinoSimulation.Command.Blackjack
             {
                 _vm.BetValue += _bet;
             }
+            _vm.RefreshBet();
         }
     }
 }

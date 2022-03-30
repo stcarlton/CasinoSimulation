@@ -11,32 +11,30 @@ namespace CasinoSimulation.Model.Blackjack
             get
             {
                 int i = 0;
+                bool hasAce = false;
+                _soft = false;
                 foreach (Card c in Cards)
                 {
                     i += c.CardValue;
+                    if (c.Rank == cardRank.Ace)
+                    {
+                        hasAce = true;
+                    }
                 }
-                if (i <= 11 && _hasAce)
+                if (i <= 11 && hasAce)
                 {
                     i += 10;
+                    _soft = true;
                 }
                 return i;
             }
         }
-        protected bool _hasAce
-        {
-            get
-            {
-                foreach(Card c in Cards)
-                {
-                    if (c.Rank == cardRank.Ace) return true;
-                }
-                return false;
-            }
-        }
+        protected bool _soft;
 
         public Hand()
         {
             Cards = new List<Card>();
+            _soft = false;
         }
         public void ReceiveCard(Card c)
         {

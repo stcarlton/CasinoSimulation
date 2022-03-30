@@ -14,6 +14,7 @@ namespace CasinoSimulation.Command.Blackjack
             _vm.RefreshDealer();
             _vm.RefreshHuman();
             _vm.RefreshWinnings();
+            _vm.RefreshBet();
         }
     }
 }

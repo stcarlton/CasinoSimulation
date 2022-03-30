@@ -9,7 +9,7 @@
             get
             {
                 int k = HandValue;
-                return Cards.Count == 2 && (k == 9 || k == 10 || k == 11 || (_hasAce && k > 18));
+                return Cards.Count == 2 && (k == 9 || k == 10 || k == 11 || (_soft && k > 18));
             }
         }
 
@@ -38,6 +38,16 @@
             Card _retCard = Cards[0];
             Cards.RemoveAt(0);
             return _retCard;
+        }
+        public void SetWinnings()
+        {
+            switch (State)
+            {
+                case handState.BlackJack: Winnings += Bet * 3; break;
+                case handState.Win: Winnings += Bet * 2; break;
+                case handState.Push: Winnings += Bet; break;
+                default: break;
+            }
         }
     }
 }

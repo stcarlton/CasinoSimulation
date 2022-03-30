@@ -85,9 +85,9 @@ namespace CasinoSimulation.ViewModel
             get
             {
                 IList<Card> cards = new List<Card>();
-                for (int i = 0; i < ((Human)_model.Raymond)?.PreviousHands.Count; i++)
+                for (int i = 0; i < ((Human)_model.Raymond).PreviousHand?.Cards.Count; i++)
                 {
-                    cards.Add(((Human)_model.Raymond).PreviousHands.Peek()[i]);
+                    cards.Add(((Human)_model.Raymond).PreviousHand.Cards[i]);
                 }
                 return cards;
             }
@@ -103,7 +103,7 @@ namespace CasinoSimulation.ViewModel
         {
             get
             {
-                return BuildChips(BetValue);
+                return BuildChips(_betValue);
             }
         }
         public IList<Chip> WinningChipDisplay
@@ -125,7 +125,8 @@ namespace CasinoSimulation.ViewModel
         {
             get
             {
-                return BuildChips(BetValue);
+                long w = ((Human)_model.Raymond).PreviousHand == null ? 0 : ((Human)_model.Raymond).PreviousHand.Bet;
+                return BuildChips(w);
             }
         }
         public long BankrollDisplay
@@ -208,7 +209,6 @@ namespace CasinoSimulation.ViewModel
             {
                 _betValue = value;
                 OnPropertyChanged("BetValue");
-                OnPropertyChanged("BetChipDisplay");
                 OnPropertyChanged("CanBet");
                 OnPropertyChanged("CanDeal");
             }
@@ -298,7 +298,7 @@ namespace CasinoSimulation.ViewModel
         private Table _model;
         private User _user;
         private long _betValue;
-        private long _betMemory;
+        public long _betMemory;
         private Card _cardBack;
         private IList<ICommand> _betCommands;
         private IList<byte[]> _betImages;
@@ -339,6 +339,10 @@ namespace CasinoSimulation.ViewModel
             OnPropertyChanged("BankrollDisplay");
             OnPropertyChanged("BankrollChipDisplay");
         }
+        public void RefreshBet()
+        {
+            OnPropertyChanged("BetChipDisplay");
+        }
         public void RefreshDealer()
         {
             OnPropertyChanged("DealerHandDisplay");
@@ -349,6 +353,8 @@ namespace CasinoSimulation.ViewModel
             OnPropertyChanged("HumanHandDisplay");
             OnPropertyChanged("HumanHandValue");
             OnPropertyChanged("HandStateDisplay");
+            OnPropertyChanged("SplitHandDisplay");
+            OnPropertyChanged("SplitChipDisplay");
             BetValue = ((HumanHand)_model.Raymond.CurrentHand).Bet;
         }
         public void RefreshWinnings()
@@ -377,7 +383,8 @@ namespace CasinoSimulation.ViewModel
         }
         public void ResetBet()
         {
-            _betValue = _betMemory;
+            BetValue = _betMemory;
+            RefreshBet();
         }
         private IList<Chip> BuildChips(long cash)
         {
