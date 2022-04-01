@@ -6,6 +6,9 @@ using CasinoSimulation.Command.Menu;
 using System.Windows.Input;
 using System.Resources;
 using System.Reflection;
+using System.Windows.Media.Imaging;
+using System;
+using System.Windows.Controls;
 
 namespace CasinoSimulation.ViewModel
 {
@@ -295,6 +298,20 @@ namespace CasinoSimulation.ViewModel
                 return ((HumanHand)_model.Raymond.CurrentHand).SplitEligible;
             }
         }
+        public bool AnimateDeal
+        {
+            get
+            {
+                return _animateDeal;
+            }
+            set
+            {
+                _animateDeal = value;
+                OnPropertyChanged("AnimateDeal");
+            }
+        }
+        private bool _animateDeal = false;
+
         private Table _model;
         private User _user;
         private long _betValue;

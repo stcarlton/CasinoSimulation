@@ -15,6 +15,7 @@ namespace CasinoSimulation.Command.Blackjack
             _vm.RefreshHuman();
             _vm.RefreshWinnings();
             _vm.SaveBet();
+            _vm.AnimateDeal = true;
         }
     }
 }

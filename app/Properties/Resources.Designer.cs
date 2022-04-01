@@ -22,7 +22,7 @@ namespace CasinoSimulation.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace CasinoSimulation.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CasinoSimulation.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace CasinoSimulation.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _1_Flat {
+        public static byte[] _1_Flat {
             get {
                 object obj = ResourceManager.GetObject("1_Flat", resourceCulture);
                 return ((byte[])(obj));
@@ -73,7 +73,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _1_Top {
+        public static byte[] _1_Top {
             get {
                 object obj = ResourceManager.GetObject("1_Top", resourceCulture);
                 return ((byte[])(obj));
@@ -83,7 +83,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _10_Flat {
+        public static byte[] _10_Flat {
             get {
                 object obj = ResourceManager.GetObject("10_Flat", resourceCulture);
                 return ((byte[])(obj));
@@ -93,7 +93,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _10_Top {
+        public static byte[] _10_Top {
             get {
                 object obj = ResourceManager.GetObject("10_Top", resourceCulture);
                 return ((byte[])(obj));
@@ -103,7 +103,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _100_Flat {
+        public static byte[] _100_Flat {
             get {
                 object obj = ResourceManager.GetObject("100_Flat", resourceCulture);
                 return ((byte[])(obj));
@@ -113,7 +113,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _100_Top {
+        public static byte[] _100_Top {
             get {
                 object obj = ResourceManager.GetObject("100_Top", resourceCulture);
                 return ((byte[])(obj));
@@ -123,7 +123,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _1000_Flat {
+        public static byte[] _1000_Flat {
             get {
                 object obj = ResourceManager.GetObject("1000_Flat", resourceCulture);
                 return ((byte[])(obj));
@@ -133,7 +133,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _1000_Top {
+        public static byte[] _1000_Top {
             get {
                 object obj = ResourceManager.GetObject("1000_Top", resourceCulture);
                 return ((byte[])(obj));
@@ -143,7 +143,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _10000_Flat {
+        public static byte[] _10000_Flat {
             get {
                 object obj = ResourceManager.GetObject("10000_Flat", resourceCulture);
                 return ((byte[])(obj));
@@ -153,7 +153,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _10000_Top {
+        public static byte[] _10000_Top {
             get {
                 object obj = ResourceManager.GetObject("10000_Top", resourceCulture);
                 return ((byte[])(obj));
@@ -163,7 +163,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _2000_Flat {
+        public static byte[] _2000_Flat {
             get {
                 object obj = ResourceManager.GetObject("2000_Flat", resourceCulture);
                 return ((byte[])(obj));
@@ -173,7 +173,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _2000_Top {
+        public static byte[] _2000_Top {
             get {
                 object obj = ResourceManager.GetObject("2000_Top", resourceCulture);
                 return ((byte[])(obj));
@@ -183,7 +183,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _25_Flat {
+        public static byte[] _25_Flat {
             get {
                 object obj = ResourceManager.GetObject("25_Flat", resourceCulture);
                 return ((byte[])(obj));
@@ -193,7 +193,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _25_Top {
+        public static byte[] _25_Top {
             get {
                 object obj = ResourceManager.GetObject("25_Top", resourceCulture);
                 return ((byte[])(obj));
@@ -203,7 +203,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _250_Flat {
+        public static byte[] _250_Flat {
             get {
                 object obj = ResourceManager.GetObject("250_Flat", resourceCulture);
                 return ((byte[])(obj));
@@ -213,7 +213,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _250_Top {
+        public static byte[] _250_Top {
             get {
                 object obj = ResourceManager.GetObject("250_Top", resourceCulture);
                 return ((byte[])(obj));
@@ -223,7 +223,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _5_Flat {
+        public static byte[] _5_Flat {
             get {
                 object obj = ResourceManager.GetObject("5_Flat", resourceCulture);
                 return ((byte[])(obj));
@@ -233,7 +233,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _5_Top {
+        public static byte[] _5_Top {
             get {
                 object obj = ResourceManager.GetObject("5_Top", resourceCulture);
                 return ((byte[])(obj));
@@ -243,7 +243,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _500_Flat {
+        public static byte[] _500_Flat {
             get {
                 object obj = ResourceManager.GetObject("500_Flat", resourceCulture);
                 return ((byte[])(obj));
@@ -253,7 +253,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _500_Top {
+        public static byte[] _500_Top {
             get {
                 object obj = ResourceManager.GetObject("500_Top", resourceCulture);
                 return ((byte[])(obj));
@@ -263,7 +263,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _5000_Flat {
+        public static byte[] _5000_Flat {
             get {
                 object obj = ResourceManager.GetObject("5000_Flat", resourceCulture);
                 return ((byte[])(obj));
@@ -273,7 +273,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] _5000_Top {
+        public static byte[] _5000_Top {
             get {
                 object obj = ResourceManager.GetObject("5000_Top", resourceCulture);
                 return ((byte[])(obj));
@@ -283,7 +283,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Ace_of_Clubs {
+        public static byte[] Ace_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Ace_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -293,7 +293,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Ace_of_Diamonds {
+        public static byte[] Ace_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("Ace_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -303,7 +303,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Ace_of_Hearts {
+        public static byte[] Ace_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("Ace_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -313,7 +313,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Ace_of_Spades {
+        public static byte[] Ace_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("Ace_of_Spades", resourceCulture);
                 return ((byte[])(obj));
@@ -323,7 +323,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] BJbackground {
+        public static byte[] BJbackground {
             get {
                 object obj = ResourceManager.GetObject("BJbackground", resourceCulture);
                 return ((byte[])(obj));
@@ -333,7 +333,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Card_Back_Blue {
+        public static byte[] Card_Back_Blue {
             get {
                 object obj = ResourceManager.GetObject("Card_Back_Blue", resourceCulture);
                 return ((byte[])(obj));
@@ -343,7 +343,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Eight_of_Clubs {
+        public static byte[] Eight_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Eight_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -353,7 +353,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Eight_of_Diamonds {
+        public static byte[] Eight_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("Eight_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -363,7 +363,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Eight_of_Hearts {
+        public static byte[] Eight_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("Eight_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -373,7 +373,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Eight_of_Spades {
+        public static byte[] Eight_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("Eight_of_Spades", resourceCulture);
                 return ((byte[])(obj));
@@ -383,7 +383,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Five_of_Clubs {
+        public static byte[] Five_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Five_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -393,7 +393,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Five_of_Diamonds {
+        public static byte[] Five_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("Five_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -403,7 +403,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Five_of_Hearts {
+        public static byte[] Five_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("Five_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -413,7 +413,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Five_of_Spades {
+        public static byte[] Five_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("Five_of_Spades", resourceCulture);
                 return ((byte[])(obj));
@@ -423,7 +423,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Four_of_Clubs {
+        public static byte[] Four_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Four_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -433,7 +433,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Four_of_Diamonds {
+        public static byte[] Four_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("Four_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -443,7 +443,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Four_of_Hearts {
+        public static byte[] Four_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("Four_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -453,7 +453,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Four_of_Spades {
+        public static byte[] Four_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("Four_of_Spades", resourceCulture);
                 return ((byte[])(obj));
@@ -463,7 +463,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Jack_of_Clubs {
+        public static byte[] Jack_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Jack_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -473,7 +473,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Jack_of_Diamonds {
+        public static byte[] Jack_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("Jack_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -483,7 +483,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Jack_of_Hearts {
+        public static byte[] Jack_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("Jack_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -493,7 +493,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Jack_of_Spades {
+        public static byte[] Jack_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("Jack_of_Spades", resourceCulture);
                 return ((byte[])(obj));
@@ -503,7 +503,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] King_of_Clubs {
+        public static byte[] King_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("King_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -513,7 +513,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] King_of_Diamonds {
+        public static byte[] King_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("King_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -523,7 +523,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] King_of_Hearts {
+        public static byte[] King_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("King_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -533,7 +533,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] King_of_Spades {
+        public static byte[] King_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("King_of_Spades", resourceCulture);
                 return ((byte[])(obj));
@@ -543,7 +543,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Nine_of_Clubs {
+        public static byte[] Nine_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Nine_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -553,7 +553,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Nine_of_Diamonds {
+        public static byte[] Nine_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("Nine_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -563,7 +563,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Nine_of_Hearts {
+        public static byte[] Nine_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("Nine_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -573,7 +573,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Nine_of_Spades {
+        public static byte[] Nine_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("Nine_of_Spades", resourceCulture);
                 return ((byte[])(obj));
@@ -583,7 +583,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Queen_of_Clubs {
+        public static byte[] Queen_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Queen_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -593,7 +593,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Queen_of_Diamonds {
+        public static byte[] Queen_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("Queen_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -603,7 +603,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Queen_of_Hearts {
+        public static byte[] Queen_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("Queen_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -613,7 +613,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Queen_of_Spades {
+        public static byte[] Queen_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("Queen_of_Spades", resourceCulture);
                 return ((byte[])(obj));
@@ -623,7 +623,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Seven_of_Clubs {
+        public static byte[] Seven_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Seven_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -633,7 +633,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Seven_of_Diamonds {
+        public static byte[] Seven_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("Seven_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -643,7 +643,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Seven_of_Hearts {
+        public static byte[] Seven_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("Seven_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -653,7 +653,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Seven_of_Spades {
+        public static byte[] Seven_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("Seven_of_Spades", resourceCulture);
                 return ((byte[])(obj));
@@ -663,7 +663,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Six_of_Clubs {
+        public static byte[] Six_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Six_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -673,7 +673,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Six_of_Diamonds {
+        public static byte[] Six_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("Six_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -683,7 +683,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Six_of_Hearts {
+        public static byte[] Six_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("Six_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -693,7 +693,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Six_of_Spades {
+        public static byte[] Six_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("Six_of_Spades", resourceCulture);
                 return ((byte[])(obj));
@@ -703,7 +703,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Ten_of_Clubs {
+        public static byte[] Ten_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Ten_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -713,7 +713,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Ten_of_Diamonds {
+        public static byte[] Ten_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("Ten_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -723,7 +723,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Ten_of_Hearts {
+        public static byte[] Ten_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("Ten_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -733,7 +733,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Ten_of_Spades {
+        public static byte[] Ten_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("Ten_of_Spades", resourceCulture);
                 return ((byte[])(obj));
@@ -743,7 +743,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Three_of_Clubs {
+        public static byte[] Three_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Three_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -753,7 +753,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Three_of_Diamonds {
+        public static byte[] Three_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("Three_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -763,7 +763,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Three_of_Hearts {
+        public static byte[] Three_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("Three_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -773,7 +773,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Three_of_Spades {
+        public static byte[] Three_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("Three_of_Spades", resourceCulture);
                 return ((byte[])(obj));
@@ -783,7 +783,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Two_of_Clubs {
+        public static byte[] Two_of_Clubs {
             get {
                 object obj = ResourceManager.GetObject("Two_of_Clubs", resourceCulture);
                 return ((byte[])(obj));
@@ -793,7 +793,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Two_of_Diamonds {
+        public static byte[] Two_of_Diamonds {
             get {
                 object obj = ResourceManager.GetObject("Two_of_Diamonds", resourceCulture);
                 return ((byte[])(obj));
@@ -803,7 +803,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Two_of_Hearts {
+        public static byte[] Two_of_Hearts {
             get {
                 object obj = ResourceManager.GetObject("Two_of_Hearts", resourceCulture);
                 return ((byte[])(obj));
@@ -813,7 +813,7 @@ namespace CasinoSimulation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Two_of_Spades {
+        public static byte[] Two_of_Spades {
             get {
                 object obj = ResourceManager.GetObject("Two_of_Spades", resourceCulture);
                 return ((byte[])(obj));

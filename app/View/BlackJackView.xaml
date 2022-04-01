@@ -23,13 +23,13 @@
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        
+
         <!--Background image-->
-        <Image Source="/View/Images/Blackjack/BJbackground.png" RenderOptions.BitmapScalingMode="Fant" Stretch="UniformToFill" Grid.ColumnSpan="7" Grid.RowSpan="7" Margin="0,0,0,0" StretchDirection="DownOnly"/>
+        <!--<Image Source="/View/Images/Blackjack/BJbackground.png" RenderOptions.BitmapScalingMode="Fant" Stretch="UniformToFill" Grid.ColumnSpan="7" Grid.RowSpan="7" Margin="0,0,0,0" StretchDirection="DownOnly"/>-->
 
         <!--Column 0, Row 0 Menu-->
         <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"  Grid.Column="0" Grid.Row="0" Command="{Binding Menu}" Style="{StaticResource GameButton}"/>
-        
+
         <!--Column 0, Row 4 Bankroll Chips-->
         <ListView x:Name="BankrollChips" Height="600" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" ItemsSource="{Binding BankrollChipDisplay}" Style="{StaticResource GraphicalChipStack}"/>
 
@@ -124,5 +124,81 @@
             <Button x:Name="SplitButton" Content="Split" Margin="0,0,10,0" Command="{Binding Split}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanSplit}"/>
         </StackPanel>
 
+        <!--<Canvas Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3">
+            <Image x:Name="Card_Back_Blue" Source="/View/Images/Blackjack/Cards/Card_Back_Blue.png" RenderOptions.BitmapScalingMode="Fant" Width="100" Canvas.Right="350" Canvas.Top="0"/>
+            --><!--<Canvas.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding AnimateDeal}" Value="True">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard Storyboard.TargetProperty="(Canvas.Right)">
+                                        <DoubleAnimation From="350" To="667" Duration="0:0:1" AccelerationRatio=".2" DecelerationRatio=".8"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Canvas.Style>--><!--
+            <Canvas.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetName="Card_Back_Blue" Storyboard.TargetProperty="(Canvas.Right)">
+                            <DoubleAnimation From="350" To="667" Duration="0:0:1" AccelerationRatio=".2" DecelerationRatio=".8"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                    <BeginStoryboard>
+                        <Storyboard Storyboard.TargetName="Card_Back_Blue" Storyboard.TargetProperty="(Canvas.Top)">
+                            <DoubleAnimation From="0" To="285" Duration="0:0:1" AccelerationRatio=".2" DecelerationRatio=".8"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Canvas.Triggers>
+        </Canvas>-->
+        <Image x:Name="Card_Back_Blue" Source="/View/Images/Blackjack/Cards/Card_Back_Blue.png" RenderOptions.BitmapScalingMode="Fant" Width="100">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform x:Name="CardBackTransform" X="0" Y="0"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Style>
+                <Style>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding AnimateDeal}" Value="True">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="500" Duration="0:0:1" RepeatBehavior="1x"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
+        <!--<Image x:Name="Card_Back_Blue" Source="/View/Images/Blackjack/Cards/Card_Back_Blue.png" RenderOptions.BitmapScalingMode="Fant" Width="100">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform x:Name="CardBackTransform" X="0" Y="0"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)"  From="0" To="180" Duration="0:0:1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>-->
     </Grid>
 </UserControl>
