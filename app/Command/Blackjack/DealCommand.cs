@@ -1,5 +1,6 @@
 ﻿using CasinoSimulation.Model.Blackjack;
 using CasinoSimulation.ViewModel;
+using System.Threading.Tasks;
 
 namespace CasinoSimulation.Command.Blackjack
 {   
@@ -8,14 +9,35 @@ namespace CasinoSimulation.Command.Blackjack
         public DealCommand(Table model, BlackJackViewModel vm) : base(model, vm) { }
         public override void Execute(object parameter)
         {
-            _model.Deal(_vm.BetValue);
-            _vm.RefreshBankroll();
-            _vm.RefreshButtons();
-            _vm.RefreshDealer();
+            int delayCounter = 0;
+            
+            _model.DealIn(_vm.BetValue);
+            _vm.DealerHandDisplay.Clear();
+            _vm.HumanHandDisplay.Clear();
             _vm.RefreshHuman();
-            _vm.RefreshWinnings();
-            _vm.SaveBet();
-            _vm.AnimateDeal = true;
+            _vm.RefreshDealer();
+            _vm.RefreshBankroll();
+            _vm.AnimateDeal();
+            _vm.RefreshButtons();
+
+            foreach(IPlayer p in _model.Players)
+            {
+                delayCounter += BlackJackViewModel.DELAY_MILLISECONDS;
+                _vm.DealCard(delayCounter, p);
+            }
+            foreach (IPlayer p in _model.Players)
+            {
+                delayCounter += BlackJackViewModel.DELAY_MILLISECONDS;
+                _vm.DealCard(delayCounter, p);
+            }
+
+            Task.Delay(delayCounter).ContinueWith(_ =>
+            {
+                _vm.RefreshButtons();
+                _vm.RefreshWinnings();
+                _vm.SaveBet();
+                _model.CheckTable();
+            });
         }
     }
 }

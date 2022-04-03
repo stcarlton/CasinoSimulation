@@ -44,12 +44,12 @@ namespace CasinoSimulation.Model.Blackjack
             /*********************************************************
              * 
              * Testing mode:
-             *
+             */
             for(int i = 0; i < _cards.Count; i++)
             {
                _cards[i] = new Card(cardRank.Ace, cardSuit.Spades);
             }
-            * 
+            /* 
             **********************************************************/
         }
         public Card DealTopCard()

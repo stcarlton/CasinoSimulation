@@ -6,14 +6,12 @@ using CasinoSimulation.Command.Menu;
 using System.Windows.Input;
 using System.Resources;
 using System.Reflection;
-using System.Windows.Media.Imaging;
-using System;
-using System.Windows.Controls;
+using System.Threading.Tasks;
 
 namespace CasinoSimulation.ViewModel
 {
     public class BlackJackViewModel : ViewModelBase
-    {
+    {       
         public ICommand Menu { get; }
         public ICommand Deal { get; }
         public ICommand Insurance { get; }
@@ -298,19 +296,43 @@ namespace CasinoSimulation.ViewModel
                 return ((HumanHand)_model.Raymond.CurrentHand).SplitEligible;
             }
         }
-        public bool AnimateDeal
+        public bool AnimateDealTrigger
         {
             get
             {
-                return _animateDeal;
+                return _animateDealTrigger;
             }
             set
             {
-                _animateDeal = value;
-                OnPropertyChanged("AnimateDeal");
+                _animateDealTrigger = value;
+                OnPropertyChanged("AnimateDealTrigger");
             }
         }
-        private bool _animateDeal = false;
+        public bool AnimateHitPlayerTrigger
+        {
+            get
+            {
+                return _animateHitPlayerTrigger;
+            }
+            set
+            {
+                _animateHitPlayerTrigger = value;
+                OnPropertyChanged("AnimateHitPlayerTrigger");
+            }
+        }
+        public bool AnimateHitSplitTrigger
+        {
+            get
+            {
+                return _animateHitSplitTrigger;
+            }
+            set
+            {
+                _animateHitSplitTrigger = value;
+                OnPropertyChanged("AnimateHitSplitTrigger");
+            }
+        }
+        public const int DELAY_MILLISECONDS = 400;
 
         private Table _model;
         private User _user;
@@ -321,6 +343,9 @@ namespace CasinoSimulation.ViewModel
         private IList<byte[]> _betImages;
         private ResourceManager _rm;
         private string _resourceName;
+        private bool _animateDealTrigger = false;
+        private bool _animateHitPlayerTrigger = false;
+        private bool _animateHitSplitTrigger = false;
 
         public BlackJackViewModel(Navigation navigation, User user)
         {
@@ -402,6 +427,30 @@ namespace CasinoSimulation.ViewModel
         {
             BetValue = _betMemory;
             RefreshBet();
+        }
+        public void AnimateDeal()
+        {
+            AnimateDealTrigger = true;
+            AnimateDealTrigger = false;
+        }
+        public void AnimateHitPlayer()
+        {
+            AnimateHitPlayerTrigger = true;
+            AnimateHitPlayerTrigger = false;
+        }
+        public void AnimateHitSplit()
+        {
+            AnimateHitSplitTrigger = true;
+            AnimateHitSplitTrigger = false;
+        }
+        public void DealCard(int delay, IPlayer target)
+        {
+            Task.Delay(delay).ContinueWith(_ =>
+            {
+                _model.HitPlayer(target);
+                RefreshHuman();
+                RefreshDealer();
+            });
         }
         private IList<Chip> BuildChips(long cash)
         {

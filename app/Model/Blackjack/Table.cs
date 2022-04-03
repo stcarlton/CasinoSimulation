@@ -13,10 +13,17 @@ namespace CasinoSimulation.Model.Blackjack
             get
             {
                 long bet = ((HumanHand)Raymond.CurrentHand)?.Bet < 2 ? 1 : ((HumanHand)Raymond.CurrentHand).Bet;
-                return Nick.CurrentHand?.Cards[1].Rank == cardRank.Ace && bet <= _user.Bankroll && ((Human)Raymond).InsuranceBet == 0;
+                if(Nick.CurrentHand?.Cards.Count < 2)
+                {
+                    return false;
+                }
+                else
+                {
+                    return Nick.CurrentHand?.Cards[1].Rank == cardRank.Ace && bet <= _user.Bankroll && ((Human)Raymond).InsuranceBet == 0;
+                }
             }
         }
-        private List<IPlayer> _players { get; }
+        public List<IPlayer> Players { get; }
         private Deck _shoe { get; }
         private User _user { get; }
 
@@ -25,26 +32,20 @@ namespace CasinoSimulation.Model.Blackjack
             TableState = 0;
             Nick = new Dealer();
             Raymond = new Human(user);
-            _players = new List<IPlayer>();
+            Players = new List<IPlayer>();
             _shoe = new Deck(user.NumDecks);
-            _players.Add(Raymond);
-            _players.Add(Nick);
+            Players.Add(Raymond);
+            Players.Add(Nick);
             _user = user;
         }
 
-        public void Deal(long bet)
+        public void DealIn(long bet)
         {
             TableState = tableState.option;
-            foreach(IPlayer p in _players)
+            foreach(IPlayer p in Players)
             {
                 p.DealIn(bet);
-                p.Hit(_shoe.DealTopCard());
             }
-            foreach (IPlayer p in _players)
-            {
-                p.Hit(_shoe.DealTopCard());
-            }
-            CheckTable();
         }
         public void PlaceInsuranceBet(long betValue)
         {
@@ -71,9 +72,13 @@ namespace CasinoSimulation.Model.Blackjack
             h.DoubleDown(_shoe.DealTopCard());
             CheckTable();
         }
-        public void SplitPlayer(Human h)
+        public void SplitUpPlayer(Human h)
         {
-            h.Split(_shoe.DealTopCard(), _shoe.DealTopCard());
+            h.SplitUp();
+        }
+        public void DealSplitPlayer(Human h)
+        {
+            h.DealSplit(_shoe.DealTopCard(), _shoe.DealTopCard());
             CheckTable();
         }
         public void SettleHand(Human c)
@@ -89,7 +94,7 @@ namespace CasinoSimulation.Model.Blackjack
                 TableState = tableState.betting;
             }
         }
-        private void CheckTable()
+        public void CheckTable()
         {
             if (Raymond.CurrentHand.State!=handState.Unresolved)
             {

@@ -71,14 +71,17 @@ namespace CasinoSimulation.Model.Blackjack
                 Stand();
             }
         }
-        public void Split(Card a, Card b)
+        public void SplitUp()
         {
             HumanHand _newHand = new HumanHand(((HumanHand)CurrentHand).Bet);
             _user.Bankroll -= ((HumanHand)CurrentHand).Bet;
             _newHand.ReceiveCard(((HumanHand)CurrentHand).TakeCard());
-            CurrentHand.ReceiveCard(a);
-            _newHand.ReceiveCard(b);
             UnresolvedHands.Push(_newHand);
+        }
+        public void DealSplit(Card a, Card b)
+        {
+            CurrentHand.ReceiveCard(a);
+            UnresolvedHands.Peek().ReceiveCard(b);
         }
         public void SettleInsurance()
         {
