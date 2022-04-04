@@ -16,6 +16,7 @@ namespace CasinoSimulation.Command.Blackjack
         }
         public override void Execute(object parameter)
         {
+            _vm.ChipSound.Play();
             if(_vm.BetValue + _bet > _vm.MaxBet)
             {
                 _vm.BetValue = _vm.MaxBet;

@@ -18,7 +18,9 @@ namespace CasinoSimulation.Command.Blackjack
             _vm.RefreshDealer();
             _vm.RefreshBankroll();
             _vm.AnimateDeal();
+            _vm.ToggleButtons();
             _vm.RefreshButtons();
+            _vm.CardSounds.Play();
 
             foreach(IPlayer p in _model.Players)
             {
@@ -33,6 +35,8 @@ namespace CasinoSimulation.Command.Blackjack
 
             Task.Delay(delayCounter).ContinueWith(_ =>
             {
+                _vm.CardSounds.Stop();
+                _vm.ToggleButtons();
                 _vm.RefreshButtons();
                 _vm.RefreshWinnings();
                 _vm.SaveBet();

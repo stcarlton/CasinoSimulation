@@ -199,8 +199,20 @@
   <data name="BJbackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\view\images\blackjack\bjbackground.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="cardFan2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\sounds\cardfan2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cardPlace4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\sounds\cardplace4.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cardShuffle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\sounds\cardshuffle.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Card_Back_Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\view\images\blackjack\cards\card_back_blue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="chipsCollide1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\view\sounds\chipscollide1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Eight_of_Clubs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\view\images\blackjack\cards\eight_of_clubs.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

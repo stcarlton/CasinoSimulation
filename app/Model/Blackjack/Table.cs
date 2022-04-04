@@ -19,7 +19,11 @@ namespace CasinoSimulation.Model.Blackjack
                 }
                 else
                 {
-                    return Nick.CurrentHand?.Cards[1].Rank == cardRank.Ace && bet <= _user.Bankroll && ((Human)Raymond).InsuranceBet == 0;
+                    return Nick.CurrentHand?.Cards[1].Rank == cardRank.Ace 
+                        && bet <= _user.Bankroll && ((Human)Raymond).InsuranceBet == 0 
+                        && Raymond.CurrentHand.Cards.Count == 2 
+                        && ((Human)Raymond).UnresolvedHands.Count < 1 
+                        && ((Human)Raymond).ResolvedHands.Count < 1;
                 }
             }
         }

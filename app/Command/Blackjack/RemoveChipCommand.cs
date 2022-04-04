@@ -12,6 +12,7 @@ namespace CasinoSimulation.Command.Blackjack
         }
         public override void Execute(object parameter)
         {
+            _vm.ChipSound.Play();
             if (_vm.BetChipDisplay.Count == 0)
             {
                 return;

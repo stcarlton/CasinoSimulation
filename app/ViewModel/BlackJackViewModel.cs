@@ -7,11 +7,13 @@ using System.Windows.Input;
 using System.Resources;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Media;
+using System.IO;
 
 namespace CasinoSimulation.ViewModel
 {
     public class BlackJackViewModel : ViewModelBase
-    {       
+    {
         public ICommand Menu { get; }
         public ICommand Deal { get; }
         public ICommand Insurance { get; }
@@ -274,6 +276,30 @@ namespace CasinoSimulation.ViewModel
                 return _model.InsuranceEligible;
             }
         }
+        public bool CanStand
+        {
+            get
+            {
+                return _canStand;
+            }
+            set
+            {
+                _canStand = value;
+                OnPropertyChanged("CanStand");
+            }
+        }
+        public bool CanHit
+        {
+            get
+            {
+                return _canHit;
+            }
+            set
+            {
+                _canHit = value;
+                OnPropertyChanged("CanHit");
+            }
+        }
         public bool CanDoubleDown
         {
             get
@@ -332,17 +358,22 @@ namespace CasinoSimulation.ViewModel
                 OnPropertyChanged("AnimateHitSplitTrigger");
             }
         }
+        public SoundPlayer ShuffleSound;
+        public SoundPlayer ChipSound;
+        public SoundPlayer CardSound;
+        public SoundPlayer CardSounds;
         public const int DELAY_MILLISECONDS = 400;
 
         private Table _model;
         private User _user;
         private long _betValue;
-        public long _betMemory;
+        private long _betMemory;
+        private bool _canStand = true;
+        private bool _canHit = true;
         private Card _cardBack;
         private IList<ICommand> _betCommands;
         private IList<byte[]> _betImages;
         private ResourceManager _rm;
-        private string _resourceName;
         private bool _animateDealTrigger = false;
         private bool _animateHitPlayerTrigger = false;
         private bool _animateHitSplitTrigger = false;
@@ -368,12 +399,18 @@ namespace CasinoSimulation.ViewModel
             _rm = new ResourceManager("CasinoSimulation.Properties.Resources", Assembly.GetExecutingAssembly());
             for (int i = 0; i < 4; i++)
             {
+                string resourceName;
                 int chipIndex = (i > 1 && (int)_user.UserStakes == 10) ? (int)_user.UserStakes - i - 1 : (int)_user.UserStakes - i;
                 int chipValue = _user.ChipDenominations[chipIndex];
-                _resourceName = chipValue + "_Top";
+                resourceName = chipValue + "_Top";
                 _betCommands.Add(new BetCommand(this, chipValue));
-                _betImages.Add((byte[])_rm.GetObject(_resourceName));
+                _betImages.Add((byte[])_rm.GetObject(resourceName));
             }
+            ShuffleSound = new SoundPlayer((Stream)_rm.GetObject("cardFan2"));
+            ChipSound = new SoundPlayer((Stream)_rm.GetObject("chipsCollide1"));
+            CardSound = new SoundPlayer((Stream)_rm.GetObject("cardPlace4"));
+            CardSounds = new SoundPlayer((Stream)_rm.GetObject("cardShuffle"));
+            ShuffleSound.Play();
         }
         
         public void RefreshBankroll()
@@ -451,6 +488,11 @@ namespace CasinoSimulation.ViewModel
                 RefreshHuman();
                 RefreshDealer();
             });
+        }
+        public void ToggleButtons()
+        {
+            CanStand = !CanStand;
+            CanHit = !CanHit;
         }
         private IList<Chip> BuildChips(long cash)
         {

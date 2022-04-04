@@ -45,9 +45,6 @@
         <!--Column 1, Row 3 Hand Result-->
         <Label x:Name="HandStateLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Grid.Column="1" Grid.Row="3" Style="{StaticResource LabelFormat}" Content="{Binding HandStateDisplay}" Visibility="{Binding IsSettlement, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
 
-        <!--Column 1, Row 5 Next Hand Button-->
-        <Button x:Name="NextHandButton" Content="Next Hand" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="5" FontSize="24" Command="{Binding NextHand}" Style="{StaticResource GameButton}" Visibility="{Binding IsSettlement, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
-
         <!--Column 2, Row 5 Min, Max Bet Label-->
         <StackPanel Grid.Column="2" Grid.Row="5" Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Center" Visibility="{Binding IsBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
@@ -116,112 +113,19 @@
         <ListView x:Name="SplitChips" Height="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="13,0,0,0" Grid.Column="4" Grid.Row="4" ItemsSource="{Binding SplitChipDisplay}" Style="{StaticResource GraphicalChipStack}"/>
 
         <!--Column 4, Row 5 Gameplay Buttons-->
-        <Button x:Name="DealButton" Content="Deal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Column="4" Grid.Row="5" Command="{Binding Deal}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanDeal}" Visibility="{Binding IsBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
+        <Button x:Name="DealButton" Content="Deal" HorizontalAlignment="Right" Grid.Column="4" Grid.Row="5" Command="{Binding Deal}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanDeal}" Visibility="{Binding IsBetting, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
+        <Button x:Name="NextHandButton" Content="Next Hand" HorizontalAlignment="Right" Grid.Column="4" Grid.Row="5" FontSize="24" Command="{Binding NextHand}" Style="{StaticResource GameButton}" Visibility="{Binding IsSettlement, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}"/>
         <StackPanel Grid.Column="4" Grid.Row="5" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,0,0" Visibility="{Binding IsOption, Converter={StaticResource BoolToVisibility}, FallbackValue=Hidden}">
-            <Button x:Name="StandButton" Content="Stand" Margin="0,0,10,0" Command="{Binding Stand}" Style="{StaticResource GameButton}"/>
-            <Button x:Name="HitButton" Content="Hit" Margin="0,0,10,0" Command="{Binding Hit}" Style="{StaticResource GameButton}"/>
+            <Button x:Name="StandButton" Content="Stand" Margin="0,0,10,0" Command="{Binding Stand}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanStand}"/>
+            <Button x:Name="HitButton" Content="Hit" Margin="0,0,10,0" Command="{Binding Hit}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanHit}"/>
             <Button x:Name="DoubleDownButton" Content="Double" Margin="0,0,10,0" Command="{Binding DoubleDown}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanDoubleDown}"/>
             <Button x:Name="SplitButton" Content="Split" Margin="0,0,10,0" Command="{Binding Split}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanSplit}"/>
         </StackPanel>
 
-        <Image x:Name="Card_Back_Blue" Source="/View/Images/Blackjack/Cards/Card_Back_Blue.png" RenderOptions.BitmapScalingMode="Fant" Panel.ZIndex="1" Height="145.2" Width="100" Margin="325,-300,0,0" Grid.ColumnSpan="2" Grid.Column="3">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0" Y="0"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Style>
-                <Style>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding AnimateDealTrigger}" Value="True">
-                            <DataTrigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="550" Duration="0:0:0.4" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="-400" Duration="0:0:0.4" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="550" To="0" Duration="0:0:0" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-400" To="0" Duration="0:0:0" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
+        <!--Off screen Card Animations-->
+        <Image x:Name="Card_Back_Blue" RenderOptions.BitmapScalingMode="Fant" Style="{StaticResource DealAnimation}"/>
+        <Image x:Name="Card_Back_Blue2" RenderOptions.BitmapScalingMode="Fant" Style="{StaticResource HitPlayerAnimation}"/>
+        <Image x:Name="Card_Back_Blue3" RenderOptions.BitmapScalingMode="Fant" Style="{StaticResource HitSplitAnimation}"/>
 
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="270" Duration="0:0:0.4" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="-400" Duration="0:0:0.4"  BeginTime="0:0:0.4" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="270" To="0" Duration="0:0:0" BeginTime="0:0:0.8" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-400" To="0" Duration="0:0:0" BeginTime="0:0:0.8" RepeatBehavior="1x"/>
-
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="550" Duration="0:0:0.4" BeginTime="0:0:0.8" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="-400" Duration="0:0:0.4"  BeginTime="0:0:0.8" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="550" To="0" Duration="0:0:0" BeginTime="0:0:1.2" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-400" To="0" Duration="0:0:0" BeginTime="0:0:1.2" RepeatBehavior="1x"/>
-
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="270" Duration="0:0:0.4" BeginTime="0:0:1.2" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="-400" Duration="0:0:0.4"  BeginTime="0:0:1.2" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="270" To="0" Duration="0:0:0" BeginTime="0:0:1.6" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-400" To="0" Duration="0:0:0" BeginTime="0:0:1.6" RepeatBehavior="1x"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </DataTrigger.EnterActions>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Image.Style>
-        </Image>
-        <Image x:Name="Card_Back_Blue2" Source="/View/Images/Blackjack/Cards/Card_Back_Blue.png" RenderOptions.BitmapScalingMode="Fant" Panel.ZIndex="1" Height="145.2" Width="100" Margin="325,-300,0,0" Grid.ColumnSpan="2" Grid.Column="3" >
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0" Y="0"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Style>
-                <Style>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding AnimateHitPlayerTrigger}" Value="True">
-                            <DataTrigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="550" Duration="0:0:0.4" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="-400" Duration="0:0:0.4" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="550" To="0" Duration="0:0:0" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-400" To="0" Duration="0:0:0" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </DataTrigger.EnterActions>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Image.Style>
-        </Image>
-        <Image x:Name="Card_Back_Blue3" Source="/View/Images/Blackjack/Cards/Card_Back_Blue.png" RenderOptions.BitmapScalingMode="Fant" Panel.ZIndex="1" Height="145.2" Width="100" Margin="325,-300,0,0" Grid.ColumnSpan="2" Grid.Column="3" >
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0" Y="0"/>
-                </TransformGroup>
-            </Image.RenderTransform>
-            <Image.Style>
-                <Style>
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding AnimateHitSplitTrigger}" Value="True">
-                            <DataTrigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="550" Duration="0:0:0.4" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="80" Duration="0:0:0.4" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="550" To="0" Duration="0:0:0" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="80" To="0" Duration="0:0:0" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </DataTrigger.EnterActions>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Image.Style>
-        </Image>
     </Grid>
 </UserControl>

@@ -121,5 +121,126 @@
                 </Setter.Value>
             </Setter>
         </Style>
+                
+        <!--animation to deal cards-->
+        <Style x:Key="DealAnimation" TargetType="Image">
+            <Setter Property="Source" Value="/View/Images/Blackjack/Cards/Card_Back_Blue.png"/>
+            <Setter Property="Panel.ZIndex" Value="1"/>
+            <Setter Property="Height" Value="145.2"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="325,-300,0,0"/>
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
+            <Setter Property="Grid.Column" Value="3"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0" Y="0"/>
+                    </TransformGroup>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding AnimateDealTrigger}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="550" Duration="0:0:0.4" RepeatBehavior="1x" DecelerationRatio="0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="-400" Duration="0:0:0.4" RepeatBehavior="1x" DecelerationRatio="0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="550" To="0" Duration="0:0:0" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-400" To="0" Duration="0:0:0" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
+
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="270" Duration="0:0:0.4" BeginTime="0:0:0.4" RepeatBehavior="1x" DecelerationRatio="0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="-400" Duration="0:0:0.4"  BeginTime="0:0:0.4" RepeatBehavior="1x" DecelerationRatio="0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="270" To="0" Duration="0:0:0" BeginTime="0:0:0.8" RepeatBehavior="1x"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-400" To="0" Duration="0:0:0" BeginTime="0:0:0.8" RepeatBehavior="1x"/>
+
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="550" Duration="0:0:0.4" BeginTime="0:0:0.8" RepeatBehavior="1x" DecelerationRatio="0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="-400" Duration="0:0:0.4"  BeginTime="0:0:0.8" RepeatBehavior="1x" DecelerationRatio="0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="550" To="0" Duration="0:0:0" BeginTime="0:0:1.2" RepeatBehavior="1x"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-400" To="0" Duration="0:0:0" BeginTime="0:0:1.2" RepeatBehavior="1x"/>
+
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="270" Duration="0:0:0.4" BeginTime="0:0:1.2" RepeatBehavior="1x" DecelerationRatio="0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="-400" Duration="0:0:0.4"  BeginTime="0:0:1.2" RepeatBehavior="1x" DecelerationRatio="0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="270" To="0" Duration="0:0:0" BeginTime="0:0:1.6" RepeatBehavior="1x"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-400" To="0" Duration="0:0:0" BeginTime="0:0:1.6" RepeatBehavior="1x"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        
+        <!--animation to hit player-->
+        <Style x:Key="HitPlayerAnimation" TargetType="Image">
+            <Setter Property="Source" Value="/View/Images/Blackjack/Cards/Card_Back_Blue.png"/>
+            <Setter Property="Panel.ZIndex" Value="1"/>
+            <Setter Property="Height" Value="145.2"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="325,-300,0,0"/>
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
+            <Setter Property="Grid.Column" Value="3"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0" Y="0"/>
+                    </TransformGroup>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding AnimateHitPlayerTrigger}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="550" Duration="0:0:0.4" RepeatBehavior="1x" DecelerationRatio="0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="-400" Duration="0:0:0.4" RepeatBehavior="1x" DecelerationRatio="0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="550" To="0" Duration="0:0:0" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="-400" To="0" Duration="0:0:0" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <!--animation to hit split hand-->
+        <Style x:Key="HitSplitAnimation" TargetType="Image">
+            <Setter Property="Source" Value="/View/Images/Blackjack/Cards/Card_Back_Blue.png"/>
+            <Setter Property="Panel.ZIndex" Value="1"/>
+            <Setter Property="Height" Value="145.2"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="325,-300,0,0"/>
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
+            <Setter Property="Grid.Column" Value="3"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="0" Y="0"/>
+                    </TransformGroup>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding AnimateHitSplitTrigger}" Value="True">
+                    <DataTrigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="0" To="550" Duration="0:0:0.4" RepeatBehavior="1x" DecelerationRatio="0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="0" To="80" Duration="0:0:0.4" RepeatBehavior="1x" DecelerationRatio="0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" From="550" To="0" Duration="0:0:0" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" From="80" To="0" Duration="0:0:0" BeginTime="0:0:0.4" RepeatBehavior="1x"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </DataTrigger.EnterActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
     </Application.Resources>
 </Application>

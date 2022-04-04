@@ -8,6 +8,7 @@ namespace CasinoSimulation.Command.Blackjack
         public InsuranceCommand(Table model, BlackJackViewModel vm) : base(model, vm) { }
         public override void Execute(object parameter)
         {
+            _vm.ChipSound.Play();
             _model.PlaceInsuranceBet(_vm.BetValue);
             _vm.RefreshBankroll();
             _vm.RefreshButtons();

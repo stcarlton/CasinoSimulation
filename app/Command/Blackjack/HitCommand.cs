@@ -11,12 +11,16 @@ namespace CasinoSimulation.Command.Blackjack
         {
             int delayCounter = 0;
 
+            _vm.CardSound.Play();
             _vm.AnimateHitPlayer();
+            _vm.ToggleButtons();
+            _vm.RefreshButtons();
 
             delayCounter += BlackJackViewModel.DELAY_MILLISECONDS;
             _vm.DealCard(delayCounter, _model.Raymond);
             Task.Delay(delayCounter).ContinueWith(_ =>
             {
+                _vm.ToggleButtons();
                 _vm.RefreshButtons();
                 _vm.RefreshWinnings();
             });
