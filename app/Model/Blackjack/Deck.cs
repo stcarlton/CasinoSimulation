@@ -49,6 +49,37 @@ namespace CasinoSimulation.Model.Blackjack
             {
                _cards[i] = new Card(cardRank.Ace, cardSuit.Spades);
             }
+             * 
+             * Known Bugs:
+             * when player has blackjack, dealer gets an extra card
+             * dealer hitting on a hard 17
+             * 
+             * Test cases:
+             * 
+             * 1. both have blackjack:
+             *
+             _cards[_cards.Count - 1] = new Card(cardRank.Ace, cardSuit.Spades);
+             _cards[_cards.Count - 2] = new Card(cardRank.Ace, cardSuit.Spades);
+             _cards[_cards.Count - 3] = new Card(cardRank.Ten, cardSuit.Spades);
+             _cards[_cards.Count - 4] = new Card(cardRank.Ten, cardSuit.Spades);
+             * 
+             * 2. player has blackjack, dealer does not:
+             *
+            _cards[_cards.Count - 1] = new Card(cardRank.Ace, cardSuit.Spades);
+            _cards[_cards.Count - 2] = new Card(cardRank.Ten, cardSuit.Spades);
+            _cards[_cards.Count - 3] = new Card(cardRank.Ten, cardSuit.Spades);
+            _cards[_cards.Count - 4] = new Card(cardRank.Ten, cardSuit.Spades);
+             *
+             * 3. Split Aces and first one gets blackjack
+             */        
+            _cards[_cards.Count - 1] = new Card(cardRank.Ace, cardSuit.Spades);
+            _cards[_cards.Count - 2] = new Card(cardRank.Ten, cardSuit.Spades);
+            _cards[_cards.Count - 3] = new Card(cardRank.Ace, cardSuit.Spades);
+            _cards[_cards.Count - 4] = new Card(cardRank.Ten, cardSuit.Spades);
+            _cards[_cards.Count - 5] = new Card(cardRank.Ten, cardSuit.Spades);
+            _cards[_cards.Count - 6] = new Card(cardRank.Ten, cardSuit.Spades);
+            /* 
+            * 
             * 
             **********************************************************/
         }

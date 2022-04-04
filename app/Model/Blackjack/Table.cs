@@ -100,7 +100,7 @@ namespace CasinoSimulation.Model.Blackjack
         }
         public void CheckTable()
         {
-            if (Raymond.CurrentHand.State!=handState.Unresolved)
+            if (Raymond.CurrentHand.State!=handState.Unresolved && Nick.CurrentHand.Cards.Count > 1)
             {
                 ResolveTable();
             }

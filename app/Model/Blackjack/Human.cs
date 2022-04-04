@@ -82,6 +82,7 @@ namespace CasinoSimulation.Model.Blackjack
         {
             CurrentHand.ReceiveCard(a);
             UnresolvedHands.Peek().ReceiveCard(b);
+            CheckHuman();
         }
         public void SettleInsurance()
         {
