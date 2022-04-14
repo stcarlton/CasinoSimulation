@@ -41,7 +41,7 @@ namespace CasinoSimulation.Model.Blackjack
                 }
                 _top = _cards.Count - 1;
             }
-            /*********************************************************
+            /********************************************************************
              * 
              * Testing mode:
              *
@@ -51,8 +51,6 @@ namespace CasinoSimulation.Model.Blackjack
             }
              * 
              * Known Bugs:
-             * when player has blackjack, dealer gets an extra card
-             * dealer hitting on a hard 17
              * 
              * Test cases:
              * 
@@ -71,17 +69,30 @@ namespace CasinoSimulation.Model.Blackjack
             _cards[_cards.Count - 4] = new Card(cardRank.Ten, cardSuit.Spades);
              *
              * 3. Split Aces and first one gets blackjack
-             */        
+             *       
             _cards[_cards.Count - 1] = new Card(cardRank.Ace, cardSuit.Spades);
             _cards[_cards.Count - 2] = new Card(cardRank.Ten, cardSuit.Spades);
             _cards[_cards.Count - 3] = new Card(cardRank.Ace, cardSuit.Spades);
             _cards[_cards.Count - 4] = new Card(cardRank.Ten, cardSuit.Spades);
             _cards[_cards.Count - 5] = new Card(cardRank.Ten, cardSuit.Spades);
             _cards[_cards.Count - 6] = new Card(cardRank.Ten, cardSuit.Spades);
-            /* 
             * 
+            * 4. Dealer hitting on soft 17
+            *
+            _cards[_cards.Count - 1] = new Card(cardRank.Ten, cardSuit.Spades);
+            _cards[_cards.Count - 2] = new Card(cardRank.Ace, cardSuit.Spades);
+            _cards[_cards.Count - 3] = new Card(cardRank.Ten, cardSuit.Spades);
+            _cards[_cards.Count - 4] = new Card(cardRank.Six, cardSuit.Spades);
+            *
+            * 5. Dealer standing on hard 17
+            *
+            _cards[_cards.Count - 1] = new Card(cardRank.Ten, cardSuit.Spades);
+            _cards[_cards.Count - 2] = new Card(cardRank.Ten, cardSuit.Spades);
+            _cards[_cards.Count - 3] = new Card(cardRank.Ten, cardSuit.Spades);
+            _cards[_cards.Count - 4] = new Card(cardRank.Six, cardSuit.Spades);
+            _cards[_cards.Count - 5] = new Card(cardRank.Ace, cardSuit.Spades);
             * 
-            **********************************************************/
+            *******************************************************************/
         }
         public Card DealTopCard()
         {

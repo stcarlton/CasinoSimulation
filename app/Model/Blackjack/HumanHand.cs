@@ -20,13 +20,6 @@
                 return Cards.Count == 2 && Cards[0].Rank == Cards[1].Rank;
             }
         }
-        public bool TwoAces
-        {
-            get
-            {
-                return Cards.Count == 2 && Cards[0].Rank == cardRank.Ace && Cards[1].Rank == cardRank.Ace;
-            }
-        }
 
         public HumanHand(long bet) : base()
         {

@@ -14,7 +14,6 @@ namespace CasinoSimulation
         private Navigation _navigation;
         protected override void OnStartup(StartupEventArgs e)
         {
-            Debug.WriteLine("ee");
             _navigation = new Navigation();
             User user = new User(5000);
             _navigation.CurrentViewModel = new MenuViewModel(_navigation, user);

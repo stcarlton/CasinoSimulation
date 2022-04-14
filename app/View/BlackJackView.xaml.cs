@@ -22,5 +22,10 @@ namespace CasinoSimulation.View
         {
             InitializeComponent();
         }
+
+        private void BankrollChips_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
