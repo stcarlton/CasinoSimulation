@@ -2,6 +2,9 @@
 
 namespace CasinoSimulation.Command.Menu
 {
+    /// <summary>
+    /// Abstract class to hold common data for navigation commands
+    /// </summary>
     public abstract class NavigationCommand : ButtonCommand
     {
         protected Navigation _navigation;

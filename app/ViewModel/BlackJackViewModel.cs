@@ -12,8 +12,16 @@ using System.IO;
 
 namespace CasinoSimulation.ViewModel
 {
+    /// <summary>
+    /// ViewModel of MVVM architecture
+    /// Holds relationships between view and model
+    /// Routes model data to UI
+    /// Controls UI elements 
+    /// (Requirement 2.1)
+    /// </summary>
     public class BlackJackViewModel : ViewModelBase
     {
+        //Commands
         public ICommand Menu { get; }
         public ICommand Deal { get; }
         public ICommand Insurance { get; }
@@ -52,6 +60,7 @@ namespace CasinoSimulation.ViewModel
             }
         }
 
+        //Data for graphical hand display
         public IList<Card> DealerHandDisplay
         {
             get
@@ -95,18 +104,19 @@ namespace CasinoSimulation.ViewModel
                 return cards;
             }
         }
+        //Data for graphical chip displays
         public IList<Chip> BankrollChipDisplay
         {
             get
             {
-                return BuildChips(_user.Bankroll);
+                return _user.BuildChips(_user.Bankroll);
             }
         }
         public IList<Chip> BetChipDisplay
         {
             get
             {
-                return BuildChips(_betValue);
+                return _user.BuildChips(_betValue);
             }
         }
         public IList<Chip> WinningChipDisplay
@@ -114,14 +124,14 @@ namespace CasinoSimulation.ViewModel
             get
             {
                 long w = (HumanHand)_model.Raymond.CurrentHand == null ? 0 : ((HumanHand)_model.Raymond.CurrentHand).Winnings;
-                return BuildChips(w);
+                return _user.BuildChips(w);
             }
         }
         public IList<Chip> InsuranceChipDisplay
         {
             get
             {
-                return BuildChips(((Human)_model.Raymond).InsuranceBet);
+                return _user.BuildChips(((Human)_model.Raymond).InsuranceBet);
             }
         }
         public IList<Chip> SplitChipDisplay
@@ -129,9 +139,10 @@ namespace CasinoSimulation.ViewModel
             get
             {
                 long w = ((Human)_model.Raymond).PreviousHand == null ? 0 : ((Human)_model.Raymond).PreviousHand.Bet;
-                return BuildChips(w);
+                return _user.BuildChips(w);
             }
         }
+        //Data for display labels
         public long BankrollDisplay
         {
             get
@@ -174,6 +185,28 @@ namespace CasinoSimulation.ViewModel
                 return _model.Raymond.CurrentHand == null ? 0 : _model.Raymond.CurrentHand.HandValue;
             }
         }
+        public long BetValue
+        {
+            get
+            {
+                return _betValue;
+            }
+            set
+            {
+                _betValue = value;
+                OnPropertyChanged("BetValue");
+                OnPropertyChanged("CanBet");
+                OnPropertyChanged("CanDeal");
+            }
+        }
+        public long InsuranceBet
+        {
+            get
+            {
+                return ((Human)_model.Raymond).InsuranceBet;
+            }
+        }
+        //Image data for betting buttons
         public byte[] BetFirstImageData
         {
             get
@@ -202,27 +235,7 @@ namespace CasinoSimulation.ViewModel
                 return _betImages[3];
             }
         }
-        public long BetValue
-        {
-            get
-            {
-                return _betValue;
-            }
-            set
-            {
-                _betValue = value;
-                OnPropertyChanged("BetValue");
-                OnPropertyChanged("CanBet");
-                OnPropertyChanged("CanDeal");
-            }
-        }
-        public long InsuranceBet
-        {
-            get
-            {
-                return ((Human)_model.Raymond).InsuranceBet;
-            }
-        }
+        //Booleans to control button visibility
         public bool IsBetting
         {
             get
@@ -251,6 +264,7 @@ namespace CasinoSimulation.ViewModel
                 return _model.TableState != tableState.betting;
             }
         }
+        //Booleans to control which buttons are enabled
         public bool CanBet
         {
             get
@@ -308,7 +322,7 @@ namespace CasinoSimulation.ViewModel
                 {
                     return false;
                 }
-                return ((HumanHand)_model.Raymond.CurrentHand).DoubleDownEligible;
+                return ((HumanHand)_model.Raymond.CurrentHand).DoubleDownEligible && _user.Bankroll >= ((HumanHand)_model.Raymond.CurrentHand).Bet;
             }
         }
         public bool CanSplit
@@ -322,6 +336,7 @@ namespace CasinoSimulation.ViewModel
                 return ((HumanHand)_model.Raymond.CurrentHand).SplitEligible;
             }
         }
+        //Booleans to trigger animations from code
         public bool AnimateDealTrigger
         {
             get
@@ -358,12 +373,15 @@ namespace CasinoSimulation.ViewModel
                 OnPropertyChanged("AnimateHitSplitTrigger");
             }
         }
+        //Sounds
         public SoundPlayer ShuffleSound;
         public SoundPlayer ChipSound;
         public SoundPlayer CardSound;
         public SoundPlayer CardSounds;
+        //constant used to sync animations with data
         public const int DELAY_MILLISECONDS = 400;
 
+        //private fields
         private Table _model;
         private User _user;
         private long _betValue;
@@ -412,7 +430,8 @@ namespace CasinoSimulation.ViewModel
             CardSounds = new SoundPlayer((Stream)_rm.GetObject("cardShuffle"));
             ShuffleSound.Play();
         }
-        
+
+        //functions to refresh select data
         public void RefreshBankroll()
         {
             OnPropertyChanged("BankrollDisplay");
@@ -456,6 +475,7 @@ namespace CasinoSimulation.ViewModel
             OnPropertyChanged("CanDoubleDown");
             OnPropertyChanged("CanSplit");
         }
+        //functions to remember previous bet so that bet can be reset
         public void SaveBet()
         {
             _betMemory = _betValue;
@@ -465,6 +485,7 @@ namespace CasinoSimulation.ViewModel
             BetValue = _betMemory;
             RefreshBet();
         }
+        //functions to toggle animation triggers
         public void AnimateDeal()
         {
             AnimateDealTrigger = true;
@@ -480,6 +501,7 @@ namespace CasinoSimulation.ViewModel
             AnimateHitSplitTrigger = true;
             AnimateHitSplitTrigger = false;
         }
+        //used by several commands to delay data update of card deal
         public void DealCard(int delay, IPlayer target)
         {
             Task.Delay(delay).ContinueWith(_ =>
@@ -489,24 +511,11 @@ namespace CasinoSimulation.ViewModel
                 RefreshDealer();
             });
         }
+        //manual toggle of enabling / disabling of buttons
         public void ToggleButtons()
         {
             CanStand = !CanStand;
             CanHit = !CanHit;
-        }
-        private IList<Chip> BuildChips(long cash)
-        {
-            IList<Chip> chips = new List<Chip>();
-            foreach (int i in _user.ChipDenominations)
-            {
-
-                while (cash >= i)
-                {
-                    chips.Add(new Chip(i));
-                    cash -= i;
-                }
-            }
-            return chips;
         }
     }
 }

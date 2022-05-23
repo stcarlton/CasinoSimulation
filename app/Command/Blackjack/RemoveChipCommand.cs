@@ -2,6 +2,9 @@
 
 namespace CasinoSimulation.Command.Blackjack
 {
+    /// <summary>
+    /// Links UI remove chip button to view model
+    /// </summary>
     public class RemoveChipCommand : ButtonCommand
     {
         private BlackJackViewModel _vm;

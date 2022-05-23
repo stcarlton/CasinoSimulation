@@ -3,6 +3,10 @@ using CasinoSimulation.ViewModel;
 
 namespace CasinoSimulation.Command.Menu
 {
+    /// <summary>
+    /// Command to navigate between menu and roulette
+    /// (Requirement 3.1)
+    /// </summary>
     public class RouletteCommand : NavigationCommand
     {
         public RouletteCommand(Navigation navigation, User user) : base(navigation, user) { }

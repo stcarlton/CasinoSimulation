@@ -6,6 +6,8 @@
              xmlns:local="clr-namespace:CasinoSimulation.View"
              mc:Ignorable="d" d:DesignWidth="1600" Height="800">
     <Grid Background="Black">
+        <!--Blackjack UI; View component of MVVM-->
+        <!--Requirement 2.2-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -25,13 +27,13 @@
         </Grid.RowDefinitions>
 
         <!--Background image-->
-        <!--<Image Source="/View/Images/Blackjack/BJbackground.png" RenderOptions.BitmapScalingMode="Fant" Stretch="UniformToFill" Grid.ColumnSpan="7" Grid.RowSpan="7" Margin="0,0,0,0" StretchDirection="DownOnly"/>-->
+        <Image Source="/View/Images/Blackjack/BJbackground.png" RenderOptions.BitmapScalingMode="Fant" Stretch="UniformToFill" Grid.ColumnSpan="7" Grid.RowSpan="7" Margin="0,0,0,0" StretchDirection="DownOnly"/>
 
         <!--Column 0, Row 0 Menu-->
         <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"  Grid.Column="0" Grid.Row="0" Command="{Binding Menu}" Style="{StaticResource GameButton}"/>
 
         <!--Column 0, Row 4 Bankroll Chips-->
-        <ListView x:Name="BankrollChips" Height="600" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" ItemsSource="{Binding BankrollChipDisplay}" Style="{StaticResource GraphicalChipStack}" SelectionChanged="BankrollChips_SelectionChanged"/>
+        <ListView x:Name="BankrollChips" Height="600" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" ItemsSource="{Binding BankrollChipDisplay}" Style="{StaticResource GraphicalChipStack}"/>
 
         <!--Column 0, Row 5 Bankroll Amount-->
         <StackPanel Grid.Column="0" Grid.Row="5" Orientation="Horizontal" Margin="10,0,0,0">

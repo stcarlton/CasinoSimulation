@@ -3,6 +3,9 @@ using System.Reflection;
 
 namespace CasinoSimulation.Model.Global
 {
+    /// <summary>
+    /// UI class to hold chip image data and values
+    /// </summary>
     public class Chip
     {
         public int Value { get; }

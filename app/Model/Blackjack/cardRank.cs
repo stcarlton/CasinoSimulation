@@ -1,7 +1,7 @@
 ﻿namespace CasinoSimulation.Model.Blackjack
 {
     /// <summary>
-    /// Defining the ranks of a card
+    /// Defines the ranks of a card
     /// (Requirement 1.2.2)
     /// </summary>
     public enum cardRank

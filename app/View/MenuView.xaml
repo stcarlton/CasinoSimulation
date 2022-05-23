@@ -6,12 +6,63 @@
              xmlns:local="clr-namespace:CasinoSimulation.View"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1600">
-    <Grid>
-        <Button x:Name="BlackJackButton" Content="BlackJack" HorizontalAlignment="Center" Margin="0,99,0,0" VerticalAlignment="Top" Height="34" Width="72" Command="{Binding BlackJackCommand}"/>
-        <Button x:Name="SlotsButton" Content="Slots" HorizontalAlignment="Center" Margin="0,158,0,0" VerticalAlignment="Top" Height="37" Width="72" Command="{Binding SlotsCommand}"/>
-        <Button x:Name="Roulette" Content="Roulette" HorizontalAlignment="Center" Margin="0,225,0,0" VerticalAlignment="Top" Height="39" Width="72" Command="{Binding RouletteCommand}"/>
-        <TextBox x:Name="Cash" HorizontalAlignment="Center" Margin="0,55,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" Text="{Binding Bankroll, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock x:Name="CashText" HorizontalAlignment="Left" Margin="701,57,0,0" TextWrapping="Wrap" Text="Cash" VerticalAlignment="Top"/>
-        <ComboBox x:Name="StakesSelection" SelectedItem="{Binding UserStakes}" ItemsSource="{Binding StakesValues}" HorizontalAlignment="Center" VerticalAlignment="Top" Height="37" Width="72" Margin="0,294,0,0"></ComboBox>
+    <Grid Background="#FF130738">
+        <!--Menu View-->
+        <!--Requirement 2.2-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="32*"></ColumnDefinition>
+            <ColumnDefinition Width="47*"></ColumnDefinition>
+            <ColumnDefinition Width="72*"></ColumnDefinition>
+            <ColumnDefinition Width="74*"></ColumnDefinition>
+            <ColumnDefinition Width="82*"></ColumnDefinition>
+            <ColumnDefinition Width="13*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image x:Name="___menuback_png" Grid.ColumnSpan="6" Margin="0,-10,0,10" Grid.RowSpan="5" Source="/View/Images/Menu/menufinal.png" Stretch="Fill"/>
+        <!---Row 0 Column 0; Cash out button-->
+        <Button x:Name="CashOutButton" Content="Cash Out" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="0" Width="160" Command="{Binding CashOutCommand}" Style="{StaticResource GameButton}" Height="60"/>
+
+        <!---Row Column 0; Row 0; Chipstack display-->
+        <ListView x:Name="BankrollChips" Height="600" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,0" Grid.Column="0" Grid.RowSpan="4" ItemsSource="{Binding BankrollChipDisplay}" Style="{StaticResource GraphicalChipStack}" Width="130"/>
+
+        <!---Row 4 Column 0; Bankroll display-->
+        <StackPanel Grid.Column="0" Grid.Row="4" Orientation="Horizontal" Margin="10,0,0,0">
+            <Label HorizontalAlignment="Left" VerticalAlignment="Center" Content="$"  Grid.Column="0" Grid.Row="5" FontSize="24"  Style="{StaticResource LabelFormat}"/>
+            <Label x:Name="BankrollDisplay" HorizontalAlignment="Left" VerticalAlignment="Center" ContentStringFormat="{}{0:#,0}" Grid.Column="0" Grid.Row="5" FontSize="24" Style="{StaticResource LabelFormat}" Content="{Binding BankrollDisplay}"/>
+        </StackPanel>
+
+        <!---Row 1 Column 2; Cash in image
+        <Image Source="/View/Images/Menu/cashin.jpg" RenderOptions.BitmapScalingMode="Fant" Grid.Row="2" Grid.Column="1"/> -->
+
+        <!---Row 1 Column 3; Cash in button-->
+        <Button x:Name="CashInButton" Content="Cash In" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" Grid.Column="1" Width="200" Command="{Binding CashInCommand}" Style="{StaticResource GameButton}" Height="60" Margin="10,0,0,0"/>
+
+        <!---Row 0 Column 2 Title image-
+        <Image Source="/View/Images/Menu/title.jpg" RenderOptions.BitmapScalingMode="Fant" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="190,0,30,103"/>-->
+
+        <!---Row 2 Column 2; Blackjack image
+        <Image Source="/View/Images/Menu/Blackjack.jpg" RenderOptions.BitmapScalingMode="Fant" Grid.Row="2" Grid.Column="2"/> -->
+
+        <!---Row 3 Column 2; Blackjack button-->
+        <Button x:Name="BlackJackButton" Content="BlackJack" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="3" Grid.Column="2" Width="200" Command="{Binding BlackJackCommand}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanNavigate}" Height="60"/>
+
+        <!---Row 2 Column 3; Roulette image
+        <Image Source="/View/Images/Menu/Roulette.jpg" RenderOptions.BitmapScalingMode="Fant" Grid.Row="2" Grid.Column="3"/> -->
+
+        <!---Row 3 Column 3; Roulette button-->
+        <Button x:Name="Roulette" Content="Roulette" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="3" Grid.Column="3" Width="200" Command="{Binding RouletteCommand}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanNavigate}" Height="60"/>
+        <ComboBox Style="{DynamicResource ComboBoxStyle1}" x:Name="StakesSelection" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="3" Grid.Column="2" FontFamily="Franklin Gothic Gothic Demi Cond" FontSize="18" Height="37" Width="72" Foreground="White" SelectedItem="{Binding UserStakes}" ItemsSource="{Binding StakesValues}" Margin="0,73,0,0" />
+
+        <!--Row 2 Column 4; slots image
+        <Image Source="/View/Images/Menu/Slots.jpg" RenderOptions.BitmapScalingMode="Fant" Grid.Row="2" Grid.Column="4"/>-->
+        <!--Row 3 Column 4; slots button-->
+        <Button x:Name="SlotsButton" Content="Slots" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" Grid.Column="4" Width="200" Command="{Binding SlotsCommand}" Style="{StaticResource GameButton}" IsEnabled="{Binding CanNavigate}" Margin="45,0,0,0" Height="60"/>
+
     </Grid>
 </UserControl>

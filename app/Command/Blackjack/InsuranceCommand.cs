@@ -3,6 +3,9 @@ using CasinoSimulation.ViewModel;
 
 namespace CasinoSimulation.Command.Blackjack
 {
+    /// <summary>
+    /// Links UI insurance button with insurance funciton in the model
+    /// </summary>
     public class InsuranceCommand : TableCommand
     {
         public InsuranceCommand(Table model, BlackJackViewModel vm) : base(model, vm) { }

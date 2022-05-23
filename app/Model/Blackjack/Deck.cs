@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// Defines the collection of cards 
+/// (Requirement 1.2.2)
+/// </summary>
 namespace CasinoSimulation.Model.Blackjack
 {
     public class Deck
@@ -13,7 +17,7 @@ namespace CasinoSimulation.Model.Blackjack
         {
             _cards = new List<Card>();
             _numDecks = numDecks;
-            for(int i = 0; i < numDecks; i++)
+            for (int i = 0; i < numDecks; i++)
             {
                 for (int j = 0; j < 13; j++)
                 {
@@ -27,9 +31,12 @@ namespace CasinoSimulation.Model.Blackjack
             _top = 0;
             Shuffle();
         }
+
+        //Shuffles careds
+        //(Requirement 3.2.2.1)
         public void Shuffle()
         {
-            if(_top < _numDecks * 13)
+            if (_top < _numDecks * 13)
             {
                 Random r = new Random();
                 for (int i = _numDecks * 52 - 1; i > 0; i--)
@@ -94,6 +101,8 @@ namespace CasinoSimulation.Model.Blackjack
             * 
             *******************************************************************/
         }
+        //Distributes one card from the top
+        //(Requirement 1.2.2)
         public Card DealTopCard()
         {
             return _cards[_top--];

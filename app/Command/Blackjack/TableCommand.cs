@@ -3,6 +3,9 @@ using CasinoSimulation.ViewModel;
 
 namespace CasinoSimulation.Command.Blackjack
 {
+    /// <summary>
+    /// Abstract button command class containing common button command data
+    /// </summary>
     public abstract class TableCommand : ButtonCommand
     {
         protected Table _model;

@@ -5,9 +5,163 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CasinoSimulation.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="800" d:DesignWidth="1600">
     <Grid>
-        <TextBlock x:Name="Slots" HorizontalAlignment="Left" Margin="59,71,0,0" TextWrapping="Wrap" Text="Slots" VerticalAlignment="Top"/>
-        <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" Margin="24,108,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding MenuCommand}"/>
+        <!--2.2 Requirement-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="157*"/>
+            <RowDefinition Height="98*"/>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="136*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="195"/>
+            <ColumnDefinition Width="265"/>
+            <ColumnDefinition Width="58"/>
+            <ColumnDefinition Width="91*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Resources>
+
+            <Storyboard x:Key="TransformImage">
+
+                <DoubleAnimation
+
+                    Storyboard.TargetName="___line2_png"
+
+                    Storyboard.TargetProperty="(Image.RenderTransform).(TranslateTransform.Y)" From="0" To="{Binding Midline}" Duration="0:0:1.5" >
+
+                    <DoubleAnimation.EasingFunction>
+                        <SineEase/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation
+
+                    Storyboard.TargetName="___rightline_png"
+
+                    Storyboard.TargetProperty="(Image.RenderTransform).(TranslateTransform.Y)" From="0" To="{Binding Rightline}" Duration="0:0:2" >
+
+                    <DoubleAnimation.EasingFunction>
+                        <SineEase/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+                <DoubleAnimation
+
+                    Storyboard.TargetName="___leftline_png"
+
+                    Storyboard.TargetProperty="(Image.RenderTransform).(TranslateTransform.Y)" From="0" To="{Binding Leftline}" Duration="0:0:1" >
+
+                    <DoubleAnimation.EasingFunction>
+                        <SineEase/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+            </Storyboard>
+
+        </Grid.Resources>
+        <Grid.Triggers>
+            <!--3.4.1.1.3-->
+            <EventTrigger RoutedEvent="Button.Click" SourceName="Spin">
+                <!--3.4.1.2-->
+
+                <BeginStoryboard Storyboard="{StaticResource TransformImage}"/>
+
+            </EventTrigger>
+
+        </Grid.Triggers>
+
+
+        <!--line spinner for left mid and right image length will be doubled-->
+        <Grid Grid.ColumnSpan="5" Grid.RowSpan="4" Margin="0,-7,10,-155" Background="Black">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="97*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="51*"/>
+                <ColumnDefinition Width="73*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="72*"/>
+                <ColumnDefinition Width="48*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="___line2_png" Margin="4,47,10,-5018" Source="/View/Images/SlotImages/doublelength.png" Stretch="Fill" Grid.Column="3" Grid.RowSpan="2">
+
+                <Image.RenderTransform>
+                    <TranslateTransform/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="___rightline_png" Margin="0,47,24,-5018" Source="/View/Images/SlotImages/doublelength.png" Stretch="Fill" Grid.Column="5" Grid.RowSpan="2">
+                <Image.RenderTransform>
+                    <TranslateTransform/>
+                </Image.RenderTransform>
+            </Image>
+            <Image x:Name="___leftline_png" Margin="4,47,31,-5018" Source="/View/Images/SlotImages/doublelength.png" Stretch="Fill" Grid.RowSpan="2" Grid.Column="1">
+                <Image.RenderTransform>
+                    <TranslateTransform/>
+                </Image.RenderTransform>
+            </Image>
+        </Grid>
+
+
+        <!--front image for view hides slot lines ga-->
+        <Image x:Name="___front_png" Grid.ColumnSpan="5" Grid.RowSpan="4" Source="/View/Images/SlotImages/SlotFront20.png" Stretch="Fill" Opacity="5"/>
+
+        <!-- the original slots would give items shown used for future updating currently only shows-->
+        <!--
+        <Grid Margin="383,50,0,0" Grid.Column="4" Grid.Row="2" VerticalAlignment="Top" Height="45" HorizontalAlignment="Left">
+
+            <TextBlock x:Name="slt1" Margin="22,8,0,0" TextWrapping="Wrap" Height="20" Text = "{Binding slt1}" Foreground="#FF140101" Background="#FFF6F0F0" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85"/>
+            <TextBlock x:Name="slt2" Margin="112,8,0,0" TextWrapping="Wrap" Height="20" Text = "{Binding slt2}" Foreground="#FF140101" Background="#FFF6F0F0" TextAlignment="Center" HorizontalAlignment="Left" Width="82" VerticalAlignment="Top"/>
+            <TextBlock x:Name="slt3" Margin="199,8,0,0" TextWrapping="Wrap" Height="20" Text = "{Binding slt3}" Foreground="#FF140101" Background="#FFF6F0F0" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5" Width="75">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </Grid>-->
+        <!--left information text and menu-->
+        <TextBlock x:Name="Slots" Margin="26,74,0,0" TextWrapping="Wrap" Text="Slots" Height="16" Width="24" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+        <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" Margin="24,108,0,0" VerticalAlignment="Top" Height="52" Width="151" Command="{Binding MenuCommand}" Style="{StaticResource GameButton}"/>
+        <!-- bottom buttons spin betone bet max 3-->
+        <Grid Margin="250,105,280,80" Grid.Row="2" Grid.ColumnSpan="5" Grid.RowSpan="2">
+            <Button x:Name="Spin" Content="Spin" Margin="10,43,0,0" Height="51" Width="115" Command = "{Binding SpinSlotsCommand}" VerticalAlignment="Top" HorizontalAlignment="Left"  Style="{StaticResource GameButton}"/>
+            <!--3.4.2.2-->
+            <Button x:Name="BetOne" Content="Bet One" CommandParameter= "100" Height="51" Width="165" Command = "{Binding BetSlotCommand}" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource GameButton}" Margin="455,43,0,0"/>
+            <Button x:Name="BetMax" Content="Bet Max" CommandParameter= "300" Margin="280,43,0,0" Height="51" Width="155" Command = "{Binding BetSlotCommand}" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource GameButton}"/>
+        </Grid>
+
+
+        <!--additional text and info-->
+        <Grid Grid.Column="2" HorizontalAlignment="Center" Width="278" Grid.Row="2" Margin="227,5,0,134" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <TextBlock x:Name="WinnerpaidText" Text ="Gain" Margin="-799,-26,0,0" FontSize="24" TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Foreground="White" HorizontalAlignment="Left" Width="91"/>
+            <TextBlock x:Name="crdtText" Text ="Credit" Margin="0,-26,123,0" FontSize="24" TextWrapping="Wrap" VerticalAlignment="Top"  Height="32" Foreground="White" RenderTransformOrigin="0.429,0.083" HorizontalAlignment="Right" Width="64"/>
+
+            <TextBlock x:Name="Winnerpaid" Text ="{Binding PaidAmount}" Margin="-799,34,0,0" FontSize="40" TextWrapping="Wrap" VerticalAlignment="Top" Height="70" Foreground="White" HorizontalAlignment="Left" Width="320"/>
+            <TextBlock x:Name="crdt_Copy" Text ="{Binding CoinsPlayed}" Margin="0,35,113,0" FontSize="30" TextWrapping="Wrap" VerticalAlignment="Top"  Height="84" Foreground="White" RenderTransformOrigin="0.429,0.083" HorizontalAlignment="Right" Width="74">
+
+            </TextBlock>
+
+        </Grid>
+        <!--create a popout? for this information with bets-->
+        <TextBlock x:Name="crdt" Text ="{Binding Credits}" Margin="76,34,615,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="40" Height="77" Foreground="White" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <!--3.4.1.1.1.4 and 3.4.1.1.5-->
+        <Button x:Name="betTableButton" Content="Bet Table" CommandParameter= "1" Margin="24,10,0,0" Height="61" Width="168" Command = "{Binding BetTableCommand}" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Row="1" Style="{StaticResource GameButton}"/>
+        <TextBlock x:Name="BankRollText" Text ="$" Margin="0,153,133,0" FontSize="24" TextWrapping="Wrap" VerticalAlignment="Top"  Height="32" Foreground="White" RenderTransformOrigin="0.429,0.083" HorizontalAlignment="Right" Width="64" Grid.Column="2" Grid.RowSpan="2" Grid.Row="1"/>
+
+
+
+        <Grid Grid.ColumnSpan="5" Grid.RowSpan="4" Margin="-5,-7,0,-5" Opacity="{Binding tableOpacity}">
+
+            <Image x:Name="___large_png" Source="/View/Images/SlotImages/large.png" Stretch="Fill" Opacity="1" IsHitTestVisible="{Binding tableOpacity}"/>
+            <Button x:Name="bettable" Opacity="0" CommandParameter= "0" Command = "{Binding BetTableCommand}" IsHitTestVisible="{Binding tableOpacity}" Margin="-360,0,-50,0"/>
+
+        </Grid>
+
     </Grid>
 </UserControl>

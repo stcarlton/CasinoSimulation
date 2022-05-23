@@ -3,7 +3,11 @@ using CasinoSimulation.ViewModel;
 using System.Threading.Tasks;
 
 namespace CasinoSimulation.Command.Blackjack
-{   
+{
+    /// <summary>
+    /// Links UI double down button with double down function in the model
+    /// Controls double down animations
+    /// </summary>
     public class DoubleDownCommand : TableCommand
     {
         public DoubleDownCommand(Table model, BlackJackViewModel vm) : base(model, vm) { }

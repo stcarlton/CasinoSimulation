@@ -5,6 +5,9 @@ using System.Text;
 
 namespace CasinoSimulation.Model.Global
 {
+    /// <summary>
+    /// class to control navigation betwen menu and mini game views
+    /// </summary>
     public class Navigation
     {
         private ViewModelBase _currentViewModel;

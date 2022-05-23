@@ -2,7 +2,10 @@
 using CasinoSimulation.ViewModel;
 
 namespace CasinoSimulation.Command.Blackjack
-{   
+{
+    /// <summary>
+    /// Links UI stand button to stand function in model and refreshes UI
+    /// </summary>
     public class StandCommand : TableCommand
     {
         public StandCommand(Table model, BlackJackViewModel vm) : base(model, vm) { }

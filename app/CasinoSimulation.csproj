@@ -9,8 +9,77 @@
   <ItemGroup>
     <None Remove="View\BJbackground.png" />
     <None Remove="View\Images\Blackjack\Cards\Card_Back_Blue.png" />
+    <None Remove="View\Images\Menu\menufinal.png" />
+    <None Remove="View\Images\rouletteImages\1.png" />
+    <None Remove="View\Images\rouletteImages\10.png" />
+    <None Remove="View\Images\rouletteImages\11.png" />
+    <None Remove="View\Images\rouletteImages\12.png" />
+    <None Remove="View\Images\rouletteImages\13.png" />
+    <None Remove="View\Images\rouletteImages\14.png" />
+    <None Remove="View\Images\rouletteImages\15.png" />
+    <None Remove="View\Images\rouletteImages\16.png" />
+    <None Remove="View\Images\rouletteImages\17.png" />
+    <None Remove="View\Images\rouletteImages\18.png" />
+    <None Remove="View\Images\rouletteImages\19.png" />
+    <None Remove="View\Images\rouletteImages\19_36.png" />
+    <None Remove="View\Images\rouletteImages\1_12.png" />
+    <None Remove="View\Images\rouletteImages\1_18.png" />
+    <None Remove="View\Images\rouletteImages\2.png" />
+    <None Remove="View\Images\rouletteImages\20.png" />
+    <None Remove="View\Images\rouletteImages\21.png" />
+    <None Remove="View\Images\rouletteImages\22.png" />
+    <None Remove="View\Images\rouletteImages\23.png" />
+    <None Remove="View\Images\rouletteImages\24.png" />
+    <None Remove="View\Images\rouletteImages\25.png" />
+    <None Remove="View\Images\rouletteImages\26.png" />
+    <None Remove="View\Images\rouletteImages\27.png" />
+    <None Remove="View\Images\rouletteImages\28.png" />
+    <None Remove="View\Images\rouletteImages\29.png" />
+    <None Remove="View\Images\rouletteImages\2_1.png" />
+    <None Remove="View\Images\rouletteImages\2_12.png" />
+    <None Remove="View\Images\rouletteImages\3.png" />
+    <None Remove="View\Images\rouletteImages\30.png" />
+    <None Remove="View\Images\rouletteImages\31.png" />
+    <None Remove="View\Images\rouletteImages\32.png" />
+    <None Remove="View\Images\rouletteImages\33.png" />
+    <None Remove="View\Images\rouletteImages\34.png" />
+    <None Remove="View\Images\rouletteImages\35.png" />
+    <None Remove="View\Images\rouletteImages\36.png" />
+    <None Remove="View\Images\rouletteImages\3_12.png" />
+    <None Remove="View\Images\rouletteImages\4.png" />
+    <None Remove="View\Images\rouletteImages\5.png" />
+    <None Remove="View\Images\rouletteImages\6.png" />
+    <None Remove="View\Images\rouletteImages\7.png" />
+    <None Remove="View\Images\rouletteImages\8.png" />
+    <None Remove="View\Images\rouletteImages\9.png" />
+    <None Remove="View\Images\rouletteImages\backgroundDone.png" />
+    <None Remove="View\Images\rouletteImages\Black.png" />
+    <None Remove="View\Images\rouletteImages\Even.png" />
+    <None Remove="View\Images\rouletteImages\Odd.png" />
+    <None Remove="View\Images\rouletteImages\Red.png" />
+    <None Remove="View\Images\rouletteImages\roulback.png" />
+    <None Remove="View\Images\rouletteImages\roulbackfixed.png" />
+    <None Remove="View\Images\rouletteImages\thin.png" />
+    <None Remove="View\Images\rouletteImages\wheelfixed.png" />
+    <None Remove="View\Images\rouletteImages\wheelnew2.png" />
+    <None Remove="View\Images\SlotImages\doublelength.png" />
+    <None Remove="View\Images\SlotImages\frontFixed.png" />
+    <None Remove="View\Images\SlotImages\large.png" />
+    <None Remove="View\Images\SlotImages\largenew.png" />
+    <None Remove="View\Images\SlotImages\largenew2.png" />
+    <None Remove="View\Images\SlotImages\largesmaller.png" />
+    <None Remove="View\Images\SlotImages\sizecheck.png" />
+    <None Remove="View\Images\SlotImages\SlotFront.png" />
+    <None Remove="View\Images\SlotImages\SlotFront10.png" />
+    <None Remove="View\Images\SlotImages\SlotFront2.png" />
+    <None Remove="View\Images\SlotImages\SlotFront20.png" />
+    <None Remove="View\Images\SlotImages\SlotFront3.png" />
     <None Remove="View\wheelfixed.png" />
     <None Remove="wheelfixed.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\Images\rouletteImages\14.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,15 +89,76 @@
   <ItemGroup>
     <Resource Include="View\Images\Blackjack\BJbackground.png" />
     <Resource Include="View\Images\Blackjack\Cards\Card_Back_Blue.png" />
+    <Resource Include="View\Images\Menu\menufinal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\1.png" />
+    <Resource Include="View\Images\rouletteImages\10.png" />
+    <Resource Include="View\Images\rouletteImages\11.png" />
+    <Resource Include="View\Images\rouletteImages\12.png" />
+    <Resource Include="View\Images\rouletteImages\13.png" />
+    <Resource Include="View\Images\rouletteImages\15.png" />
+    <Resource Include="View\Images\rouletteImages\16.png" />
+    <Resource Include="View\Images\rouletteImages\17.png" />
+    <Resource Include="View\Images\rouletteImages\18.png" />
+    <Resource Include="View\Images\rouletteImages\19.png" />
+    <Resource Include="View\Images\rouletteImages\19_36.png" />
+    <Resource Include="View\Images\rouletteImages\1_12.png" />
+    <Resource Include="View\Images\rouletteImages\1_18.png" />
+    <Resource Include="View\Images\rouletteImages\2.png" />
+    <Resource Include="View\Images\rouletteImages\20.png" />
+    <Resource Include="View\Images\rouletteImages\21.png" />
+    <Resource Include="View\Images\rouletteImages\22.png" />
+    <Resource Include="View\Images\rouletteImages\23.png" />
+    <Resource Include="View\Images\rouletteImages\24.png" />
+    <Resource Include="View\Images\rouletteImages\25.png" />
+    <Resource Include="View\Images\rouletteImages\26.png" />
+    <Resource Include="View\Images\rouletteImages\27.png" />
+    <Resource Include="View\Images\rouletteImages\28.png" />
+    <Resource Include="View\Images\rouletteImages\29.png" />
+    <Resource Include="View\Images\rouletteImages\2_1.png" />
+    <Resource Include="View\Images\rouletteImages\2_12.png" />
+    <Resource Include="View\Images\rouletteImages\3.png" />
+    <Resource Include="View\Images\rouletteImages\30.png" />
+    <Resource Include="View\Images\rouletteImages\31.png" />
+    <Resource Include="View\Images\rouletteImages\32.png" />
+    <Resource Include="View\Images\rouletteImages\33.png" />
+    <Resource Include="View\Images\rouletteImages\34.png" />
+    <Resource Include="View\Images\rouletteImages\35.png" />
+    <Resource Include="View\Images\rouletteImages\36.png" />
+    <Resource Include="View\Images\rouletteImages\3_12.png" />
+    <Resource Include="View\Images\rouletteImages\4.png" />
+    <Resource Include="View\Images\rouletteImages\5.png" />
+    <Resource Include="View\Images\rouletteImages\6.png" />
+    <Resource Include="View\Images\rouletteImages\7.png" />
+    <Resource Include="View\Images\rouletteImages\8.png" />
+    <Resource Include="View\Images\rouletteImages\9.png" />
+    <Resource Include="View\Images\rouletteImages\backgroundDone.png" />
+    <Resource Include="View\Images\rouletteImages\Black.png" />
+    <Resource Include="View\Images\rouletteImages\Even.png" />
+    <Resource Include="View\Images\rouletteImages\Odd.png" />
+    <Resource Include="View\Images\rouletteImages\Red.png" />
+    <Resource Include="View\Images\rouletteImages\roulback.png" />
+    <Resource Include="View\Images\rouletteImages\roulbackfixed.png" />
+    <Resource Include="View\Images\rouletteImages\thin.png" />
+    <Resource Include="View\Images\rouletteImages\wheelfixed.png" />
+    <Resource Include="View\Images\rouletteImages\wheelnew2.png" />
+    <Resource Include="View\Images\SlotImages\doublelength.png" />
+    <Resource Include="View\Images\SlotImages\frontFixed.png" />
+    <Resource Include="View\Images\SlotImages\large.png" />
+    <Resource Include="View\Images\SlotImages\largenew.png" />
+    <Resource Include="View\Images\SlotImages\largenew2.png" />
+    <Resource Include="View\Images\SlotImages\largesmaller.png" />
+    <Resource Include="View\Images\SlotImages\sizecheck.png" />
+    <Resource Include="View\Images\SlotImages\SlotFront.png" />
+    <Resource Include="View\Images\SlotImages\SlotFront10.png" />
+    <Resource Include="View\Images\SlotImages\SlotFront2.png" />
+    <Resource Include="View\Images\SlotImages\SlotFront20.png" />
+    <Resource Include="View\Images\SlotImages\SlotFront3.png" />
 	<Resource Include="View\wheelfixed.png" />
     <Resource Include="wheelfixed.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Command\Slots\" />
-    <Folder Include="Model\Slots\" />
   </ItemGroup>
 
   <ItemGroup>

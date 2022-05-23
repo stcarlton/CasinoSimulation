@@ -1,11 +1,14 @@
 ﻿using System.Reflection;
 using System.Resources;
 
-
+/// <summary>
+/// Defines card data
+/// (Requirement 1.2.2)
+/// </summary>
 namespace CasinoSimulation.Model.Blackjack
 {
     public struct Card
-    {        
+    {
         public readonly cardRank Rank;
         public readonly cardSuit Suit;
         public readonly int CardValue;
@@ -19,6 +22,8 @@ namespace CasinoSimulation.Model.Blackjack
             _rm = new ResourceManager("CasinoSimulation.Properties.Resources", Assembly.GetExecutingAssembly());
             ImageData = (byte[])_rm.GetObject(Rank + "_of_" + Suit);
 
+            //defines card value based on rank
+            //(Requirement 1.2.2)
             switch (rank)
             {
                 case cardRank.Jack:

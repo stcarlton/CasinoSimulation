@@ -3,7 +3,11 @@ using CasinoSimulation.ViewModel;
 using System.Threading.Tasks;
 
 namespace CasinoSimulation.Command.Blackjack
-{   
+{
+    /// <summary>
+    /// Links UI split button to splitting player in the model
+    /// Controls split animations
+    /// </summary>
     public class SplitCommand : TableCommand
     {
         public SplitCommand(Table model, BlackJackViewModel vm) : base(model, vm) { }

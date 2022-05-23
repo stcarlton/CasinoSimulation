@@ -2,10 +2,16 @@
 
 namespace CasinoSimulation.Model.Blackjack
 {
+    /// <summary>
+    /// abstract definitions shared by all hands
+    /// (Requirement 1.2.2)
+    /// </summary>
     public abstract class Hand
     {
         public List<Card> Cards { get; }
         public handState State { get; set; }
+        //defines hand value
+        //(Requirement 1.2.2)
         public int HandValue
         {
             get
@@ -36,6 +42,8 @@ namespace CasinoSimulation.Model.Blackjack
             Cards = new List<Card>();
             _soft = false;
         }
+        //receives card into hand and defines state of hand
+        //(Requirement 1.2.2)
         public void ReceiveCard(Card c)
         {
             Cards.Add(c);

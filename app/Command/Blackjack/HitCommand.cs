@@ -3,7 +3,11 @@ using CasinoSimulation.ViewModel;
 using System.Threading.Tasks;
 
 namespace CasinoSimulation.Command.Blackjack
-{   
+{
+    /// <summary>
+    /// Links UI hit button with hit function in the model
+    /// Controls hit animations
+    /// </summary>
     public class HitCommand : TableCommand
     {
         public HitCommand(Table model, BlackJackViewModel vm) : base(model, vm) { }

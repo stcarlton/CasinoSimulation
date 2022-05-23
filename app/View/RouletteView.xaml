@@ -5,63 +5,270 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CasinoSimulation.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock x:Name="Roulette" HorizontalAlignment="Left" Margin="59,71,0,0" TextWrapping="Wrap" Text="Roulette" VerticalAlignment="Top"/>
-        <Button x:Name="MenuButton" Content="Menu" HorizontalAlignment="Left" Margin="51,108,0,0" VerticalAlignment="Top" Height="25" Width="60" Command="{Binding MenuCommand}"/>
-        <Button x:Name="button" Content="3" HorizontalAlignment="Left" Margin="346,110,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "3" Width="24" />
-        <Button x:Name="button_Copy" Content="6" HorizontalAlignment="Left" Margin="375,110,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "6" Width="24" />
-        <Button x:Name="button_Copy1" Content="9" HorizontalAlignment="Left" Margin="405,110,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "9" Width="24" />
-        <Button x:Name="button_Copy2" Content="12" HorizontalAlignment="Left" Margin="434,110,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "12" Width="24" />
-        <Button x:Name="button_Copy3" Content="15" HorizontalAlignment="Left" Margin="463,110,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "15" Width="24" />
-        <Button x:Name="button_Copy4" Content="18" HorizontalAlignment="Left" Margin="492,110,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "8" Width="24" />
-        <Button x:Name="button_Copy5" Content="21" HorizontalAlignment="Left" Margin="522,110,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "21" Width="24" />
-        <Button x:Name="button_Copy6" Content="24" HorizontalAlignment="Left" Margin="551,110,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "24" Width="24" />
-        <Button x:Name="button_Copy7" Content="27" HorizontalAlignment="Left" Margin="581,110,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "27" Width="24" />
-        <Button x:Name="button_Copy8" Content="30" HorizontalAlignment="Left" Margin="610,110,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "30" Width="24" />
-        <Button x:Name="button_Copy9" Content="33" HorizontalAlignment="Left" Margin="640,110,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "33" Width="24" />
-        <Button x:Name="button_Copy10" Content="36" HorizontalAlignment="Left" Margin="669,110,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "36" Width="24" />
-        <Button x:Name="button_Copy11" Content="2" HorizontalAlignment="Left" Margin="346,135,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "2" Width="24"  />
-        <Button x:Name="button_Copy12" Content="5" HorizontalAlignment="Left" Margin="375,135,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "5" Width="24" />
-        <Button x:Name="button_Copy13" Content="8" HorizontalAlignment="Left" Margin="405,135,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "8" Width="24" />
-        <Button x:Name="button_Copy14" Content="11" HorizontalAlignment="Left" Margin="434,135,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "11" Width="24" />
-        <Button x:Name="button_Copy15" Content="14" HorizontalAlignment="Left" Margin="463,135,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "14" Width="24" />
-        <Button x:Name="button_Copy16" Content="17" HorizontalAlignment="Left" Margin="492,135,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "17" Width="24" />
-        <Button x:Name="button_Copy17" Content="20" HorizontalAlignment="Left" Margin="522,135,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "20" Width="24" />
-        <Button x:Name="button_Copy18" Content="23" HorizontalAlignment="Left" Margin="551,135,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "23" Width="24" />
-        <Button x:Name="button_Copy19" Content="26" HorizontalAlignment="Left" Margin="581,135,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "26" Width="24" />
-        <Button x:Name="button_Copy20" Content="29" HorizontalAlignment="Left" Margin="610,135,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "29" Width="24" />
-        <Button x:Name="button_Copy21" Content="32" HorizontalAlignment="Left" Margin="640,135,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "32" Width="24" />
-        <Button x:Name="button_Copy22" Content="35" HorizontalAlignment="Left" Margin="669,135,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "35" Width="24" />
-        <Button x:Name="button_Copy23" Content="1" HorizontalAlignment="Left" Margin="346,160,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "1" Width="24" />
-        <Button x:Name="button_Copy24" Content="4" HorizontalAlignment="Left" Margin="375,160,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "4" Width="24" />
-        <Button x:Name="button_Copy25" Content="7" HorizontalAlignment="Left" Margin="405,160,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "7" Width="24" />
-        <Button x:Name="button_Copy26" Content="10" HorizontalAlignment="Left" Margin="434,160,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "10" Width="24" />
-        <Button x:Name="button_Copy27" Content="13" HorizontalAlignment="Left" Margin="463,160,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "13" Width="24" />
-        <Button x:Name="button_Copy28" Content="16" HorizontalAlignment="Left" Margin="492,160,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "16" Width="24" />
-        <Button x:Name="button_Copy29" Content="19" HorizontalAlignment="Left" Margin="522,160,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "19" Width="24" />
-        <Button x:Name="button_Copy30" Content="22" HorizontalAlignment="Left" Margin="551,160,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "22" Width="24" />
-        <Button x:Name="button_Copy31" Content="25" HorizontalAlignment="Left" Margin="581,160,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "25" Width="24" />
-        <Button x:Name="button_Copy32" Content="28" HorizontalAlignment="Left" Margin="610,160,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "28" Width="24" />
-        <Button x:Name="button_Copy33" Content="31" HorizontalAlignment="Left" Margin="640,160,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "31" Width="24" />
-        <Button x:Name="button_Copy34" Content="34" HorizontalAlignment="Left" Margin="669,160,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "34" Width="24" />
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="549,280,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="85"><Run Text="Wheel Number:"/><LineBreak/><Run/></TextBlock>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="639,280,0,0" TextWrapping="Wrap" Text= "{Binding WheelNumber}" VerticalAlignment="Top"/>
-        <Button x:Name="SpinButton" Content="Spin" HorizontalAlignment="Left" Margin="695,280,0,0" VerticalAlignment="Top" Height="20" Width="48" Command="{Binding SpinCommand}"/>
-        <Button x:Name="SetButton" Content="Set" HorizontalAlignment="Left" Margin="695,305,0,0" VerticalAlignment="Top" Height="20" Width="48" Command="{Binding SetCommand}"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="549,305,0,0" TextWrapping="Wrap" Text="{Binding BetValue}" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="51,297,0,0" TextWrapping="Wrap" Text="$" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="63,297,0,0" TextWrapping="Wrap" Text="{Binding ChipStackDisplay}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock3_Copy" HorizontalAlignment="Left" Margin="549,342,0,0" TextWrapping="Wrap" Text="Active:" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock3_Copy1" HorizontalAlignment="Left" Margin="598,342,0,0" TextWrapping="Wrap" Text="{Binding ActiveValue}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlockd3_Copy1" HorizontalAlignment="Left" Margin="652,342,0,0" TextWrapping="Wrap" Text="{Binding BetActive}" VerticalAlignment="Top"/>
-        <Image x:Name="___wheelfixed_png" Margin="36,151,0,0" Source="/wheelfixed.png" RenderTransformOrigin="0.487,0.49" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Top" Width="447" Height="247">
+             d:DesignHeight="800" d:DesignWidth="1600">
+    <!--notes improve text visual: make similar to black jack-->
+    <!--2.2 Requirement-->
+    <Grid Background="#FF013301">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="72*"></ColumnDefinition>
+            <ColumnDefinition Width="141*"></ColumnDefinition>
+            <ColumnDefinition Width="188*"></ColumnDefinition>
+            <ColumnDefinition Width="334*"></ColumnDefinition>
+            <ColumnDefinition Width="65*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31*"></RowDefinition>
+            <RowDefinition Height="182*"></RowDefinition>
+            <RowDefinition Height="158*"/>
+            <RowDefinition Height="53*"></RowDefinition>
+            <RowDefinition Height="26*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--3.3.1.1.2-->
+        <Grid.Resources>
+
+            <Storyboard x:Key="TransformImage">
+
+                <DoubleAnimation
+
+        Storyboard.TargetName="Wheel"
+
+        Storyboard.TargetProperty="(Image.RenderTransform).(RotateTransform.Angle)" From="0" To="{Binding RotateAngle}" Duration="0:0:4" >
+                    <DoubleAnimation.EasingFunction>
+                        <SineEase/>
+                    </DoubleAnimation.EasingFunction>
+                </DoubleAnimation>
+
+            </Storyboard>
+
+        </Grid.Resources>
+        <Grid.Triggers>
+            <!--3.3.1.2-->
+            <EventTrigger RoutedEvent="Button.Click" SourceName="SpinButton">
+
+                <BeginStoryboard Storyboard="{StaticResource TransformImage}"/>
+
+            </EventTrigger>
+
+        </Grid.Triggers>
+
+        <Image x:Name="___View_Images_rouletteImages_roulback_png" Grid.ColumnSpan="5" Grid.RowSpan="5" Source="/View/Images/rouletteImages/backgroundDone.png" Stretch="Fill"/>
+
+
+        <Image x:Name="Wheel" Source="/View/Images/rouletteImages/wheelnew2.png" RenderTransformOrigin="0.4875,0.5055" Stretch="Uniform" Width="1600" Height="805" Margin="-320,98,190,-158" Grid.ColumnSpan="4" Grid.RowSpan="4" Grid.Row="1" >
             <Image.RenderTransform>
-                <RotateTransform Angle="{Binding RotateAngle}" />
+                <RotateTransform/>
             </Image.RenderTransform>
         </Image>
-        <Button x:Name="button_Copy35" Content="Red" HorizontalAlignment="Left" Margin="405,185,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "Red" Width="53" Height="33" />
-        <Button x:Name="button_Copy36" Content="black" HorizontalAlignment="Left" Margin="463,185,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "Black" Width="53" Height="33" />
+        <Image x:Name="___thin_png" Grid.ColumnSpan="5" Margin="30,10,-30,-10" Grid.RowSpan="5" Source="/View/Images/rouletteImages/thin.png" Stretch="Fill" Width="1600.4"/>
+        <!--betting table-->
+        <!--3.3.1.1.4-->
+        <Button x:Name="MenuButton" Style="{StaticResource GameButton}" Content="Menu" HorizontalAlignment="Center" Margin="0,37,0,0" VerticalAlignment="Top" Height="59" Width="124" Command="{Binding MenuCommand}" Grid.Row="1"/>
+        <Grid Background="White" Margin="0,118,38,0" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" Height="196" Width="800" Grid.Column="2">
+
+            <Button x:Name="b1"  HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "1" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/1.png" />
+            </Button>
+            <Button x:Name="b2"  HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "2" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/2.png" />
+            </Button>
+            <Button x:Name="b3"  HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "3" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/3.png" />
+            </Button>
+            <Button x:Name="b4"  HorizontalAlignment="Left" Margin="67,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "4" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/4.png" />
+            </Button>
+            <Button x:Name="b5"  HorizontalAlignment="Left" Margin="68,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "5" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/5.png" />
+            </Button>
+            <Button x:Name="b6"  HorizontalAlignment="Left" Margin="68,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "6" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/6.png" />
+            </Button>
+            <Button x:Name="b7"  HorizontalAlignment="Left" Margin="126,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "7" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/7.png" />
+            </Button>
+            <Button x:Name="b8"  HorizontalAlignment="Left" Margin="126,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "8" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/8.png" />
+            </Button>
+            <Button x:Name="b9"  HorizontalAlignment="Left" Margin="126,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "9" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/9.png" />
+            </Button>
+            <Button x:Name="b10"  HorizontalAlignment="Left" Margin="183,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "10" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/10.png" />
+            </Button>
+            <Button x:Name="b11"  HorizontalAlignment="Left" Margin="183,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "11" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/11.png" />
+            </Button>
+            <Button x:Name="b12"  HorizontalAlignment="Left" Margin="184,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "12" Width="60" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/12.png" />
+            </Button>
+            <Button x:Name="b13"  HorizontalAlignment="Left" Margin="242,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "13" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/13.png" />
+            </Button>
+            <Button x:Name="b14"  HorizontalAlignment="Left" Margin="242,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "14" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/14.png" />
+            </Button>
+            <Button x:Name="b15"  HorizontalAlignment="Left" Margin="242,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "15" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/15.png" />
+            </Button>
+            <Button x:Name="b16"  HorizontalAlignment="Left" Margin="301,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "16" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/16.png" />
+            </Button>
+            <Button x:Name="b17"  HorizontalAlignment="Left" Margin="301,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "17" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/17.png" />
+            </Button>
+            <Button x:Name="b18"  HorizontalAlignment="Left" Margin="300,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "18" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/18.png" />
+            </Button>
+            <Button x:Name="b19"  HorizontalAlignment="Left" Margin="359,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "19" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/19.png" />
+            </Button>
+            <Button x:Name="b20"  HorizontalAlignment="Left" Margin="360,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "20" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/20.png" />
+            </Button>
+            <Button x:Name="b21"  HorizontalAlignment="Left" Margin="360,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "21" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/21.png" />
+            </Button>
+            <Button x:Name="b22"  HorizontalAlignment="Left" Margin="419,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "22" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/22.png" />
+            </Button>
+            <Button x:Name="b23"  HorizontalAlignment="Left" Margin="419,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "23" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/23.png" />
+            </Button>
+            <Button x:Name="b24"  HorizontalAlignment="Left" Margin="419,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "24" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/24.png" />
+            </Button>
+            <Button x:Name="b25"  HorizontalAlignment="Left" Margin="478,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "25" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/25.png" />
+            </Button>
+            <Button x:Name="b26"  HorizontalAlignment="Left" Margin="478,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "26" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/26.png" />
+            </Button>
+            <Button x:Name="b27"  HorizontalAlignment="Left" Margin="478,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "27" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/27.png" />
+            </Button>
+            <Button x:Name="b28"  HorizontalAlignment="Left" Margin="537,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "28" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/28.png" />
+            </Button>
+            <Button x:Name="b29"  HorizontalAlignment="Left" Margin="537,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "29" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/29.png" />
+            </Button>
+            <Button x:Name="b30"  HorizontalAlignment="Left" Margin="537,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "30" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/30.png" />
+            </Button>
+            <Button x:Name="b31"  HorizontalAlignment="Left" Margin="596,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "31" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/31.png" />
+            </Button>
+            <Button x:Name="b32"  HorizontalAlignment="Left" Margin="596,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "32" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/32.png" />
+            </Button>
+            <Button x:Name="b33"  HorizontalAlignment="Left" Margin="596,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "33" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/33.png" />
+            </Button>
+            <Button x:Name="b34"  HorizontalAlignment="Left" Margin="654,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "34" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/34.png" />
+            </Button>
+            <Button x:Name="b35"  HorizontalAlignment="Left" Margin="654,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "35" Width="59" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/35.png" />
+            </Button>
+            <Button x:Name="b36"  HorizontalAlignment="Left" Margin="654,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "36" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/36.png" />
+            </Button>
+            <Button x:Name="b2_1a"  HorizontalAlignment="Left" Margin="712,30,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "2_1Top" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/2_1.png" />
+            </Button>
+            <Button x:Name="b2_1b"  HorizontalAlignment="Left" Margin="712,60,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "2_1Mid" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/2_1.png" />
+            </Button>
+            <Button x:Name="b2_1c"  HorizontalAlignment="Left" Margin="712,90,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "2_1Bot" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/2_1.png" />
+            </Button>
+            <Button x:Name="A1_12"  HorizontalAlignment="Left" Margin="96,122,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "1_12" Width="60" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/1_12.png" Width="90" />
+            </Button>
+            <Button x:Name="A2_12"  HorizontalAlignment="Left" Margin="330,121,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "2_12" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/2_12.png" Width="90" />
+            </Button>
+            <Button x:Name="A3_12"  HorizontalAlignment="Left" Margin="566,121,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "3_12" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/3_12.png" />
+            </Button>
+            <Button x:Name="A1_18"  HorizontalAlignment="Left" Margin="68,154,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "1_18" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/1_18.png" />
+            </Button>
+            <Button x:Name="A19_36"  HorizontalAlignment="Left" Margin="597,154,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "19_36" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/19_36.png" />
+            </Button>
+            <Button x:Name="RedB"  HorizontalAlignment="Left" Margin="301,153,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "Red" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/Red.png" />
+            </Button>
+            <Button x:Name="BlackB"  HorizontalAlignment="Left" Margin="361,153,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "Black" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/Black.png" />
+            </Button>
+            <Button x:Name="Even"  HorizontalAlignment="Left" Margin="126,154,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "Even" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/Even.png" />
+            </Button>
+            <Button x:Name="Odd"  HorizontalAlignment="Left" Margin="539,154,0,0" VerticalAlignment="Top" Command="{Binding BetGenericCommand}" CommandParameter= "Odd" Width="58" Height="32" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Image Source="/View/Images/rouletteImages/Odd.png" />
+            </Button>
+
+
+
+
+
+
+
+
+        </Grid>
+        <!--left side information user bankroll and general text-->
+        <TextBlock x:Name="Roulette" FontSize="24" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Roulette" VerticalAlignment="Top" Height="37" Width="105" Margin="25,55,0,0" Grid.RowSpan="2" Foreground="White"/>
+
+        <TextBlock x:Name="Dollar" HorizontalAlignment="Left" FontSize="24" Margin="10,12,0,0" TextWrapping="Wrap" Text="$" VerticalAlignment="Top" Grid.Row="3" Height="32" Width="15" Foreground="White"/>
+        <!--3.3.1.1.3-->
+        <TextBlock x:Name="ChipStackDisplay" FontSize="24" HorizontalAlignment="Left" Margin="25,15,0,0" TextWrapping="Wrap" Text="{Binding ChipStackDisplay}" VerticalAlignment="Top" Grid.Row="3" Height="28" Width="75" Foreground="White" />
+
+        <!--top right information spin button wheel, number, active bet slot, amount spent on bet slot-->
+
+        <Button x:Name="SpinButton" Content="Spin"  Style="{StaticResource GameButton}" HorizontalAlignment="Left" Margin="8,177,0,0" VerticalAlignment="Top" Height="58" Width="117" Command="{Binding SpinCommand}" Grid.Row="2" IsEnabled="{Binding CanSpin}"/>
+
+        <Grid Grid.Column="3" Margin="73,247,96,10" Grid.Row="2" Grid.RowSpan="2">
+            <TextBlock x:Name="Active" FontSize="24" HorizontalAlignment="Left" Margin="152,1,0,0" TextWrapping="Wrap" Text="Active:" VerticalAlignment="Top" Height="34" Width="88" Foreground="White"/>
+            <TextBlock x:Name="ActiveValue" FontSize="24" Margin="228,0,159,0" TextWrapping="Wrap" Text="{Binding ActiveValue}" VerticalAlignment="Top" Height="34" Foreground="White"/>
+
+            <TextBlock x:Name="BetDollarSign" FontSize="24" HorizontalAlignment="Left" Margin="345,1,0,0" TextWrapping="Wrap" Text="$:" VerticalAlignment="Top" Height="34" Width="25" Foreground="White"/>
+
+            <TextBlock x:Name="BetActive" FontSize="24" Margin="365,0,60,0" TextWrapping="Wrap" Text="{Binding BetActive}" Height="44" Width="74" Foreground="White" VerticalAlignment="Top"/>
+        </Grid>
+
+        <Grid Grid.ColumnSpan="2" Margin="10,250,272,20" Grid.Row="1">
+            <TextBlock FontSize="24" x:Name="Wheel_Number" HorizontalAlignment="Left" Margin="10,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="100" Foreground="White"><Run Text="Wheel:"/><LineBreak/><Run/></TextBlock>
+            <TextBlock FontSize="24" x:Name="BindWheelNumber" HorizontalAlignment="Left" Margin="90,5,0,0" TextWrapping="Wrap" Text= "{Binding WheelNumber}" VerticalAlignment="Top" Height="33" Width="50" Foreground="White"/>
+        </Grid>
+
+        <!-- user bankroll chip display-->
+        <ListView x:Name="BankrollChips" Height="283" HorizontalAlignment="Left" VerticalAlignment="Bottom" ItemsSource="{Binding BankrollChipDisplay}" Style="{StaticResource GraphicalChipStack}" Width="130" Grid.Row="2" Margin="125,0,0,28" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+        <!--Active chip display, removechip command switched for -100 it wont remove hundren but this is an indicator to remove the top chip -->
+        <Grid Grid.Column="2" Margin="84,0,348,28" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="3" VerticalAlignment="Bottom">
+            <ListView x:Name="SetChips" Height="162" HorizontalAlignment="Center" VerticalAlignment="Top" ItemsSource="{Binding SetChipDisplay}" Style="{StaticResource GraphicalChipStack}" Width="150" Margin="0,91,0,0"/>
+            <Button x:Name="RemoveChip" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,83,0,0" Height="170" Width="150" Panel.ZIndex="1" Command="{Binding SetCommand}" Opacity="0" CommandParameter= "-100"/>
+
+        </Grid>
+        <!--chip display switch out commands for parameter in blackjack all values sent to general set command-->
+        <StackPanel Grid.Column="3" Grid.Row="2" Orientation="Horizontal" Margin="222,119,112,28" Width="334" Grid.RowSpan="3" IsEnabled="{Binding CanBet}">
+            <Button x:Name="BetMin" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="0" Background="{x:Null}" Command="{Binding SetCommand}" CommandParameter= "100">
+                <Image Source="/View/Images/Chips/100_Top.png" RenderOptions.BitmapScalingMode="Fant" Width="80" Height="80"/>
+            </Button>
+            <Button x:Name="BetSecond" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="0" Background="{x:Null}" Command="{Binding SetCommand}" CommandParameter= "250">
+                <Image Source="/View/Images/Chips/250_Top.png" RenderOptions.BitmapScalingMode="Fant" Width="80" Height="80"/>
+            </Button>
+            <Button x:Name="BetThird" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="0" Background="{x:Null}" Command="{Binding SetCommand}" CommandParameter= "500">
+                <Image Source="/View/Images/Chips/500_Top.png" RenderOptions.BitmapScalingMode="Fant" Width="80" Height="80"/>
+            </Button>
+            <Button x:Name="BetFourth" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="0" Background="{x:Null}" Command="{Binding SetCommand}" CommandParameter= "1000">
+                <Image Source="/View/Images/Chips/1000_Top.png" RenderOptions.BitmapScalingMode="Fant" Width="80" Height="80"/>
+            </Button>
+        </StackPanel>
+
+
 
 
 

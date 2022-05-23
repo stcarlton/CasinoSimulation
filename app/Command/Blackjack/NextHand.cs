@@ -3,6 +3,9 @@ using CasinoSimulation.ViewModel;
 
 namespace CasinoSimulation.Command.Blackjack
 {
+    /// <summary>
+    /// Links UI next hand button to cycling to settling the current hand and cycling to the next one in the model
+    /// </summary>
     public class NextHandCommand : TableCommand
     {
         public NextHandCommand(Table model, BlackJackViewModel vm) : base(model, vm) { }
