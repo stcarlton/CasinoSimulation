@@ -79,7 +79,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="View\Images\rouletteImages\14.png" />
+    <Resource Include="View\Images\rouletteImages\14.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -92,69 +94,195 @@
     <Resource Include="View\Images\Menu\menufinal.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="View\Images\rouletteImages\1.png" />
-    <Resource Include="View\Images\rouletteImages\10.png" />
-    <Resource Include="View\Images\rouletteImages\11.png" />
-    <Resource Include="View\Images\rouletteImages\12.png" />
-    <Resource Include="View\Images\rouletteImages\13.png" />
-    <Resource Include="View\Images\rouletteImages\15.png" />
-    <Resource Include="View\Images\rouletteImages\16.png" />
-    <Resource Include="View\Images\rouletteImages\17.png" />
-    <Resource Include="View\Images\rouletteImages\18.png" />
-    <Resource Include="View\Images\rouletteImages\19.png" />
-    <Resource Include="View\Images\rouletteImages\19_36.png" />
-    <Resource Include="View\Images\rouletteImages\1_12.png" />
-    <Resource Include="View\Images\rouletteImages\1_18.png" />
-    <Resource Include="View\Images\rouletteImages\2.png" />
-    <Resource Include="View\Images\rouletteImages\20.png" />
-    <Resource Include="View\Images\rouletteImages\21.png" />
-    <Resource Include="View\Images\rouletteImages\22.png" />
-    <Resource Include="View\Images\rouletteImages\23.png" />
-    <Resource Include="View\Images\rouletteImages\24.png" />
-    <Resource Include="View\Images\rouletteImages\25.png" />
-    <Resource Include="View\Images\rouletteImages\26.png" />
-    <Resource Include="View\Images\rouletteImages\27.png" />
-    <Resource Include="View\Images\rouletteImages\28.png" />
-    <Resource Include="View\Images\rouletteImages\29.png" />
-    <Resource Include="View\Images\rouletteImages\2_1.png" />
-    <Resource Include="View\Images\rouletteImages\2_12.png" />
-    <Resource Include="View\Images\rouletteImages\3.png" />
-    <Resource Include="View\Images\rouletteImages\30.png" />
-    <Resource Include="View\Images\rouletteImages\31.png" />
-    <Resource Include="View\Images\rouletteImages\32.png" />
-    <Resource Include="View\Images\rouletteImages\33.png" />
-    <Resource Include="View\Images\rouletteImages\34.png" />
-    <Resource Include="View\Images\rouletteImages\35.png" />
-    <Resource Include="View\Images\rouletteImages\36.png" />
-    <Resource Include="View\Images\rouletteImages\3_12.png" />
-    <Resource Include="View\Images\rouletteImages\4.png" />
-    <Resource Include="View\Images\rouletteImages\5.png" />
-    <Resource Include="View\Images\rouletteImages\6.png" />
-    <Resource Include="View\Images\rouletteImages\7.png" />
-    <Resource Include="View\Images\rouletteImages\8.png" />
-    <Resource Include="View\Images\rouletteImages\9.png" />
-    <Resource Include="View\Images\rouletteImages\backgroundDone.png" />
-    <Resource Include="View\Images\rouletteImages\Black.png" />
-    <Resource Include="View\Images\rouletteImages\Even.png" />
-    <Resource Include="View\Images\rouletteImages\Odd.png" />
-    <Resource Include="View\Images\rouletteImages\Red.png" />
-    <Resource Include="View\Images\rouletteImages\roulback.png" />
-    <Resource Include="View\Images\rouletteImages\roulbackfixed.png" />
-    <Resource Include="View\Images\rouletteImages\thin.png" />
-    <Resource Include="View\Images\rouletteImages\wheelfixed.png" />
-    <Resource Include="View\Images\rouletteImages\wheelnew2.png" />
-    <Resource Include="View\Images\SlotImages\doublelength.png" />
-    <Resource Include="View\Images\SlotImages\frontFixed.png" />
-    <Resource Include="View\Images\SlotImages\large.png" />
-    <Resource Include="View\Images\SlotImages\largenew.png" />
-    <Resource Include="View\Images\SlotImages\largenew2.png" />
-    <Resource Include="View\Images\SlotImages\largesmaller.png" />
-    <Resource Include="View\Images\SlotImages\sizecheck.png" />
-    <Resource Include="View\Images\SlotImages\SlotFront.png" />
-    <Resource Include="View\Images\SlotImages\SlotFront10.png" />
-    <Resource Include="View\Images\SlotImages\SlotFront2.png" />
-    <Resource Include="View\Images\SlotImages\SlotFront20.png" />
-    <Resource Include="View\Images\SlotImages\SlotFront3.png" />
+    <Resource Include="View\Images\rouletteImages\1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\17.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\18.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\19.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\19_36.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\1_12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\1_18.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\21.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\22.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\23.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\24.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\25.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\26.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\27.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\28.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\29.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\2_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\2_12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\30.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\31.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\32.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\33.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\34.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\35.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\36.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\3_12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\9.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\backgroundDone.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\Black.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\Even.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\Odd.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\Red.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\roulback.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\roulbackfixed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\thin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\wheelfixed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\rouletteImages\wheelnew2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\SlotImages\doublelength.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\SlotImages\frontFixed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\SlotImages\large.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\SlotImages\largenew.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\SlotImages\largenew2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\SlotImages\largesmaller.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\SlotImages\sizecheck.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\SlotImages\SlotFront.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\SlotImages\SlotFront10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\SlotImages\SlotFront2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\SlotImages\SlotFront20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="View\Images\SlotImages\SlotFront3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
 	<Resource Include="View\wheelfixed.png" />
     <Resource Include="wheelfixed.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
