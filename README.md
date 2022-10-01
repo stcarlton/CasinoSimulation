@@ -10,13 +10,13 @@ animations, graphical poker chips and authentic casino rules.
 Casino Simulation is a WPF application that uses C# for the back end
 and XAML for the GUI. 
 
-## Design
-![Capture](https://user-images.githubusercontent.com/58635162/193425182-56249462-9aaf-4f2a-bc0a-8f92dbbd5877.JPG)
-Source Code architecture follows MVVM design pattern.
-
 ## Installation
 You can download the latest version here:
 https://github.com/stcarlton/CasinoSimulation/releases/download/v1.0/CasinoSimulation.exe
+
+## Design
+![Capture](https://user-images.githubusercontent.com/58635162/193425182-56249462-9aaf-4f2a-bc0a-8f92dbbd5877.JPG)
+Source Code architecture follows MVVM design pattern.
 
 ## How to Use
 
