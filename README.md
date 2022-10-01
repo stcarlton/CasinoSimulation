@@ -14,7 +14,8 @@ and XAML for the GUI.
 Source Code architecture follows MVVM design pattern.
 
 ## Installation
-
+Download the latest version here:
+https://github.com/stcarlton/CasinoSimulation/releases/download/v1.0/CasinoSimulation.exe
 
 ## How to Use
 
